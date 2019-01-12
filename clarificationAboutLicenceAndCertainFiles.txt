@@ -1,0 +1,7 @@
+Some of the files included in this repository are not of my own creation and most probably have their own licences.
+I beleve these files include TypographyTimes.ttf, yuicompressor-2.4.8.jar and all or most of the files under codeHighlight (It is possible I have overlooked some number of files.)
+All files output or copied over by the build.sh script are of my own creation (with the exception of TypographyTimes.ttf.)
+The SPECIFIC GPL licence file in the reposity does not apply to any files in the repository that are not of my own creation.
+I belve these files include and only include the ones already stated. 
+It does apply to files that are of my own creation.
+I am not sure what the proper procedure for this sort of thing is and so I have tried to make it clear hear.
