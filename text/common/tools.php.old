@@ -1,0 +1,285 @@
+<?php
+function top_module_and_left_side_nav($pageTitle, $currentPage, $altLook, $pathPrefix)
+{    
+    $htmlOut = <<<"OUTPUT"
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset="utf-8">
+    <title>$pageTitle</title>
+    <link rel="icon" href="../media/favicon.ico" type="image/x-icon">
+    <link type="text/css" rel="stylesheet" href="./mainLayout.css"/>
+</head>
+  <body>
+
+    <header class="head_and_foot">
+    </header>
+
+  <div id="container">
+      <div class="column LR main_page l">    <!--*******************Left side of the page (navigation and boarder)*******************-->
+        <div class="column LR main_page  left_top"></div>
+        <nav class="column left_middle">
+          <ul class="menu_list l"><!--site navigation menu-->
+            <li><a href="./index.html"><div class="menu_element l">My World Home</div></a></li>
+            <li><a href="./about.html"><div class="menu_element l">About</div></a></li>
+            <li><a href="./contact.html"><div class="menu_element l">Contact</div></a></li>
+          </ul>
+        </nav>
+        <div class="column LR main_page left_bottom"></div>
+      </div>
+
+OUTPUT;
+    echo adjustTopModuleAndLeftSideNavForPage($altLook, $currentPage, $pathPrefix, $htmlOut);
+
+}
+
+//make page specific adjustment's to $htmlOut
+function adjustTopModuleAndLeftSideNavForPage($altLook, $currentPage, $pathPrefix, $htmlOut)
+{
+    $htmlOut = altLookLeftSide($altLook, $htmlOut);
+    $htmlOut = highlightLeftSidePageLink($currentPage, $htmlOut);
+    $htmlOut = updateHrefs($pathPrefix, $htmlOut);
+    return $htmlOut;
+}
+
+//enable alternative look if altLook set to true
+function altLookLeftSide($altLook, $htmlOut)
+{
+    if($altLook)
+	{
+		$find = "LR main_page l";
+		$htmlOut = str_replace($find, "LR l", $htmlOut);
+
+		$find = "LR main_page  left_top";
+		$htmlOut = str_replace($find, "LR left_top", $htmlOut);
+
+		$find = "LR main_page left_bottom";
+		$htmlOut = str_replace($find, "LR left_bottom", $htmlOut);
+	}
+    return $htmlOut;
+}
+
+//highlight the correct link on the left side of the page if applicable
+function highlightLeftSidePageLink($currentPage, $htmlOut)
+{
+    if($currentPage != "null")
+	{
+		$find = $currentPage . "\"><div class=\"menu_element l\"";
+		$htmlOut =	str_replace($find, "$currentPage\"><div class=\"menu_element l current_page\"", $htmlOut);
+	}
+    return $htmlOut;
+}
+
+
+//updates all path's relating to the styling of the page
+function updateHrefs($pathPrefix, $htmlOut)
+{
+    $htmlOut = str_replace("href=\"", ("href=\"" . $pathPrefix), $htmlOut);
+    return $htmlOut;
+}
+
+
+function heading($heading_text)
+{
+    $htmlOut = <<<"OUTPUT"
+<div class="heading_oval">
+<h1 class="oval">
+$heading_text
+</h1>
+</div>
+OUTPUT;
+    echo $htmlOut;
+}
+
+
+
+function bottom_module_and_right_side($currentPage, $altLook, $article, $pathPrefix, $articleCatagory, $parentPage)
+{
+    $htmlOut = <<<"OUTPUT"
+      <div class="column LR main_page r">       <!--*******************Right side of the page (boarder)*******************-->
+        <div class="column LR main_page right_top"></div>
+        <div class="column right_middle">
+	        <nav class="column right_middle">
+          <ul class="menu_list r"><!--site navigation menu-->
+            <li><a href="./allArticles.html"><div class="menu_element r">All Articles</div></a></li>            
+            <li><a href="./computerArchitectureArticles.html"><div class="menu_element r">Comp Arch</div></a></li>
+		<li><a href="./operatingSystemArticles.html"><div class="menu_element r">Operating Sys</div></a></li>
+            <li><a href="./programmingArticles.html"><div class="menu_element r">Programming</div></a></li>			
+          </ul>
+        </nav>
+	</div>
+        <div class="column LR main_page right_bottom"></div>
+      </div>
+
+    </div>
+    <footer class="head_and_foot">
+    </footer>
+OUTPUT;
+    $htmlOut = adjustTopModuleAndRightSideNavForPage($currentPage, $altLook, $article, $pathPrefix, $htmlOut, $articleCatagory, $parentPage);
+    echo $htmlOut;
+}
+
+//There is a lot of code duplication in the next three function's. This should be fixed at a latter date!
+function adjustTopModuleAndRightSideNavForPage($currentPage, $altLook, $article, $pathPrefix, $htmlOut, $articleCatagory, $parentPage)
+{
+    $htmlOut = altLookRightSide($altLook, $htmlOut);
+    $htmlOut = updateHrefs($pathPrefix, $htmlOut);
+    $htmlOut = highlightRightSidePageLink($currentPage, $article, $articleCatagory, $htmlOut, $parentPage);
+ 
+    return $htmlOut;
+}
+
+function altLookRightSide($altLook, $htmlOut)
+{
+    if($altLook)
+	{
+		$find = "LR main_page r";
+		$htmlOut =	str_replace($find, "LR r", $htmlOut);
+		$find = "LR main_page right_top";
+		$htmlOut =	str_replace($find, "LR right_top", $htmlOut);
+		$find = "LR main_page right_bottom";
+		$htmlOut =	str_replace($find, "LR right_bottom", $htmlOut);
+    }
+    return $htmlOut;
+}
+
+function highlightRightSidePageLink($currentPage, $article, $articleCatagory, $htmlOut, $parentPage)
+{
+    if($currentPage != "null")
+    {
+        if($article)
+        {            
+            $find = $parentPage . "\"><div class=\"menu_element r\"";
+            $htmlOut = addArticleLink($currentPage, $articleCatagory, $find, $htmlOut);
+            $htmlOut =	str_replace($find, "$parentPage\"><div class=\"menu_element r current_parent_page\"", $htmlOut);
+
+        }
+        else
+        {
+            $find = $currentPage . "\"><div class=\"menu_element r\"";
+            $htmlOut = str_replace($find, "$currentPage\"><div class=\"menu_element r current_page\"", $htmlOut);
+        }
+    }
+        return $htmlOut;
+}
+
+function addArticleLink($currentPage, $articleCatagory, $find, $htmlOut)
+{
+    $afterReplace = strpos($htmlOut, "</li>", strpos($htmlOut, $find));
+    if($endOfNew = strpos($htmlOut, "<li>", $afterReplace))
+    {}//if <li> is found
+    else
+    {$endOfNew = strpos($htmlOut, "</ul>", $afterReplace);}
+    $postfix = substr($htmlOut, $endOfNew);//else we are to incert after the last element in the list
+    $prefix = substr($htmlOut, 0, $afterReplace);
+    $center = "</li><li><a href=\"" . $_SERVER['HOME'] . "/wwwsamwww/text/articles/" . $articleCatagory . "/" . $currentPage . "\"><div class=\"menu_element r current_page\">" . substr(getLinkText(rmHTMLExtension("articles/" . $articleCatagory . "/" . $currentPage)), 0, 12) . "</div></a></li>";
+    return $prefix . $center . $postfix;
+}
+
+function echoAllLinks()
+{
+    define("one", 1);
+    //NOTE: THESE PATHS MUST BE RELATIVE TO THE PHP_ALL.SH SCRIPT NOT THIS FILE!
+    $dirs = array($_SERVER['HOME'] . "/wwwsamwww/text/articles/OS", $_SERVER['HOME'] . "/wwwsamwww/text/articles/compArch", $_SERVER['HOME'] . "/wwwsamwww/text/articles/programming");    
+    $dirArray = getAllDirsArr($dirs);//get list of files and store as an array in the dirArray array
+    //count elements in array
+    $count = count($dirArray);
+    sort($dirArray);
+
+    //print the directory contents
+    echo("<ul>");
+    for($iter = 0; $iter < $count; ++$iter)
+    {
+        $chPos = strpos($dirArray[$iter], ".html");
+        if($chPos)//only output if the $direArray contains the substring .html
+        {
+            $linkText = getLinkText(rmHTMLExtension($dirArray[$iter]));//remove postfix ".html"
+            print("<li class=\"articleLink\"><a href=\"$dirArray[$iter]\">{$linkText}</a></li>");
+        }
+    }
+    echo("</ul>");
+}
+
+function echoOneDirsLinks($dir)
+{   
+    define("dirPrefix", $_SERVER['HOME'] . "/wwwsamwww/text/articles/");
+    define("dirPrefix2", "articles/");
+    $dirArray = getDirArr(dirPrefix . $dir);//get list of files and store as an array in the dirArray array
+    //count elements in array
+    $count = count($dirArray);
+    sort($dirArray);
+    
+    //print the directory contents
+    echo("<ul>");
+    for($iter = 0; $iter < $count; ++$iter)
+    {        
+        $path = dirPrefix2 . $dir . "/" . $dirArray[$iter];
+        $chPos = strpos($path, ".html");
+                    //        $chPos = strpos($dirArray[$iter], ".html");
+        if($chPos)//only output if the $direArray contains the substring .html
+        {
+            $linkText =  getLinkText(rmHTMLExtension($path));
+            echo "<li class=\"articleLink\"><a href=\"", dirPrefix . $dir . "/" . $dirArray[$iter], "\">", $linkText, "</a></li>";
+        }
+    }
+    echo("</ul>");
+    
+}
+
+//get a list of all the .php files in all subdirectories of articles.
+function getAllDirsArr($dirs)
+{
+    $allDirListings = [];//the list of files will be stored here as an array
+    foreach($dirs as $dir)
+    {
+        $dirList = getDirArr($dir);//store directory content's into dirList array
+        $dirList = addPrefixToAll($dir, $dirList);
+        $allDirListings = array_merge($allDirListings, $dirList);//add the dirList array's contents to the allListings array
+    }
+    return $allDirListings;
+}
+
+//takes a directory and returns the list of files in that directory
+function getDirArr($dir)
+{
+    $openDir = opendir((string)$dir);
+    //get each entery
+    while($entryName = readdir($openDir))
+    {
+        $dirArray[] = $entryName;
+    }
+    //close directory
+    closedir($openDir);
+    return $dirArray;
+}
+
+//add's the first part of the path to the file name to make the full path.
+function addPrefixToAll($dir, $dirList)
+{
+    $buildRelativePrefix = $_SERVER['HOME'] . "/wwwsamwww/text/";//prefix to remove from the path to be prefixed to the file name
+    $startPos = strpos($dir, $buildRelativePrefix) + strlen($buildRelativePrefix);//start position
+    $len = strlen($dir);//end position
+
+    foreach($dirList as $element)
+    {
+        $retDirList[] = substr($dir, $startPos, $len) . "/" . $element;
+    }
+    return $retDirList;
+}
+
+function rmHTMLExtension($fileName)
+{
+    $chPos = strpos($fileName, ".html");
+    return substr($fileName, 0, $chPos);
+}
+
+function getLinkText($fileName)
+{
+    $file = fopen($fileName . ".php", "r");
+    $fileContents = fread($file, filesize($fileName . ".php"));//read in the file
+    fclose($file);
+    $start = strpos($fileContents, "<h4>", 0);
+    $end = strpos($fileContents, "</h4>", 0);
+    return substr($fileContents, $start +4, $end -$start -4);//+4 & -5 are to account for the opening and closing tags
+}
+?>

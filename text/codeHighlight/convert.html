@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+     <meta charset="UTF-8"> 
+     <title>Converter</title>
+     <link rel="stylesheet" href="styles/samCustom.css">
+     <script src="highlight.pack.js"></script>
+     <script>hljs.initHighlightingOnLoad();</script>
+  </head>
+  <body>
+
+
+    <!-- Place the code here inside of <pre><code> tags! Open in the browser and then
+	 inspect the source to get the code that has been converted by the linked
+	 script. -->
+    <pre><code class="c++">
+
+
+int main(int argc, char * argv[])
+{//this program requires 2 and only 2 command line argument's (this includes the program name)
+  //the 2nd argument must be + or -
+  //maximum brightness value, minimum brightness value, granularity of brightnes level's (intervals)
+  //and the default value should the value read not be good
+  constexpr int BR_RANGE_MAX {100}, BR_RANGE_MIN {10}, BR_INTERVAL_GRANULARITY {10}, BR_DEFAULT {80};
+  const std::string fileName {"/usr/tmp/brLevel"}; //"/usr/home/cyan/.config/brightness/brLevel"      
+  int brLevel {getIntFromFile(BR_DEFAULT, fileName)};
+  
+  if(argc == 2)
+    {
+      char arg {};
+      arg = argv[1][0];//this is safe since even if there is only one argumen argv[1] shoud equal '\0'
+      
+      if(argv[1][1] == '\0' && (arg == '+' || arg == '-'))
+	{
+	  brLevel = adjustBR_Val(BR_RANGE_MAX, BR_RANGE_MIN, BR_INTERVAL_GRANULARITY, arg, brLevel);
+	  std::cout<<"level = "&lt&ltbrLevel&lt&ltstd::endl;
+	  if(brLevel == -1)
+	    return brLevel;//arg did not match any case
+	  if(!checkBR_Val(BR_RANGE_MAX, BR_RANGE_MIN, BR_INTERVAL_GRANULARITY, brLevel))
+	    brLevel = BR_DEFAULT;//if we did not get a good brightness value from getIntFromFile	  
+	  std::stringstream command {};
+	  command&lt&lt"/usr/home/cyan/.config/brightness/brctl.sh "&lt&ltstd::to_string(brLevel);
+	  system(command.str().c_str());
+	  saveIntToFile(fileName, brLevel);
+	  display(brLevel);
+	  return 0;
+	}
+	else
+	  printUsage(argv[0]);
+    }
+  else
+    if(argc == 1)
+      {
+	if(!checkBR_Val(BR_RANGE_MAX, BR_RANGE_MIN, BR_INTERVAL_GRANULARITY, brLevel))
+	  brLevel = BR_DEFAULT;//if we did not get a good brightness value from getIntFromFile
+	    
+	std::stringstream command {};
+	command<<"/usr/home/cyan/.config/brightness/brctl.sh "&lt&ltstd::to_string(brLevel);
+	system(command.str().c_str());
+	std::cout<<"level = "&lt&ltbrLevel&lt&ltstd::endl;
+	saveIntToFile(fileName, brLevel);
+	display(brLevel);
+	return 0;
+      }
+    else
+      printUsage(argv[0]);
+  
+  return -1;
+}
+
+	
+    </pre></code>
+    
+    <!-- End Code section. -->    
+  </body>
+</html> 

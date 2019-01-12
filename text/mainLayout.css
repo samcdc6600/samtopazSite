@@ -1,0 +1,590 @@
+/*<{ A nice free font :^) }>--------------------------------------------------------------*/
+/*<{ https://fontlibrary.org/en/font/typography-times }>----------------------------------*/
+/*<{ "License Freeware" }>----------------------------------------------------------------*/
+@media print
+{
+    aside#debug
+    {
+	display: none;
+    }
+}
+
+@font-face
+{
+    font-family: Typographytimes;
+    src: local("Typographytimes"),
+    local("Typographytimes"),
+    url("TypographyTimes.ttf");/*this must be changed but it won't work from the media folder
+				 with the following directory path for some reason "../media/TypographyTimes.ttf" */
+    font-weight: bold;
+}
+
+/*<{ setting up the overal format and property's of the layout }>-------------------------*/
+body
+{
+    margin: 0px;
+    width: 100%;
+    min-width: 800px;
+    min-height: 100%;
+}
+
+#container
+{
+    display: flex;
+}
+/*<{ setting up the overal format and property's of the layout }>-------------------------*/
+
+/*<{ boarder stuff mostly }>--------------------------------------------------------------*/
+.column
+{
+    word-wrap: break-word;
+    background: white;
+}
+
+.column.LR
+{
+    min-width: 220px;
+    max-width: 220px;
+    min-height: 124px;
+    /*    background-color: #FFD1E2;*/
+    background-color: #FFDBE8;
+}
+
+.column.LR.main_page
+{
+    background-color: #d3f6fd;    
+}
+
+.column.l
+{
+    order: 1;
+}
+
+.column.r
+{
+    order: 3;
+}
+
+.column.left_top
+{
+    background-image: url("media/border/page_border_top_left_top_y_reduced_and_x_1.png");
+    max-height: 124px;
+    min-height: 124px;
+}
+
+.column.left_middle
+{
+    min-height: calc(100% - 250px);
+    padding-top: 1px;
+    padding-bottom: 1px;
+    background-color: inherit;    
+    background-image: url("media/border/grid_2_left.png");
+}
+
+.column.left_bottom
+{
+    background-image: url("media/border/page_border_bottom_left_top_y_reduced_and_x_1.png");
+    max-height: 124px;
+    min-height: 124px;
+}
+
+.column.right_top
+{
+    background-image: url("media/border/page_border_top_right_top_y_reduced_and_x_1.png");
+    max-height: 124px;
+    min-height: 124px;
+}
+
+.column.right_middle
+{
+    min-height: calc(100% - 250px);
+    padding-top: 1px;
+    padding-bottom: 1px;
+    background-color: inherit;
+    background-image: url("media/border/grid_2_right.png");
+}
+
+.column.right_bottom
+{
+    background-image: url("media/border/page_border_bottom_right_top_y_reduced_and_x_1.png");
+    max-height: 124px;
+    min-height: 124px;
+}
+
+.head_and_foot
+{
+    background-image: url("media/border/border_top_and_bottom.png");
+    margin: 0px;    
+    width: 100%;
+    min-height: 40px;
+}
+
+footer
+{/*value must be vh and not %  !!!*/
+    min-height: calc(100vh - 110px)
+}
+/*<{ boarder stuff mostly }>--------------------------------------------------------------*/
+
+/*<{ Nice shadow effects }>---------------------------------------------------------------*/
+.inset_shadow
+{
+    box-shadow: inset 0 0 15px #c40e00;    
+}
+/*<{ Nice shadow effects }>---------------------------------------------------------------*/
+
+/*<{ nav menu }>--------------------------------------------------------------------------*/
+.menu_list
+{
+    list-style: none;
+    list-style-type: none;    
+}
+.menu_list.l
+{
+    margin-left: 14px;
+    padding-left: 0px;
+}
+.menu_list.r
+{
+    margin-right: 14px;
+    padding-right: 0px;
+    padding-left: 0px;/*I think a non-zero padding value is being inherited when this is used in tools.php*/
+}
+.menu_element
+{
+    font-size: 1.15em;
+    text-shadow: 2px 2px #ef1000;
+    font-family: Typographytimes;
+    background-image: url("media/menu_item/menu_item_not_highlited.png");
+    margin-top: 12px;
+    margin-bottom: 12px;
+    /* Padding: 8px; *//* 8px is right on Firefox Quantum 61.0.1 on Ubuntu but not on Firefox 64.0.1 on Android */
+    padding: 7px; 		/* Right on Firefox 64.0.1 on Android */
+    padding-left: 32px;
+    padding-right: 32px;
+}
+.menu_element.l
+{
+    text-align: right;
+    box-shadow:  -2px 0px 0px 0px #ce3c61, 0 3px 3px 0px #c40e00,  0 -3px 3px 0px #c40e00;
+}
+.menu_element.r
+{
+    text-align: left;
+    box-shadow:  4px 0px 0px 0px #ce3c61, 1px 3px 3px 0px #c40e00,  1px -3px 3px 0px #c40e00;
+}
+
+.menu_element:hover
+{
+    background-image: url("media/menu_item/menu_item_highlited.png");
+}
+
+.current_page
+{
+    background-image: url("media/menu_item/menu_item_current_page_not_highlited.png");
+}
+
+.current_parent_page
+{
+    background-image: url("media/menu_item/menu_item_current_parent_page_not_highlited.png");
+}
+
+.current_page:hover
+{
+    background-image: url("media/menu_item/menu_item_current_page_highlited.png");
+}
+/*<{ nav menu }>--------------------------------------------------------------------------*/
+
+/*<{ links }>-----------------------------------------------------------------------------*/
+a:hover, a:focus, a:active
+{
+    color: #000084;
+    font-style: italic;
+    text-decoration: underline;    
+    text-shadow: 2px 2px #ff0000;
+}
+a, span.link /*link color when not hovering, focus or active*/
+{
+    color: #6bfdff;
+}
+.articleLink
+{
+    text-shadow: 1px 1px purple;
+}
+/*<{ links }>-----------------------------------------------------------------------------*/
+
+/*<{ paragraphs, text, etc... }>------------------------------------------------------------------------*/
+p
+{
+    font-style: italic;
+    font-family: serif;
+    font-size: 0.92em;
+    color: #03004D;
+    font-weight: normal;
+    text-shadow: none;
+    word-break: break-word;
+}
+
+article
+{
+    max-width: 1300px;
+    margin: 0 auto;
+    margin-bottom: 16px;
+    /*    text-align: center;*/
+    text-alight: right;
+    word-break: break-word;
+}
+
+strong, h2, h3, h4, h5, h6
+{
+    color: #ff0084;
+    text-shadow: 1px 1px #03004D;
+}
+/*<{ paragraphs, text, etc... }>------------------------------------------------------------------------*/
+
+/*<{ main content area of page }>-----------------------------------------------------------------------*/
+main
+{
+    order: 2;
+    width: 100%;
+    border: 0px;
+    border-top: 5px solid #ce3c61;
+    border-bottom: 5px solid #ce3c61;
+    padding: 20px;
+    padding-top: 0px;
+    background-color: #FFFCE8;
+    /*the value here must be vh and not % otherwise this property will not work for some reason :'(.*/ 
+}
+
+#position_main_part_of_main
+{/*this help's the get top of page button to work how I wan't. It's still not perfect thought :'(   */
+    min-height: calc(100vh - 163px);/*I had a lot of trouble figureing out that this was the issue*/
+}
+
+.heading_oval
+{/*note (very important!) the radius must be half of the length and width, to which is added the padding value.
+S0 width: 350px; and padding: 0px; would be (350/2) +0  = 175, and height: 60px; and padding 0px; would be (60/2) +0 =30px!
+If you don't do this the corners will be cut off :'(	*/
+    text-align: center;
+    width: 320px;
+    height: 60px;
+    max-height: 60px;
+    margin: 0 auto;
+    border-radius: 160px / 30px;
+    background: #000084;
+    box-shadow: inset 0 0 25px #c40e00;
+}
+
+#main_tag_in_main_min_height
+{/*the purpose of this is to make sure that the "To Top of Page" button is always RIGHT at the
+bottom of the page when you make the window very small.*/
+    min-height: 288px;
+}
+
+h1
+{
+    color: cyan;
+    text-shadow: 2px 2px #ef1000;
+    font-family: Typographytimes;    
+}
+
+h1.oval
+{
+    padding-top: 16px;
+}
+
+#to_top_of_page
+{
+    font-size: 1.15em;
+    text-shadow: 2px 2px #ef1000;
+    font-family: Typographytimes;
+    text-align: center;
+    width: 180px;
+    height: 60px;
+    max-height: 32px;
+    margin: 0 auto;
+    border-radius: 25px;
+    background: #ff7698;
+    box-shadow:  0 0 15px #c40e00;
+}
+
+#to_top_of_page:hover
+{
+    background: #ffd9d9;
+}
+
+#text_align_to_top_of_page
+{
+    padding: 6px;
+    text-align: center;
+}
+
+#position_to_top_of_page
+{
+    margin: 0 auto;
+    max-width: 210px;
+}
+/*<{ main content area of page }>-----------------------------------------------------------------------*/
+
+/*<{ misc }>--------------------------------------------------------------------------------------------*/
+ul
+{
+    list-style: square inside url("media/bullet_point.png");
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+li
+{
+    text-align:left;
+    font-style: italic;
+    font-family: serif;
+    font-size: 0.92em;
+    color: #03004D;    
+}
+
+table
+{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    background-color: #d3f6fd;
+    border-collapse: collapse;
+    font-style: italic;
+    font-family: serif;
+    font-size: 0.92em;
+    color: #03004D;
+    box-shadow: 0 0 15px #c40e00;    
+}
+
+.no_display
+{
+    display: none;
+    height: 0px;
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+}
+
+input.no_display
+{
+    display: none;
+}
+
+th
+{
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 6px;
+    padding-right: 6px;
+    height: 36px;
+    background-color: #FFDBE8;
+    border: 1px solid;
+    border-color: #ce3c61;
+    color: #ff0084;
+    text-shadow: 1px 1px #03004D;
+}
+
+td
+{
+    padding-left: 6px;
+    padding-right: 6px;
+    height: 36px;
+    background-color: #d3f6fd;
+    border: 1px solid;
+    border-color: #ce3c61;
+    vertical-align: bottom;
+}
+
+td.v_align_top
+{
+    vertical-align: top
+}
+
+td.no_display
+{
+	    display: none;
+}
+
+th.no_display
+{
+	    display: none;
+}
+
+th.some_pad
+{
+    padding: 8px;
+}
+
+td.inner
+{
+    padding-top: 6px;
+    padding-bottom: 6px;
+    width: calc(100vh);  
+}
+
+.table_image
+{
+    height: 114px;
+    width: 114px;
+    float:left;
+    padding: 0px;
+    margin: 6px;   
+}
+
+td.enclose_inner
+{
+    padding: 0px;
+}
+
+td.no_top_border
+{
+    border-top-width: 0px;
+}
+
+td.no_bottom_border
+{
+    border-bottom-width: 0px;
+}
+
+td.no_left_border
+{
+    border-left-width: 0px;
+}
+
+td.no_right_border
+{
+    border-right-width: 0px;
+}
+
+select
+{
+    float: right;
+}
+
+input
+{
+    float: right;
+    min-width: 218px;
+    max-width: 218px;
+    min-height: 52px;
+    max-height: 52px;
+}
+
+.accommodation_input
+{
+    min-width: 134px;
+    max-width: 134px;
+    min-height: 32px;
+    max-height: 32px;    
+}
+
+button
+{
+    width: 100%;
+    font-weight: bold;
+    font-style: italic;
+    font-family: serif;
+    color: #ff0084;
+    text-shadow: 1px 1px #03004D;
+    background: radial-gradient(#FFB8D2, #FFDBE8, #d3f6fd);
+    border-radius: 6px;
+    padding: 6px;
+    border-color: #ce3c61;
+    margin-top: 0px;
+}
+
+button.fifty_percent
+{
+    width: 50%;
+}
+
+.font_normal_p
+{
+    font-weight: normal;
+    text-shadow: none;
+    
+}
+
+.text_align_center
+{
+    min-width: 1px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form_field
+{
+    min-height: 66px;
+    border: 1px solid;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    padding: 6px;
+    border-color: #ce3c61;
+    vertical-align: bottom;
+}
+
+.float_right
+{
+    float: right;
+}
+
+.float_left
+{
+    float: left;
+}
+
+textarea
+{    
+    min-width: 222px;
+    max-width: 222px;
+    width: auto;
+    min-height: 60px;
+    max-height: 60px;
+    border-color: #ce3c61;
+    float: right;
+}
+
+label
+{
+    width: 100%;
+}
+
+img
+{
+    float: right;
+    max-width: 39vw;
+    margin: 15px;
+    margin-bottom: 30px;
+    border: 13px solid #FFDBE8;
+    box-shadow: 0 0 15px #c40e00;    
+}
+
+img.no_float
+{
+    float: none;
+}
+
+pre
+{
+
+   /* min-width: 320px;*/
+    /*    max-width: 39vw;*/
+    /*      min-height: calc(100% - 250px);*/
+    min-width: calc(100%);
+    max-width: 37vw;
+}
+code
+{
+    overflow: auto;
+    font-family: monospace;
+    float: none;
+    margin: 15px;
+    margin-bottom: 30px;
+    border: 13px solid #FFDBE8;
+    box-shadow: 0 0 15px #c40e00;
+    text-align: left;
+}
+/*<{ misc }>--------------------------------------------------------------------------------------------*/

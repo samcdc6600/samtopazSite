@@ -1,0 +1,101 @@
+<?php
+function top_module_and_left_side_nav($pageTitle, $current_page, $altLook)
+{
+$htmlOut = <<<"OUTPUT"
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset="utf-8">
+    <title>$pageTitle</title>
+    <link rel="icon" href="../media/favicon.ico" type="image/x-icon">
+    <link type="text/css" rel="stylesheet" href="./mainLayout.css"/>
+  </head>
+  <body>
+
+    <header class="head_and_foot">
+    </header>
+
+  <div id="container">
+      <div class="column LR main_page l">    <!--*******************Left side of the page (navigation and boarder)*******************-->
+        <div class="column LR main_page  left_top"></div>
+        <nav class="column left_middle">
+          <ul class="menu_list l"><!--site navigation menu-->
+            <li><a href="./index.html"><div class="menu_element l">My World Home</div></a></li>
+            <li><a href="./about.html"><div class="menu_element l">About</div></a></li>
+            <li><a href="./contact.html"><div class="menu_element l">Contact</div></a></li>
+          </ul>
+        </nav>
+        <div class="column LR main_page left_bottom"></div>
+      </div>
+OUTPUT;
+
+if($altLook)
+{
+	$find = "LR main_page l";
+	$htmlOut = str_replace($find, "LR l", $htmlOut);
+
+	$find = "LR main_page  left_top";
+	$htmlOut = str_replace($find, "LR left_top", $htmlOut);
+
+	$find = "LR main_page left_bottom";
+	$htmlOut = str_replace($find, "LR left_bottom", $htmlOut);
+}
+
+$find = $current_page . "\"><div class=\"menu_element l\"";
+$htmlOut =	str_replace($find, "$current_page\"><div class=\"menu_element l current_page\"", $htmlOut);
+
+    echo $htmlOut;
+}
+
+
+
+function heading($heading_text)
+{
+$htmlOut = <<<"OUTPUT"
+<div class="heading_oval">
+<h1 class="oval">
+$heading_text
+</h1>
+</div>
+OUTPUT;
+echo $htmlOut;
+}
+
+
+function bottom_module_and_right_side($altLook)
+{
+$htmlOut = <<<"OUTPUT"
+      <div class="column LR main_page r">       <!--*******************Right side of the page (boarder)*******************-->
+        <div class="column LR main_page right_top"></div>
+        <div class="column right_middle">
+	        <nav class="column right_middle">
+          <ul class="menu_list r"><!--site navigation menu-->
+            <li><a href="./index.html"><div class="menu_element r">My World Home</div></a></li>
+            <li><a href="./about.html"><div class="menu_element r">About</div></a></li>
+            <li><a href="./contact.html"><div class="menu_element r">Contact</div></a></li>
+          </ul>
+        </nav>
+	</div>
+        <div class="column LR main_page right_bottom"></div>
+      </div>
+
+    </div>
+    <footer class="head_and_foot">
+    </footer>
+OUTPUT;
+
+if($altLook)
+{
+	$find = "LR main_page r";
+      $htmlOut =	str_replace($find, "LR r", $htmlOut);
+
+	 $find = "LR main_page right_top";
+      $htmlOut =	str_replace($find, "LR right_top", $htmlOut);
+
+	 $find = "LR main_page right_bottom";
+      $htmlOut =	str_replace($find, "LR right_bottom", $htmlOut);
+}
+
+echo $htmlOut;
+}
+?>
