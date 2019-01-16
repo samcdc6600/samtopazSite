@@ -12,16 +12,7 @@ top_module_and_left_side_nav("xlib and brightness control on lenovo x230 running
 	<article id="main_tag_in_main_min_height">
     <br><br><h4>Xlib and Brightness Control On Lenovo X230 Running FreeBSD (THIS ARTICLE IS UNDER CONSTRUCTION)</h4>
     <p>
-
-
-
-
-
-
-
-
-
-
+    <small>Note: I am writing this well after the fact and so some of the information is a little incomplete. So hopefully there are no obvious errors :).</small>
     </p>
 
 
