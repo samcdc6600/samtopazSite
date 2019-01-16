@@ -16,58 +16,25 @@
     <pre><code class="c++">
 
 
-int main(int argc, char * argv[])
-{//this program requires 2 and only 2 command line argument's (this includes the program name)
-  //the 2nd argument must be + or -
-  //maximum brightness value, minimum brightness value, granularity of brightnes level's (intervals)
-  //and the default value should the value read not be good
-  constexpr int BR_RANGE_MAX {100}, BR_RANGE_MIN {10}, BR_INTERVAL_GRANULARITY {10}, BR_DEFAULT {80};
-  const std::string fileName {"/usr/tmp/brLevel"}; //"/usr/home/cyan/.config/brightness/brLevel"      
-  int brLevel {getIntFromFile(BR_DEFAULT, fileName)};
-  
-  if(argc == 2)
-    {
-      char arg {};
-      arg = argv[1][0];//this is safe since even if there is only one argumen argv[1] shoud equal '\0'
-      
-      if(argv[1][1] == '\0' && (arg == '+' || arg == '-'))
-	{
-	  brLevel = adjustBR_Val(BR_RANGE_MAX, BR_RANGE_MIN, BR_INTERVAL_GRANULARITY, arg, brLevel);
-	  std::cout<<"level = "&lt&ltbrLevel&lt&ltstd::endl;
-	  if(brLevel == -1)
-	    return brLevel;//arg did not match any case
-	  if(!checkBR_Val(BR_RANGE_MAX, BR_RANGE_MIN, BR_INTERVAL_GRANULARITY, brLevel))
-	    brLevel = BR_DEFAULT;//if we did not get a good brightness value from getIntFromFile	  
-	  std::stringstream command {};
-	  command&lt&lt"/usr/home/cyan/.config/brightness/brctl.sh "&lt&ltstd::to_string(brLevel);
-	  system(command.str().c_str());
-	  saveIntToFile(fileName, brLevel);
-	  display(brLevel);
-	  return 0;
-	}
-	else
-	  printUsage(argv[0]);
-    }
-  else
-    if(argc == 1)
-      {
-	if(!checkBR_Val(BR_RANGE_MAX, BR_RANGE_MIN, BR_INTERVAL_GRANULARITY, brLevel))
-	  brLevel = BR_DEFAULT;//if we did not get a good brightness value from getIntFromFile
-	    
-	std::stringstream command {};
-	command<<"/usr/home/cyan/.config/brightness/brctl.sh "&lt&ltstd::to_string(brLevel);
-	system(command.str().c_str());
-	std::cout<<"level = "&lt&ltbrLevel&lt&ltstd::endl;
-	saveIntToFile(fileName, brLevel);
-	display(brLevel);
-	return 0;
-      }
-    else
-      printUsage(argv[0]);
-  
-  return -1;
+brLevel<<" :ssenthgirB";//everything to the left of the brLevel bar's    
+  XSetForeground(con.display, con.gc, con.cyan.pixel);//set forground colour
+  XDrawString(con.display, con.window, con.gc, con.WINDOW_LEN -con.STR_X_OFFSET, con.STR_Y, textInfo.str().c_str(),
+	      textInfo.str().size());
+  XDrawString(con.display, con.window, con.gc, con.WINDOW_LEN -con.MINUS_X_OFFSET, con.MINUS_Y, "-", 1);
+  XDrawString(con.display, con.window, con.gc, con.PLUS_X, con.PLUS_Y, "+", 1);
+  /* FROM: "https://tronche.com/gui/x/xlib/graphics/drawing/XDrawArc.html"
+    For an arc specified as [ x, y, width, height, angle1, angle2 ], the angles must be specified in the
+    effectively skewed coordinate system of the ellipse (for a circle, the angles and coordinate systems are
+    identical). The relationship between these angles and angles expressed in the normal coordinate system of the
+    screen (as measured with a protractor) is as follows:
+    skewed-angle = atan ( tan ( normal-angle ) * width / height ) + adjust */
+  XDrawArc(con.display, con.window, con.gc, con.WINDOW_LEN -con.MINUS_ARC_X_OFFSET,
+	   con.MINUS_ARC_Y, con.ARC_WIDTH, con.ARC_HEIGHT, con.ARC_ANGLE_1,
+	   con.ARC_ANGLE_2); // Right circle around "-"
+  XDrawArc(con.display, con.window, con.gc, con.PLUS_ARC_X, con.PLUS_ARC_Y, con.ARC_WIDTH, con.ARC_HEIGHT,
+	   con.ARC_ANGLE_1, con.ARC_ANGLE_2); // Left circle around "+".
+  drawBars(con, brLevel);  //draw the brLevel bars                                    
 }
-
 	
     </pre></code>
     
