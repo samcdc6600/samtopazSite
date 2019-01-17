@@ -23,9 +23,9 @@ function top_module_and_left_side_nav($pageTitle, $currentPage, $altLook, $cssFo
         <div class="column LR main_page  left_top"></div>
         <nav class="column left_middle">
           <ul class="menu_list l"><!--site navigation menu-->
-            <li><a href="./index.html"><div class="menu_element l">My World Home</div></a></li>
-            <li><a href="./about.html"><div class="menu_element l">About</div></a></li>
-            <li><a href="./contact.html"><div class="menu_element l">Contact</div></a></li>
+            <li><a class=a_gui_element href="./index.html"><div class="menu_element l">My World Home</div></a></li>
+            <li><a class=a_gui_element href="./about.html"><div class="menu_element l">About</div></a></li>
+            <li><a class=a_gui_element href="./contact.html"><div class="menu_element l">Contact</div></a></li>
           </ul>
         </nav>
         <div class="column LR main_page left_bottom"></div>
@@ -102,10 +102,10 @@ function bottom_module_and_right_side($currentPage, $altLook, $article, $article
         <div class="column right_middle">
 	        <nav class="column right_middle">
           <ul class="menu_list r"><!--site navigation menu-->
-            <li><a href="./allArticles.html"><div class="menu_element r">All Articles</div></a></li>            
-            <li><a href="./computerArchitectureArticles.html"><div class="menu_element r">Comp Arch</div></a></li>
-		<li><a href="./operatingSystemArticles.html"><div class="menu_element r">Operating Sys</div></a></li>
-            <li><a href="./programmingArticles.html"><div class="menu_element r">Programming</div></a></li>			
+            	<li><a class=a_gui_element href="./allArticles.html"><div class="menu_element r">All Articles</div></a></li>            
+            	<li><a class=a_gui_element href="./computerArchitectureArticles.html"><div class="menu_element r">Comp Arch</div></a></li>
+		<li><a class=a_gui_element href="./operatingSystemArticles.html"><div class="menu_element r">Operating Sys</div></a></li>
+            	<li><a class=a_gui_element href="./programmingArticles.html"><div class="menu_element r">Programming</div></a></li>			
           </ul>
         </nav>
 	</div>
@@ -172,7 +172,7 @@ function addArticleLink($currentPage, $articleCatagory, $find, $htmlOut)
     
     $postfix = substr($htmlOut, $endOfNew);
     $prefix = substr($htmlOut, 0, $afterReplace);
-    $center = "</li><li><a href=\"" . $currentPage . "\"><div class=\"menu_element r current_page\">" . substr(getLinkText(rmHTMLExtension("articles/" . $articleCatagory . "/" . $currentPage) . ".php"), 0, 12) . "</div></a></li>";
+    $center = "</li><li><a class=a_gui_element href=\"" . $currentPage . "\"><div class=\"menu_element r current_page\">" . substr(getLinkText(rmHTMLExtension("articles/" . $articleCatagory . "/" . $currentPage) . ".php"), 0, 12) . "</div></a></li>";
     return $prefix . $center . $postfix;
 }
 

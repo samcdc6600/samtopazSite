@@ -16,7 +16,7 @@ top_module_and_left_side_nav("OS Meme 1", "null", true, "null");
 	</div>
 	
 	<div id="position_to_top_of_page">
-    	<a href="#">
+    	<a class=a_gui_element href="#">
     		<div id="to_top_of_page">
     	    	<div id="text_align_to_top_of_page">To Top of Page</div>
 	    	</div>

@@ -195,16 +195,24 @@ footer
 /*<{ nav menu }>--------------------------------------------------------------------------*/
 
 /*<{ links }>-----------------------------------------------------------------------------*/
-a:hover, a:focus, a:active
+.a_gui_element:visited		/* used to have GUI element's (such as the menu buttons not change colour when visited like other links.) */
+{
+    color: #6bfdff;
+}
+a, span.link	   /* link color when not hovering, focus or active */
+{
+    color: #6bfdff;
+}
+a:visited
+{
+    color: #ff48ff;
+}
+a:hover, a:focus, a:active, a:visited:hover, a:visited:focus, a:visited:active
 {
     color: #000084;
     font-style: italic;
     text-decoration: underline;    
     text-shadow: 2px 2px #ff0000;
-}
-a, span.link /*link color when not hovering, focus or active*/
-{
-    color: #6bfdff;
 }
 .articleLink
 {
@@ -230,7 +238,7 @@ article
     margin: 0 auto;
     margin-bottom: 16px;
     /*    text-align: center;*/
-    text-alight: right;
+    text-align: left;
     word-break: break-word;
 }
 
