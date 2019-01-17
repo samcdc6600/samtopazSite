@@ -96,13 +96,31 @@ If brLevel is not set to BR_DEFAULT then we check to see if argc is equal to MAX
 <p>
 <strong>DoWork()</strong>
 <br>
-DoWork() first calls the system() function (the system() function executes the command given to it in a shell) with the following string as it’s argument “~/.config/brightness/brctl.sh LEVEL” where LEVEL is the string returned by std::to_string(level). The doWork() function was called with the arguments brLevel and brLevelFileName (meaning the value of level is the same as the value of brLevel.)
-DoWork() then calls the saveIntToFile() function which attempts to save it’s second argument “level” to the file specified by its first argument “file” (brLevelFileName in this case.) The final thing doWork() does is to call the display() function with level as it’s argument. The display function initialises and creates the window to which it will draw by calling the init() function. It then runs through a for loop con.SLEEP_TIMES. In this loop it calls draw(), this is where the work of actually drawing the graphics to the window is done. After this it calls XFlush to make sure that the graphics are actually actually drawn this time ;). After this it calls the functions: 
-std::this_thread::sleep_for(std::chrono::milliseconds(X)).
-With the “X” argument in the inner function being the constant con.SLEEP_TIME. The purpose of this for loop is of course to draw some bars to the window to represent the current brightness level, or at least that is the purpose of the draw() and XFlush() function calls in the loop. The actual reason for having the loop is to have the graphics stay on the screen for con.SLEEP_TIMES * con.SLEEP_TIME millie seconds (about three seconds.) This means that if some other window is drawn over our window (such as the one created by dmenu) the window may not “refresh” it’s graphics for up to con.SLEEP_TIME millie seconds. The reason for doing it this way is to avoid using the select system call, which I believe could solve the problem, but which I am also sadly confused by :(. There is using an xlib function call a way to have an xlib program go to sleep and then get a notification when it needs to be redrawn, however I don’t know of a way to have it do this and also wake up after a set amount of time.
-
-I have set up my i3 config file so that when you press “caps+X”, “caps+Y” or “caps+Z” it will perform one of three actions and where X, Y and Z are function keys. The actions that are performed  are “exec brctl”, “exec brctl +” and “exec brctl -”, “Exec brctl +” and “exec brctl -” increase or decrease the brightness respectively and show it’s level visually and brctl is the name I have given the executable (which had to be in a path the shell would check, /usr/bin in this case.) The current level is saved and retrieved every time the program is run as described. When the computer is started up the program could be run to set the brightness to it’s last value by running brctl with no extra arguments.
-
+DoWork() first calls the system() function (the system() function executes the command given to it in a shell) with the following string as it’s argument “~/.config/brightness/brctl.sh LEVEL” where LEVEL is the string returned by std::to_string(level).
+The doWork() function was called with the arguments brLevel and brLevelFileName (meaning the value of level is the same as the value of brLevel.)
+DoWork() then calls the saveIntToFile() function which attempts to save it’s second argument “level” to the file specified by its first argument “file” (brLevelFileName in this case.)
+The final thing doWork() does is to call the display() function with level as it’s argument.
+The display function initialises and creates the window to which it will draw by calling the init() function.
+It then runs through a for loop con.SLEEP_TIMES.
+In this loop it calls draw(), this is where the work of actually drawing the graphics to the window is done.
+After this it calls XFlush to make sure that the graphics are actually actually drawn this time ;).
+After this it calls the functions:
+<br>
+std::this_thread::sleep_for(
+std::chrono::milliseconds(X)).
+<br>
+With the “X” argument in the inner function being the constant con.SLEEP_TIME.
+The purpose of this for loop is of course to draw some bars to the window to represent the current brightness level, or at least that is the purpose of the draw() and XFlush() function calls in the loop.
+The actual reason for having the loop is to have the graphics stay on the screen for con.SLEEP_TIMES * con.SLEEP_TIME millie seconds (about three seconds.)
+This means that if some other window is drawn over our window (such as the one created by dmenu) the window may not “refresh” it’s graphics for up to con.SLEEP_TIME millie seconds.
+The reason for doing it this way is to avoid using the select system call, which I believe could solve the problem, but which I am also sadly confused by :(.
+There is using an xlib function call a way to have an xlib program go to sleep and then get a notification when it needs to be redrawn, however I don’t know of a way to have it do this and also wake up after a set amount of time.
+<br>
+<br>
+I have set up my i3 config file so that when you press “caps+X”, “caps+Y” or “caps+Z” it will perform one of three actions and where X, Y and Z are function keys.
+The actions that are performed are “exec brctl”, “exec brctl +” and “exec brctl -”, “Exec brctl +” and “exec brctl -” increase or decrease the brightness respectively and show it’s level visually and brctl is the name I have given the executable (which had to be in a path the shell would check, /usr/bin in this case.)
+The current level is saved and retrieved every time the program is run as described.
+When the computer is started up the program could be run to set the brightness to it’s last value by running brctl with no extra arguments.
 </p>
 <br>
 
@@ -173,7 +191,8 @@ It appears in the top left hand	corner of the display and has a	gap of two pixel
     <li><a href="media/text_files/dumpylist" target="_blank">dumpylist</a></li>    
 </ul>
 <br>
-
+<small>Date: 17/01/2019</small>
+<br>
         </article>
  
 
