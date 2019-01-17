@@ -586,8 +586,8 @@ code
     overflow: auto;
     font-family: monospace;
     float: none;
-    margin: 15px;
-    margin-bottom: 30px;
+    margin: 12px;
+    margin-bottom: 12px;
     border: 13px solid #FFDBE8;
     box-shadow: 0 0 15px #c40e00;
     text-align: left;

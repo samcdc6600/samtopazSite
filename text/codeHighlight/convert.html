@@ -16,24 +16,66 @@
     <pre><code class="c++">
 
 
-brLevel<<" :ssenthgirB";//everything to the left of the brLevel bar's    
-  XSetForeground(con.display, con.gc, con.cyan.pixel);//set forground colour
-  XDrawString(con.display, con.window, con.gc, con.WINDOW_LEN -con.STR_X_OFFSET, con.STR_Y, textInfo.str().c_str(),
-	      textInfo.str().size());
-  XDrawString(con.display, con.window, con.gc, con.WINDOW_LEN -con.MINUS_X_OFFSET, con.MINUS_Y, "-", 1);
-  XDrawString(con.display, con.window, con.gc, con.PLUS_X, con.PLUS_Y, "+", 1);
-  /* FROM: "https://tronche.com/gui/x/xlib/graphics/drawing/XDrawArc.html"
-    For an arc specified as [ x, y, width, height, angle1, angle2 ], the angles must be specified in the
-    effectively skewed coordinate system of the ellipse (for a circle, the angles and coordinate systems are
-    identical). The relationship between these angles and angles expressed in the normal coordinate system of the
-    screen (as measured with a protractor) is as follows:
-    skewed-angle = atan ( tan ( normal-angle ) * width / height ) + adjust */
-  XDrawArc(con.display, con.window, con.gc, con.WINDOW_LEN -con.MINUS_ARC_X_OFFSET,
-	   con.MINUS_ARC_Y, con.ARC_WIDTH, con.ARC_HEIGHT, con.ARC_ANGLE_1,
-	   con.ARC_ANGLE_2); // Right circle around "-"
-  XDrawArc(con.display, con.window, con.gc, con.PLUS_ARC_X, con.PLUS_ARC_Y, con.ARC_WIDTH, con.ARC_HEIGHT,
-	   con.ARC_ANGLE_1, con.ARC_ANGLE_2); // Left circle around "+".
-  drawBars(con, brLevel);  //draw the brLevel bars                                    
+/* Main requires 1 or 2 command line argument's (this includes the program name)
+   the 2nd argument must be either '+' or '-', if there are 2 arguments. */
+int main(const int argc, const char * argv[])
+{				// BR_DEFAULT should be divisible by BR_INTERVAL_GRANULARITY!
+  constexpr int BR_RANGE_MIN {10}, BR_RANGE_MAX {100}, BR_INTERVAL_GRANULARITY {10}, BR_DEFAULT {80};
+  constexpr int MAX_ARGC {2}, MIN_ARGC {1}, ARG_2_INDEX {1}; // ARG_1_INDEX {0}.
+  constexpr char brLevelFileName [] = "/usr/tmp/brLevel";
+  int brLevel {getIntFromFile(BR_DEFAULT, brLevelFileName)}; // Attempt to get current brightness level.
+
+  if(!checkBR_Val(BR_RANGE_MIN, BR_RANGE_MAX, BR_INTERVAL_GRANULARITY, brLevel))
+    {
+      std::cerr<<"Brightness level stored in \""<<brLevelFileName<<"\", not evenly divisible by "
+	"BR_INTERVAL_GRANULARITY ("<<BR_INTERVAL_GRANULARITY<<") or was not able to open file containing"
+	" brightness level. Setting brightness level to dealfult ("<<BR_DEFAULT<<")\n";
+      brLevel = BR_DEFAULT;
+      doWork(brLevel, brLevelFileName);      
+    }
+  else
+    {
+      if(argc == MAX_ARGC)
+	{
+	  if(handle2ndArg(argv, BR_RANGE_MIN, BR_RANGE_MAX, BR_INTERVAL_GRANULARITY, ARG_2_INDEX, brLevel))
+	    {
+	      doWork(brLevel, brLevelFileName);
+	    }
+	  else
+	    {			   // Malformed input.
+	      printUsage(argv[0]);
+	    }
+	}
+      else
+	if(argc == MIN_ARGC)
+	  { /* Set brightness to level specified in brLevelFileName or if that value is out of
+	       range set level to BR_DEFAULT */
+	    doWork(brLevel, brLevelFileName);
+	    return 0;
+	  }
+	else
+	  printUsage(argv[0]);
+    }
+
+  return (EXIT_SUCESS);
+}
+
+
+int getIntFromFile(const int rDefault, const char f [])
+{
+    int ret {};
+    std::ifstream in(f);
+    if(in.is_open())
+      {
+	in>>ret;
+	in.close();
+      }
+    else
+      {
+	std::cerr<<"Error can't open file at \""<<f<<"\".\n";
+	ret = rDefault;
+      }
+    return ret;
 }
 	
     </pre></code>

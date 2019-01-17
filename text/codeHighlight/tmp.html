@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <meta charset="UTF-8"> 
+     <title>Converter</title>
+     <link rel="stylesheet" href="styles/samCustom.css">
+     <script src="highlight.pack.js"></script>
+     <script>hljs.initHighlightingOnLoad();</script>
+  </head>
+  <body>
+
+
+    <!-- Place the code here inside of <pre><code> tags! Open in the browser and then
+	 inspect the source to get the code that has been converted by the linked
+	 script. -->
+    <pre><code class="c++ hljs cpp">
+
+
+<span class="hljs-comment">/* Main requires 1 or 2 command line argument's (this includes the program name)
+   the 2nd argument must be either '+' or '-', if there are 2 arguments. */</span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> * argv[])</span>
+</span>{				<span class="hljs-comment">// BR_DEFAULT should be divisible by BR_INTERVAL_GRANULARITY!</span>
+  <span class="hljs-keyword">constexpr</span> <span class="hljs-keyword">int</span> BR_RANGE_MIN {<span class="hljs-number">10</span>}, BR_RANGE_MAX {<span class="hljs-number">100</span>}, BR_INTERVAL_GRANULARITY {<span class="hljs-number">10</span>}, BR_DEFAULT {<span class="hljs-number">80</span>};
+  <span class="hljs-keyword">constexpr</span> <span class="hljs-keyword">int</span> MAX_ARGC {<span class="hljs-number">2</span>}, MIN_ARGC {<span class="hljs-number">1</span>}, ARG_2_INDEX {<span class="hljs-number">1</span>}; <span class="hljs-comment">// ARG_1_INDEX {0}.</span>
+  <span class="hljs-keyword">constexpr</span> <span class="hljs-keyword">char</span> brLevelFileName [] = <span class="hljs-string">"/usr/tmp/brLevel"</span>;
+  <span class="hljs-keyword">int</span> brLevel {getIntFromFile(BR_DEFAULT, brLevelFileName)}; <span class="hljs-comment">// Attempt to get current brightness level.</span>
+
+  <span class="hljs-keyword">if</span>(!checkBR_Val(BR_RANGE_MIN, BR_RANGE_MAX, BR_INTERVAL_GRANULARITY, brLevel))
+    {
+      <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cerr</span>&lt;&lt;<span class="hljs-string">"Brightness level stored in \""</span>&lt;<brlevelfilename<<"\", not="" evenly="" divisible="" by="" "="" "br_interval_granularity="" ("<<br_interval_granularity<<")="" or="" was="" able="" to="" open="" file="" containing"="" brightness="" level.="" setting="" level="" dealfult="" ("<<br_default<<")\n";="" brlevel="BR_DEFAULT;" dowork(brlevel,="" brlevelfilename);="" }="" else="" {="" if(argc="=" max_argc)="" if(handle2ndarg(argv,="" br_range_min,="" br_range_max,="" br_interval_granularity,="" arg_2_index,="" brlevel))="" malformed="" input.="" printusage(argv[0]);="" min_argc)="" *="" set="" specified="" in="" brlevelfilename="" if="" that="" value="" is="" out="" of="" range="" br_default="" return="" 0;="" (exit_sucess);="" int="" getintfromfile(const="" rdefault,="" const="" char="" f="" [])="" ret="" {};="" std::ifstream="" in(f);="" if(in.is_open())="">&gt;ret;
+	in.close();
+      }
+    <span class="hljs-keyword">else</span>
+      {
+	<span class="hljs-built_in">std</span>::<span class="hljs-built_in">cerr</span>&lt;&lt;<span class="hljs-string">"Error can't open file at \""</span>&lt;<f<<"\".\n"; ret="rDefault;" }="" return="" ret;="" <="" pre=""></f<<"\".\n";></brlevelfilename<<"\",></code>
+    
+    <!-- End Code section. -->    
+  
+ 
+</pre></body>
+</html>

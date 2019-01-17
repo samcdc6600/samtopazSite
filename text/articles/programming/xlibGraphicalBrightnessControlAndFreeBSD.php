@@ -1,4 +1,4 @@
- on <?php
+<?php
 require_once("./common/tools.php");
 top_module_and_left_side_nav("xlib and brightness control on lenovo x230 running FreeBSD", "null", true, "samCustom.css");
 ?>
@@ -10,16 +10,42 @@ top_module_and_left_side_nav("xlib and brightness control on lenovo x230 running
 ?>
 	
 	<article id="main_tag_in_main_min_height">
-    <br><br><h4>Xlib and Brightness Control On Lenovo X230 Running FreeBSD (THIS ARTICLE IS UNDER CONSTRUCTION)</h4>
+    <br><br><h4>Xlib and Brightness Control On Lenovo X230 Running FreeBSD</h4>
     <p>
     <small>Note: I am writing this well after the fact and so some of the information is a little incomplete. So hopefully there are no obvious errors :).</small>
+    <br>
+    I am currently running freebsd on my laptop an x230 ThinkPad (This has recently change and I am now running openBSD, although I haven’t worked everything out yet.) 
+After the installation process I found that I was not able to change the brightness with any keys or combination of keys after I had completed the installation. More importantly I was not able to change the brightness by issuing any command (to my knowledge.) 
+So I was faced with the problem of figuring out what needed to be done to change the brightness on my laptop. After this problem was solved it would be a simple matter of binding a combination of keys to a simple script or program (through the use of my i3 config file) that would run the command/s.
+<br><br>
+ I managed to solve the aforementioned problem and I was pleased with the results. However as time went by I found more and more that I desperately wanted visual feedback when adjusting the brightness (and also the volume.) So I wondered for a while how I might do this. Not knowing very much about how this sort of thing is done I thought about d menu and the I3 status bar. How did they draw to the screen? Sure there not transparent and don’t “hover” above the cursor, but I would be happy enough if I could get anything half decent working and I figured that that size of the code base of these programs would be small enough that I might be able to make some sense of them. So I looked at the source code for d menu. I had the source code for d menu 4.7 under /usr/ports/x11/dmenu/work/dmenu-4.7 on my machine since I had compiled it from ports instead of installing it using the pkg install command so that I could change its default colours. I found that dmenu.c includes a number of things related to X11, including X11/xlib.h. So I decided to look into xlib and also how to write a simple X11 application. I found a couple of tutorials on creating windows under X11 using xlib and doing other simple things like printing text and shapes in the windows. I played around with these examples for a while and with the help of these tutorials and the xlib manual (https://tronche.com/gui/x/xlib/) I figured out how to do what I wanted, that is to make a program that opened a window that I could display different coloured text and shapes in and that had no borders, an absolute position on the screen and was rendered in front of other windows (including the currently active window).
+ <br><br>
+<strong>Changing the Brightness</strong>
+<br><br>
+I did more then just execute previously mentioned command (although I don’t know whether or not the other things I did where useful, I think they probably where. I <strike>did</strike> will say I was sketchy on the details :) .) I did this some time ago and thus am somewhat sketchy on the details. So it may not be entirely accurate list of steps.
+
+
+I added the following lines to /etc/loader.conf:
+#for brightness                                                                                          
+acpi_ibm_load="YES"
+acpi_call_load="YES"
+
+I believe I also installed a package related to IBM Thinkpads and ACPI that was suggested on a forum as part of the solution for getting brightness control to work. The post on the forum also listed a command that could then be used to change the brightness.
+The command was something like the following (although not exactly the same. More on that in a second.)
+“acpi_call -p '\_SB.PCI0.VID.LCD0._BCM' -i $1”. 
+Where $1 would be a number between 10 and 100 in increments of 10. 
+It worked. The brightness level changed. But there was a problem that soon became apparent. Sometimes when issued the command would cause my computer to completely freeze up. Whether this would happen or not was seemingly random. But it would happen with a high probability (it would still be completely unacceptable even if the probability was extremely low.) This was <strong>CLEARLY</strong> not going to work as a solution. There was an ASCII text file on my system I was sure was related to part of this command and changing the brightness I can't recall why I thought this (maybe it was mentioned on the forum.) This file was very large for a text file. I started grepping through it looking for things related to brightness and changing the command slightly according to what variables I found that I thought were related. Most of them didn’t do anything. Some made my system crash. Eventually I found one that worked and seemingly has no side effects and thus I ended up with the previously listed command (“acpi_call -p '\_SB.PCI0.VID.LCD0._BCM' -i $1”). I have been using this to change the brightness on my computer (indirectly) ever since. I have included the file where I found the string “\_SB.PCI0.VID.LCD0._BCM” in the following link for your pleasure: <a href="media/text_files/dumpylist" target="_blank">dumpylist</a>
+<br><br>
+<strong>Programmatic Assistance and Pretty Graphics</strong>
+<br><br>
+<strong>Main()</strong>
+<br>
+The programs main function accepts either one or two arguments with one of those argument’s being the name of the program.
+The program attempts to read in a single integer value in the range [BR_RANGE_MIN, BR_RANGE_MAX] from the file specified in brLevelFileName (“/usr/tmp/brLevel”.) If this value is successfully read in and is within range and is also evenly divisible by BR_INTERVAL_GRANULARITY (10) then the variable brLevel is set to the value read in, otherwise it is set to BR_DEFAULT (80). If the brLevel is set to BR_DEFAULT doWork() is called before the program exits.
+If brLevel is not set to BR_DEFAULT then we check to see if argc is equal to MAX_ARGC (2). If it is then two command line arguments have been given with the second one presumably being one of the two characters ‘+’ or ‘-’. We test to see if it is one of these characters by checking the return value of handle2ndArg() if the return value is true then the second argument is not malformed and we call doWork() before exiting the program. If the second argument is malformed we call printUsage() before exiting the program. handle2ndArg() does more than just check if the second argument of argv is valid, it also adjusts the value of brLevel (which is passed to handle2ndArg() by reference so that it will also be changed in main). It will call adjustBR_Val() which will add its third argument (BR_INTERVAL_GRANULARITY) to its return value (it’s fifth argument brLevel) if it’s fourth argument is the ASCII character ‘+’. If it is the ASCII character ‘-’ it will subtract its third argument from the return value instead. However there is an exception for the two above described functions of the function, the function uses saturating arithmetic. So it will not subtract or add BR_INTERVAL_GRANULARITY if it would cause the return value to go out side of the range specified by its second and first arguments respectively [BR_RANGE_MIN, BR_RANGE_MAX].
     </p>
-
-
-
-
-
-
+    <br>
+   
 
 <pre>
 <code class="c++ hljs cpp"><span class="hljs-comment">/* Main requires 1 or 2 command line argument's (this includes the program name)
@@ -67,9 +93,18 @@ top_module_and_left_side_nav("xlib and brightness control on lenovo x230 running
 }
 </code>
 </pre>
-    <!-- End Code section. -->    
+<p>
+<strong>DoWork()</strong>
+<br>
+DoWork() first calls the system() function (the system() function executes the command given to it in a shell) with the following string as it’s argument “~/.config/brightness/brctl.sh LEVEL” where LEVEL is the string returned by std::to_string(level). The doWork() function was called with the arguments brLevel and brLevelFileName (meaning the value of level is the same as the value of brLevel.)
+DoWork() then calls the saveIntToFile() function which attempts to save it’s second argument “level” to the file specified by its first argument “file” (brLevelFileName in this case.) The final thing doWork() does is to call the display() function with level as it’s argument. The display function initialises and creates the window to which it will draw by calling the init() function. It then runs through a for loop con.SLEEP_TIMES. In this loop it calls draw(), this is where the work of actually drawing the graphics to the window is done. After this it calls XFlush to make sure that the graphics are actually actually drawn this time ;). After this it calls the functions: 
+std::this_thread::sleep_for(std::chrono::milliseconds(X)).
+With the “X” argument in the inner function being the constant con.SLEEP_TIME. The purpose of this for loop is of course to draw some bars to the window to represent the current brightness level, or at least that is the purpose of the draw() and XFlush() function calls in the loop. The actual reason for having the loop is to have the graphics stay on the screen for con.SLEEP_TIMES * con.SLEEP_TIME millie seconds (about three seconds.) This means that if some other window is drawn over our window (such as the one created by dmenu) the window may not “refresh” it’s graphics for up to con.SLEEP_TIME millie seconds. The reason for doing it this way is to avoid using the select system call, which I believe could solve the problem, but which I am also sadly confused by :(. There is using an xlib function call a way to have an xlib program go to sleep and then get a notification when it needs to be redrawn, however I don’t know of a way to have it do this and also wake up after a set amount of time.
 
+I have set up my i3 config file so that when you press “caps+X”, “caps+Y” or “caps+Z” it will perform one of three actions and where X, Y and Z are function keys. The actions that are performed  are “exec brctl”, “exec brctl +” and “exec brctl -”, “Exec brctl +” and “exec brctl -” increase or decrease the brightness respectively and show it’s level visually and brctl is the name I have given the executable (which had to be in a path the shell would check, /usr/bin in this case.) The current level is saved and retrieved every time the program is run as described. When the computer is started up the program could be run to set the brightness to it’s last value by running brctl with no extra arguments.
 
+</p>
+<br>
 
 <pre>
 <code class="c++ hljs cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">doWork</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> level, <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> file [])</span>
@@ -103,16 +138,6 @@ top_module_and_left_side_nav("xlib and brightness control on lenovo x230 running
 
 
 <pre>
-<code class="c++ hljs cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">printUsage</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> name)</span>
-</span>{
-  <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>&lt;&lt;<span class="hljs-string">"error!\nusage: "</span>&lt;<name<<" [options]\noptions\n\t+\tincrease="" screen="" brightness\n\t-\tdecrease="" screen"="" "brightness\n";="" }="" <="" pre=""></name<<">&ltname&lt;&lt;<span class="hljs-string">" [options]\nOPTIONS\n\t+\tIncrease screen brightness\n\t-\tDecrease screen"</span>
-    <span class="hljs-string">"brightness\n"</span>;
-}
-</code>
-</pre>
-
-
-<pre>
 <code class="c++ hljs cpp"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">adjustBR_Val</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> rMax, <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> rMin, <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> iGran, <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> sign, <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> a)</span>
 </span>{
   <span class="hljs-keyword">switch</span>(sign)
@@ -131,152 +156,26 @@ top_module_and_left_side_nav("xlib and brightness control on lenovo x230 running
 </code>
 </pre>
 
+<strong>So What Does it Look Like Anyway?</strong>
+<br>
+<p>
+It appears in the top left hand	corner of the display and has a	gap of two pixels above	it so as not to	annoy when directing the mouse to the top of a window in i3 to click on it. The word brightness is reversed on purpose.
+</p>
 
+<img class="no_float" src="media/article_images/brctl.png" alt="image of brctl">
+<br>
 
+<strong>Links to Relevant Files</strong>
+<ul>
+    <li><a href="media/text_files/adjustBrightness.cpp" target="_blank">adjustBrightness.cpp</a></li>
+    <li><a href="media/text_files/brctl.sh" target="_blank">brctl.sh</a></li>
+    <li><a href="media/text_files/build.sh" target="_blank">build.sh</a></li>
+    <li><a href="media/text_files/dumpylist" target="_blank">dumpylist</a></li>    
+</ul>
+<br>
 
-
-<pre>
-<code class="c++ hljs cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">saveIntToFile</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> f, <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> a)</span>
-</span>{
-  <span class="hljs-built_in">std</span>::<span class="hljs-function">ofstream <span class="hljs-title">out</span><span class="hljs-params">(f.c_str()</span>)</span>;
-  <span class="hljs-keyword">if</span>(out.is_open())
-    {
-      out&lt;<a<<'\0'; out.close();="" }="" else="" {="" std::cerr<<"error="" cant="" open="" file="" \""<<f<<"\"="" for="" writing.\n";="" <="" pre=""></a<<'\0';>&lta&lt;&lt;<span class="hljs-string">'\0'</span>;    
-      out.close();
-    }
-  <span class="hljs-keyword">else</span>
-    {
-      <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cerr</span>&lt;&lt;<span class="hljs-string">"Error cant open file \""</span>&lt;<f<<"\" for="" writing.\n";="" }="" <="" pre=""></f<<"\">&ltf&lt;&lt;<span class="hljs-string">"\" for writing.\n"</span>;
-    }
-}
-</code>
-</pre>
-
-
-
-
-<pre>
-<code class="c++ hljs cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">init</span><span class="hljs-params">(context &amp; con)</span>
-</span>{
-  con.display = XOpenDisplay(<span class="hljs-literal">nullptr</span>);
-  <span class="hljs-keyword">if</span>( !con.display )
-    {
-      <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cerr</span>&lt;&lt; <span class="hljs-string">"Error can't open con.display."</span>;
-      <span class="hljs-built_in">exit</span>(FATAL_ERROR_ONE);
-    }
-				<span class="hljs-comment">// Get screen geometry.</span>
-  con.screenNum = DefaultScreen(con.display);
-  con.displayWidth = DisplayWidth(con.display, con.screenNum);
-  con.displayHeight = DisplayHeight(con.display, con.screenNum);
-  
-  con.attribs.override_redirect = <span class="hljs-number">1</span>; <span class="hljs-comment">// Non bordered / decorated window.</span>
-
-  <span class="hljs-comment">//con.windowLen = 683;</span>
-  con.window = XCreateWindow(con.display, RootWindow(con.display, <span class="hljs-number">0</span>), con.displayWidth -con.WINDOW_LEN, con.Y_OFFSET,
-			     con.WINDOW_LEN, con.WINDOW_HEIGHT, <span class="hljs-number">0</span>, CopyFromParent, CopyFromParent, CopyFromParent,
-			     CWOverrideRedirect, &amp;con.attribs);
-  XSetWindowBackground(con.display, con.window, <span class="hljs-number">0x1900ff</span>); <span class="hljs-comment">// 0x84ffdc cool colour.</span>
-  XClearWindow(con.display, con.window );
-  XMapWindow(con.display, con.window );	<span class="hljs-comment">// Make window appear.</span>
-
-  XGCValues values;
-  con.cmap = DefaultColormap(con.display, con.screenNum);
-  con.gc = XCreateGC(con.display, con.window, <span class="hljs-number">0</span>, &amp;values);
-
-  Status rc;
-    rc = XAllocNamedColor(con.display, con.cmap, <span class="hljs-string">"Cyan"</span>, &amp;con.cyan, &amp;con.cyan);
-  <span class="hljs-keyword">if</span>(rc == <span class="hljs-number">0</span>)
-    {
-      <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cerr</span>&lt;&lt;<span class="hljs-string">"XAllocNamedColor - failed to allocated 'cyan' color.\n"</span>;
-      <span class="hljs-built_in">exit</span>(FATAL_ERROR_TWO_CYAN);
-    }
-      rc = XAllocNamedColor(con.display, con.cmap, <span class="hljs-string">"Purple"</span>, &amp;con.purple, &amp;con.purple);
-  <span class="hljs-keyword">if</span>(rc == <span class="hljs-number">0</span>)
-    {
-      <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cerr</span>&lt;&lt;<span class="hljs-string">"XAllocNamedColor - failed to allocated 'purple' color.\n"</span>;
-      <span class="hljs-built_in">exit</span>(FATAL_ERROR_TWO_PURPLE);
-    }
-      rc = XAllocNamedColor(con.display, con.cmap, <span class="hljs-string">"Blue"</span>, &amp;con.blue, &amp;con.blue);
-  <span class="hljs-keyword">if</span>(rc == <span class="hljs-number">0</span>)
-    {
-      <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cerr</span>&lt;&lt;<span class="hljs-string">"XAllocNamedColor - failed to allocated 'blue' color.\n"</span>;
-      <span class="hljs-built_in">exit</span>(FATAL_ERROR_TWO_BLUE);
-    }
-    rc = XAllocNamedColor(con.display, con.cmap, <span class="hljs-string">"Green"</span>, &amp;con.green, &amp;con.green);
-  <span class="hljs-keyword">if</span>(rc == <span class="hljs-number">0</span>)
-    {
-      <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cerr</span>&lt;&lt;<span class="hljs-string">"XAllocNamedColor - failed to allocated 'green' color.\n"</span>;
-      <span class="hljs-built_in">exit</span>(FATAL_ERROR_TWO_GREEN);
-    }
-  rc = XAllocNamedColor(con.display, con.cmap, <span class="hljs-string">"Yellow"</span>, &amp;con.yellow, &amp;con.yellow);
-  <span class="hljs-keyword">if</span>(rc == <span class="hljs-number">0</span>)
-    {
-      <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cerr</span>&lt;&lt;<span class="hljs-string">"XAllocNamedColor - failed to allocated 'yellow' color.\n"</span>;
-      <span class="hljs-built_in">exit</span>(FATAL_ERROR_TWO_YELLOW);
-    }
-    rc = XAllocNamedColor(con.display, con.cmap, <span class="hljs-string">"Orange"</span>, &amp;con.orange, &amp;con.orange);
-  <span class="hljs-keyword">if</span>(rc == <span class="hljs-number">0</span>)
-    {
-      <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cerr</span>&lt;&lt;<span class="hljs-string">"XAllocNamedColor - failed to allocated 'orange' color.\n"</span>;
-      <span class="hljs-built_in">exit</span>(FATAL_ERROR_TWO_ORANGE);
-    }
-    rc = XAllocNamedColor(con.display, con.cmap, <span class="hljs-string">"Red"</span>, &amp;con.red, &amp;con.red);
-  <span class="hljs-keyword">if</span>(rc == <span class="hljs-number">0</span>)
-    {
-      <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cerr</span>&lt;&lt;<span class="hljs-string">"XAllocNamedColor - failed to allocated 'red' color.\n"</span>;
-      <span class="hljs-built_in">exit</span>(FATAL_ERROR_TWO_RED);
-    }
-    rc = XAllocNamedColor(con.display, con.cmap, <span class="hljs-string">"Dark Red"</span>, &amp;con.darkRed, &amp;con.darkRed);
-  <span class="hljs-keyword">if</span>(rc == <span class="hljs-number">0</span>)
-    {
-      <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cerr</span>&lt;&lt;<span class="hljs-string">"XAllocNamedColor - failed to allocated 'dark red' color.\n"</span>;
-      <span class="hljs-built_in">exit</span>(FATAL_ERROR_TWO_DARK_RED);
-    }
-}	
-</code>
-</pre>
-
-
-
-
-<pre>
-<code class="c++ hljs cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">draw</span><span class="hljs-params">(context &amp; con, <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> brLevel)</span>
-</span>{				<span class="hljs-comment">// Black magic numbers in this function :'( (Can't be bothered to fix rn.)</span>
-  <span class="hljs-built_in">std</span>::<span class="hljs-built_in">stringstream</span> textInfo {};
-  <span class="hljs-comment">/*  if(brLevel &lt; 10)//it never goes below 20!
-      textInfo&lt;&lt;"  ";*/</span>
-  <span class="hljs-keyword">if</span>(brLevel &lt; <span class="hljs-number">100</span>)
-    textInfo&lt;&lt;<span class="hljs-string">' '</span>;
-  textInfo&lt;&lt;<span class="hljs-string">"%"</span>&lt;<brlevel<<" :ssenthgirb";="" everything="" to="" the="" left="" of="" brlevel="" bar's="" xsetforeground(con.display,="" con.gc,="" con.cyan.pixel);="" set="" forground="" colour="" xdrawstring(con.display,="" con.window,="" con.window_len="" -con.str_x_offset,="" con.str_y,="" textinfo.str().c_str(),="" textinfo.str().size());="" -con.minus_x_offset,="" con.minus_y,="" "-",="" 1);="" con.plus_x,="" con.plus_y,="" "+",="" *="" from:="" "https:="" tronche.com="" gui="" x="" xlib="" graphics="" drawing="" xdrawarc.html"="" for="" an="" arc="" specified="" as="" [="" x,="" y,="" width,="" height,="" angle1,="" angle2="" ],="" angles="" must="" be="" in="" effectively="" skewed="" coordinate="" system="" ellipse="" (for="" a="" circle,="" and="" systems="" are="" identical).="" relationship="" between="" these="" expressed="" normal="" screen="" (as="" measured="" with="" protractor)="" is="" follows:="" skewed-angle="atan" (="" tan="" normal-angle="" )="" width="" height="" +="" adjust="" xdrawarc(con.display,="" -con.minus_arc_x_offset,="" con.minus_arc_y,="" con.arc_width,="" con.arc_height,="" con.arc_angle_1,="" con.arc_angle_2);="" right="" circle="" around="" "-"="" con.plus_arc_x,="" con.plus_arc_y,="" "+".="" drawbars(con,="" brlevel);="" draw="" bars="" }="" <="" pre=""></brlevel<<">&ltbrLevel&lt;&lt;<span class="hljs-string">" :ssenthgirB"</span>;<span class="hljs-comment">//everything to the left of the brLevel bar's    </span>
-  XSetForeground(con.display, con.gc, con.cyan.pixel);<span class="hljs-comment">//set forground colour</span>
-  XDrawString(con.display, con.window, con.gc, con.WINDOW_LEN -con.STR_X_OFFSET, con.STR_Y, textInfo.str().c_str(),
-	      textInfo.str().size());
-  XDrawString(con.display, con.window, con.gc, con.WINDOW_LEN -con.MINUS_X_OFFSET, con.MINUS_Y, <span class="hljs-string">"-"</span>, <span class="hljs-number">1</span>);
-  XDrawString(con.display, con.window, con.gc, con.PLUS_X, con.PLUS_Y, <span class="hljs-string">"+"</span>, <span class="hljs-number">1</span>);
-  <span class="hljs-comment">/* FROM: "https://tronche.com/gui/x/xlib/graphics/drawing/XDrawArc.html"
-    For an arc specified as [ x, y, width, height, angle1, angle2 ], the angles must be specified in the
-    effectively skewed coordinate system of the ellipse (for a circle, the angles and coordinate systems are
-    identical). The relationship between these angles and angles expressed in the normal coordinate system of the
-    screen (as measured with a protractor) is as follows:
-    skewed-angle = atan ( tan ( normal-angle ) * width / height ) + adjust */</span>
-  XDrawArc(con.display, con.window, con.gc, con.WINDOW_LEN -con.MINUS_ARC_X_OFFSET,
-	   con.MINUS_ARC_Y, con.ARC_WIDTH, con.ARC_HEIGHT, con.ARC_ANGLE_1,
-	   con.ARC_ANGLE_2); <span class="hljs-comment">// Right circle around "-"</span>
-  XDrawArc(con.display, con.window, con.gc, con.PLUS_ARC_X, con.PLUS_ARC_Y, con.ARC_WIDTH, con.ARC_HEIGHT,
-	   con.ARC_ANGLE_1, con.ARC_ANGLE_2); <span class="hljs-comment">// Left circle around "+".</span>
-  drawBars(con, brLevel);  <span class="hljs-comment">//draw the brLevel bars                                    </span>
-}
-</code>
-</pre>    
         </article>
-
-
-
-
-
-
-
-                                                                                                                                                                                                                                                                                                                                                                       
+ 
 
 	</div>
 	
