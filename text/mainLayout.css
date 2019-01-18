@@ -608,4 +608,13 @@ code
     box-shadow: 0 0 15px #c40e00;
     text-align: left;
 }
+
+::selection			/* Change colour of selected text. */
+{
+  background: #ffb7b7; /* WebKit/Blink Browsers */
+}
+::-moz-selection
+{
+  background: #fdd4dc; /* Gecko Browsers */
+}
 /*<{ misc }>--------------------------------------------------------------------------------------------*/
