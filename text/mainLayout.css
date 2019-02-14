@@ -575,17 +575,27 @@ label
 
 img
 {
-    float: right;
+    float: none;
     max-width: 39vw;
-    margin: 15px;
-    margin-bottom: 30px;
-    border: 13px solid #FFDBE8;
+    margin: 0px;
+    margin-bottom: 10px;
+    /* border: 13px solid #FFDBE8; */
     box-shadow: 0 0 15px #c40e00;    
 }
 
-img.no_float
+img.margin-top
 {
-    float: none;
+    margin-top: 10px;
+}
+
+img.margin-right
+{
+    margin-right: 15px;
+}
+
+img.margin-left
+{
+    margin-left: 15px;
 }
 
 pre
@@ -602,16 +612,16 @@ code
     overflow: auto;
     font-family: monospace;
     float: none;
-    margin: 12px;
-    margin-bottom: 12px;
-    border: 13px solid #FFDBE8;
+    margin: 0px;
+    /* margin-bottom: 12px; */
+    /* border: 13px solid #FFDBE8; */
     box-shadow: 0 0 15px #c40e00;
     text-align: left;
 }
 
 ::selection			/* Change colour of selected text. */
 {
-  background: #ffb7b7; /* WebKit/Blink Browsers */
+  background: #fdd4dc; /* WebKit/Blink Browsers */
 }
 ::-moz-selection
 {
