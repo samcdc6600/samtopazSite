@@ -72,7 +72,7 @@ body
 
 .column.left_top
 {
-    background-image: url("media/border/page_border_top_left_top_y_reduced_and_x_1.png");
+    background-image: url("media/border/page_border_top_left_top_y_reduced_and_x_1_shadow.png");
     max-height: 124px;
     min-height: 124px;
 }
@@ -86,19 +86,19 @@ body
     /* Theme 1.0 background */
     /* background-image: url("media/border/grid_2_left.png"); */
     /* Theme 1.1 background */
-    background-image: url("media/border/grid_2_left.png"), url("media/border/bg_gif_overlay.png"), url("media/border/bg_l.gif");
+    background-image: url("media/border/grid_2_left_shadow.png"), url("media/border/bg_gif_overlay.png"), url("media/border/bg_l.gif");
 }
 
 .column.left_bottom
 {
-    background-image: url("media/border/page_border_bottom_left_top_y_reduced_and_x_1.png");
+    background-image: url("media/border/page_border_bottom_left_top_y_reduced_and_x_1_shadow.png");
     max-height: 124px;
     min-height: 124px;
 }
 
 .column.right_top
 {
-    background-image: url("media/border/page_border_top_right_top_y_reduced_and_x_1.png");
+    background-image: url("media/border/page_border_top_right_top_y_reduced_and_x_1_shadow.png");
     max-height: 124px;
     min-height: 124px;
 }
@@ -112,12 +112,12 @@ body
     /* Theme 1.0 background */
     background-image: url("media/border/grid_2_right.png");
     /* Theme 1.1 background */
-    background-image: url("media/border/grid_2_right.png"), url("media/border/bg_gif_overlay.png"), url("media/border/bg_r.gif");
+    background-image: url("media/border/grid_2_right_shadow.png"), url("media/border/bg_gif_overlay.png"), url("media/border/bg_r.gif");
 }
 
 .column.right_bottom
 {
-    background-image: url("media/border/page_border_bottom_right_top_y_reduced_and_x_1.png");
+    background-image: url("media/border/page_border_bottom_right_top_y_reduced_and_x_1_shadow.png");
     max-height: 124px;
     min-height: 124px;
 }
