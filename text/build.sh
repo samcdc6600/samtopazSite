@@ -34,6 +34,9 @@ java -jar yuicompressor-2.4.8.jar --type css codeHighlight/styles/samCustom.css 
 # copy font/s
 cp  TypographyTimes.ttf ~/www.samtopaz.com/TypographyTimes.ttf;
 
+# copy js script
+cp frivolous.js ~/www.samtopaz.com/frivolous.js;
+
 # gen main pages
 # remove crud
 rm *~ *#
