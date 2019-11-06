@@ -5,11 +5,10 @@ top_module_and_left_side_nav("xlib and brightness control on lenovo x230 running
 
 <main class="inset_shadow">
 	<div id="position_main_part_of_main">
-<?php
-    heading("IS XLIB BRIGHT");
-?>
-	
 	<article id="main_tag_in_main_min_height">
+	<?php
+    	heading("IS XLIB BRIGHT");
+	?>
     <br><br><h4>Xlib and Brightness Control On Lenovo X230 Running FreeBSD</h4>
     <p>
     <small>Note: I am writing this well after the fact and so some of the information is a little incomplete. So hopefully there are no obvious errors :).</small>
@@ -199,13 +198,9 @@ It appears in the top left hand	corner of the display and has a	gap of two pixel
 <br>
         </article>
  
-
-	</div>
-	
-	<div id="position_to_top_of_page">
-    <a class=a_gui_element href="#"><div id="to_top_of_page">
-    <div id="text_align_to_top_of_page">To Top of Page</div>
-    </div></a>
+	<?php
+	topOfPageButton();
+	?>
     </div>
     </main>
 

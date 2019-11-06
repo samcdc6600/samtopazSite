@@ -219,10 +219,10 @@ footer
 {
     color: #6bfdff;
 }
-
 a, span.link	   /* link color when not hovering, focus or active */
 {
     color: #6bfdff;
+    text-decoration: underline;
 }
 a:visited
 {
@@ -232,7 +232,7 @@ a:hover, a:focus, a:active, a:visited:hover, a:visited:focus, a:visited:active
 {
     color: #000084;
     font-style: italic;
-    text-decoration: underline;    
+    text-decoration: underline;
     text-shadow: 2px 2px #ff0000;
 }
 .articleLink
@@ -394,8 +394,8 @@ h1.oval
 
 #position_to_top_of_page
 {
+    bottom: 0;
     margin: 0 auto;
-    max-width: 210px;
 }
 /* <{ main content area of page }>----------------------------------------------------------------------- */
 

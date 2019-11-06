@@ -4,25 +4,21 @@ top_module_and_left_side_nav("~*{My-Github}*~", "null", true, "null");
 ?>
 
 <main class="inset_shadow">
-	<div id="position_main_part_of_main">
-<?php
-    heading("Github");
-?>
-	
+	<div id="position_main_part_of_main">	
 	<article id="main_tag_in_main_min_height">
+	<?php
+    	heading("Github");
+	?>
     <br><br><h4>My Github</h4>
     <p>
     I am primarily using Github because it is convenient. <strong>Link:</strong>
     <a href="https://github.com/samcdc6600" target="_blank"> samcdc6600 :^)</a>
     </p>
         </article>
-
-	</div>
 	
-	<div id="position_to_top_of_page">
-    <a class=a_gui_element href="#"><div id="to_top_of_page">
-    <div id="text_align_to_top_of_page">To Top of Page</div>
-    </div></a>
+	<?php
+	topOfPageButton();
+	?>
     </div>
     </main>
 
