@@ -12,6 +12,7 @@ function top_module_and_left_side_nav($pageTitle, $currentPage, $altLook, $cssFo
     <title>$pageTitle</title>
     <link rel="icon" href="media/favicon.ico" type="image/x-icon">
     <link type="text/css" rel="stylesheet" href="./mainLayout.css"/>
+    <script src="frivolous.js" async></script>
 </head>
   <body>
 

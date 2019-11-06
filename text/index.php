@@ -5,11 +5,11 @@ top_module_and_left_side_nav("My World", "index.html", false, "null");
 
       <main class="inset_shadow">
 	<div id="position_main_part_of_main">
-	  <?php
-	    heading("MY WORLD");
-	    ?>
-	
 	<article id="main_tag_in_main_min_height">
+		<?php
+		heading("MY WORLD");
+		?>
+		
 	    <br><br><h4>WELCOME TO MY WORLD</h4>
 	    <p>
 Hello and welcome to samtopaz.com, you are viewing Sam's home page and are hereby invited by me (Sam) to continue viewing :). 
@@ -41,18 +41,16 @@ Hello and welcome to samtopaz.com, you are viewing Sam's home page and are hereb
 	    <br><br><br>
 	    @copy 2018 Samuel Brown<br>
 	    <strong>Disclaimer:</strong> This site was programmed and is run by Samuel Brown and has only been tested in firefox (I'm not a fan of Chrome.)
+
 	  </p>
 	</article>
-
+		<div id="position_to_top_of_page">
+	<a class=a_gui_element href="#"><div id="to_top_of_page">
+	<div id="text_align_to_top_of_page">To Top of Page</div>
+	</div></a>
 	</div>
-	
-	<div id="position_to_top_of_page">
-	  <a class=a_gui_element href="#"><div id="to_top_of_page">
-	      <div id="text_align_to_top_of_page">To Top of Page</div>
-	  </div></a>
-	  </div>
 
-	
+</div>
       </main>
 
       
