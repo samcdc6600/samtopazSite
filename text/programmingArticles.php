@@ -23,7 +23,6 @@ top_module_and_left_side_nav("Programming", "null", true, "null");
 	topOfPageButton();
 	?>
 	</div>
-
 	
       </main>
 

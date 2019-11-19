@@ -22,6 +22,8 @@ top_module_and_left_side_nav("All Articles", "null", true, "null");
 	</article>
 
 
+<div id="articleTopOfPageButtonSpacer">
+</div>
 	<?php
 	topOfPageButton();
 	?>

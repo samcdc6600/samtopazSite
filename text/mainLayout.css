@@ -261,7 +261,7 @@ article
     max-width: 1920px;
     /*    text-align: center;*/
     margin: 0 auto;
-    margin-bottom: 16px;
+/*    margin-bottom: 16px;*/
     padding: 20px;
     text-align: left;
     word-break: break-word;
@@ -308,6 +308,11 @@ main
     /* the value here must be vh and not % otherwise this property will not work for some reason :'(. */ 
 }
 
+#articleTopOfPageButtonSpacer
+{
+    padding-bottom: 42px;
+}
+
 #position_main_part_of_main
 {
     min-height: 422px;		/* Minimum height of the side bars (not including top and bottom boarders. */
@@ -315,6 +320,7 @@ main
     min-width: 360px;
     width: calc(100vw - 440px);
     padding: 0px;
+    margine-bottom: 385px;
     overflow: auto;
 }
 
@@ -394,8 +400,9 @@ h1.oval
 
 #position_to_top_of_page
 {
-    bottom: 0;
-    margin: 0 auto;
+    position: fixed;
+    bottom: calc(35px);
+    right: calc(50vw - 90px);
 }
 /* <{ main content area of page }>----------------------------------------------------------------------- */
 
