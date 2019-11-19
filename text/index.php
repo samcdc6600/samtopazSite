@@ -45,8 +45,6 @@ Hello and welcome to samtopaz.com, you are viewing Sam's home page and are hereb
 	  </p>
 	</article>
 
-<div id="articleTopOfPageButtonSpacer">
-</div>
 	<?php
 	topOfPageButton();
 	?>

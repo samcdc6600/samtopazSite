@@ -5,11 +5,14 @@ define("mainCss", "<link type=\"text/css\" rel=\"stylesheet\" href=\"./mainLayou
 function topOfPageButton()
 {
 	$htmlOut = <<<"OUTPUT"
+		 	
 			<a class="a_gui_element" id="position_to_top_of_page" onclick="toIdOnClick(this)">
 			   <div id="to_top_of_page">
 		     	   	<div id="text_align_to_top_of_page">To Top of Page</div>
 		     	   </div>
 			</a>
+			<div id="articleTopOfPageButtonSpacer">
+			</div>
 OUTPUT;
 	echo $htmlOut;
 }

@@ -310,17 +310,17 @@ main
 
 #articleTopOfPageButtonSpacer
 {
-    padding-bottom: 42px;
+    height: 42px;
 }
 
 #position_main_part_of_main
 {
-    min-height: 422px;		/* Minimum height of the side bars (not including top and bottom boarders. */
+    /*min-height: 422px;*/		/* Minimum height of the side bars (not including top and bottom boarders. */
+    min-height: 465px;
     height: calc(100vh - 90px);
     min-width: 360px;
     width: calc(100vw - 440px);
     padding: 0px;
-    margine-bottom: 385px;
     overflow: auto;
 }
 
