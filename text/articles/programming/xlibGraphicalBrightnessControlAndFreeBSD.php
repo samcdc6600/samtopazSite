@@ -3,7 +3,7 @@ require_once("./common/tools.php");
 top_module_and_left_side_nav("xlib and brightness control on lenovo x230 running FreeBSD", "null", true, "samCustom.css");
 ?>
 
-<main class="inset_shadow">
+<main class="inset_shadow scroll_style">
 	<div id="position_main_part_of_main">
 	<article id="main_tag_in_main_min_height">
 	<?php

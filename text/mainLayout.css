@@ -699,4 +699,10 @@ code
     /* Theme 1.1 color */
     background: #ff4a0a;
 }
+
+.scroll_style
+{				/*#000084, #66FF99 #0021A7 #FFDBE8  #fe78fa;*/
+    /* scrollbar-color: #fe78fa  #FFFCE8; */
+    scrollbar-color: #66FF99  #FFFCE8;
+}
 /* <{ misc }>-------------------------------------------------------------------------------------------- */

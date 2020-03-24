@@ -37,6 +37,9 @@ cp  TypographyTimes.ttf ~/www.samtopaz.com/TypographyTimes.ttf;
 # copy js script
 cp frivolous.js ~/www.samtopaz.com/frivolous.js;
 
+# copy media
+cp -r ./media ~/www.samtopaz.com/
+
 # gen main pages
 # remove crud
 rm *~ *#
