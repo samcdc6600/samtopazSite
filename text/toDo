@@ -1,0 +1,2 @@
+*change build script so that it automatically finds .php files to execute and
+they don't have to be explicitly specified!
