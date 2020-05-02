@@ -9,7 +9,7 @@
       <?php
 	heading("ATMEGA16");
       ?>
-      <br><br><h4>Assembling Code for and Flashing an Atmega16 </h4>
+      <br><br><h4>Assembling Code For And Flashing An Atmega16 </h4>
       <p>
 	In this article we will see how to assemble a program for the Atmega16A
 	micro controller and  flash it (write our binary to the micro
@@ -24,7 +24,7 @@
 	  Although the English is not the best we found <a href="https://www.theengineeringprojects.com/2018/06/introduction-to-atmega16.html" target="_blank">this</a><sup class="refernce">1</sup> to be a good quick overview of our Atmega16A, for a much more complete reference see <a href="https://www.mouser.com/datasheet/2/268/Atmel-8154-8-bit-AVR-ATmega16A_Datasheet-1065799.pdf" target="_blank">this</a><sup class="refernce">2</sup>
 	</p>
 	<p>
-	  <strong>Installing an Assembler</strong>
+	  <strong>Installing An Assembler</strong>
 	  <br><br>
 	    First we need to install an assembler. An assembler is a program
 	    that will translate a program written using instruction mnemonics
@@ -56,7 +56,7 @@ simavr-1.3_1                   Simulator for several Atmel AVR chips</code></pre
 	  <pre><code class="c++ hljs cpp">doas pkg install avra-1.3.0_1</code></pre>
 	  <p>(of course here one could use sudo in place of doas, or just be root.)
 	  <br><br>
-	    <strong>The m16Adef.inc File</strong>
+	    <strong>The M16Adef.inc File</strong>
 	    <br><br>
 	      We need to include <em>m16Adef.inc</em> in our program (this file specifically is for use with the Atmega16A with avra, there is another assembler avr-as.) I found the .inc file <a href="https://github.com/DarkSector/AVR/tree/master/asm/include" target="_blank">here</a><sup class="refernce">4</sup>. .inc files for other Atmel controllers can also be found at that link, these .inc files contain useful definitions.
 	    <br>
@@ -240,7 +240,7 @@ avrdude done.  Thank you.</code></pre>
 	  we try out our newly programmed micro.
 	</p>
 	<p>
-	  <strong>Circuit for our Hello World Program and the Atmega16A</strong>
+	  <strong>Circuit For Our Hello World Program And The Atmega16A</strong>
 	  <br><br>The micro requires 5V we use an ATX PSU (a bench power supply would
 	  be preferable.) We hookup the green pin of the PSUs 24 pin connector to any of the black pins (this will turn on the PSU), for 5V we attach a wire to any of the red pins and for ground we attach a wire to any black pin. We note that the Atmega16A has internal pull up resistors on it&#39;s pins so we don't need to add any. For an explanation of pull up resistors see <a href="https://www.electronics-tutorials.ws/logic/pull-up-resistor.html" target="_blank">this</a><sup class="refernce">7</sup>. Pin 10 is labeled <em>VCC</em> in the diagram below,
 	  it is the pin we connect the positive side of our power supply to. VCC
