@@ -177,9 +177,10 @@ When the computer is started up the program could be run to set the brightness t
 </code>
 </pre>
 
-<strong>So What Does it Look Like Anyway?</strong>
-<br>
+
 <p>
+  <strong>So What Does it Look Like Anyway?</strong>
+  <br><br>
 It appears in the top left hand	corner of the display and has a	gap of two pixels above	it so as not to	annoy when directing the mouse to the top of a window in i3 to click on it. The word brightness is reversed on purpose.
 </p>
 
