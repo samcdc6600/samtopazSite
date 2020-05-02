@@ -419,6 +419,11 @@ ul
     margin-bottom: 0px;
 }
 
+ol
+{
+    margin-left: 19px;
+}
+
 li
 {
     text-align:left;
