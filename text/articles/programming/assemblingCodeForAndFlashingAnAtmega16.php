@@ -1,6 +1,6 @@
 <?php
   require_once("./common/tools.php");
-  top_module_and_left_side_nav("Assembling Code for and Flashing an Atmega16", "null", true, "samCustom.css");
+  top_module_and_left_side_nav("Assembling Code for and Flashing an Atmega16A", "null", true, "samCustom.css");
 ?>
 
 <main class="inset_shadow scroll_style">
