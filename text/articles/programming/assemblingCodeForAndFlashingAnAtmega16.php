@@ -9,7 +9,7 @@
       <?php
 	heading("ATMEGA16");
       ?>
-      <br><br><h4>Assembling Code For And Flashing An Atmega16 </h4>
+      <br><br><h4>Assembling Code For And Flashing An Atmega16A</h4>
       <p>
 	In this article we will see how to assemble a program for the Atmega16A
 	micro controller and  flash it (write our binary to the micro
