@@ -392,7 +392,7 @@ avrdude done.  Thank you.</code></pre>
 </main>
 
 <?php
-  bottom_module_and_right_side("whyDoesntThisSiteUseJS.html", true, true, "programming", "programmingArticles.html");
+  bottom_module_and_right_side("assemblingCodeForAndFlashingAnAtmega16.html", true, true, "programming", "programmingArticles.html");
 ?>
 
 </body>
