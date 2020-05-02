@@ -167,7 +167,11 @@ avrdude-6.3_3                  Program for programming the on-chip memory of Atm
 	  We see a line with a <em>"+"</em>, this is the device file we are
 	  looking for (note that this example is from a different machine so the
 	  device file name is different.)
-	  <br>When we run the <em>avrdude</em> command as described above we see the
+	  The micro should be placed in the programmer like so:
+	</p>
+	<img class="no_float" src="media/article_images/IMG_20200503_001120.jpg" alt="Atmega16A in USBASP v2.0 programmer">
+	<p>
+	  When we run the <em>avrdude</em> command as described above we see the
 	  following output:
 	</p>
 	<pre><code class="c++ hljs cpp">amethyst@dream:~/softDev/tmp/tmp2 % doas avrdude -p m16 -c usbasp -P /dev/ugen0.2 -U flash:w:hello.hex
@@ -217,7 +221,7 @@ avrdude done.  Thank you.</code></pre>
 	</p>
 	<p>
 	  <strong>Circuit for our Hello World Program and the Atmega16A</strong>
-	  <br>The micro requires 5V we use an ATX PSU (a bench powersupply would
+	  <br><br>The micro requires 5V we use an ATX PSU (a bench powersupply would
 	  be preferable.) Pin 10 is labeld <em>VCC</em> in the diagram below,
 	  it is the pin we connect the positive side of our power supply to. VCC
 	  stands for<em>Voltage at the Common Collector</em>
@@ -232,10 +236,108 @@ avrdude done.  Thank you.</code></pre>
 	  of our micro. LEDs are current driven devices
 	  <sup class="refernce">7</sup> and therefore we need a resistor to
 	  limit current through the LED or it will burn out. We use a resistor
-	  with a value of around 460 k&#8486;'s. For more information on what
+	  with a value of around 460 k&#8486;&#39;s. For more information on what
 	  value to use see <a href="https://www.instructables.com/id/Choosing-The-Resistor-To-Use-With-LEDs/" target="_blank">this</a>
-	  <sup class="refernce">7</sup>
+	  <sup class="refernce">7</sup>.
+	  The negative side of the LED (short leg) should be connected to the
+	  resistor and the resistor should be connected to the ground side of
+	  the PSU.
+	  <br>Finally we can power up our PSU and the following should be seen:
 	</p>
+	<img class="no_float" src="media/article_images/IMG_20200503_002324~2.jpg" alt="Atmega16A connected to LED">
+	<p>
+	  Note that there are a lot of extra unneded wires and components in
+	  the images, these are not connected are leftover from a project the
+	  author has been working on.
+	</p>
+	<p>
+	  <strong>Program Details</strong>
+	  <br><br>Again we see the code for our program (below):
+	</p>
+	<pre><code class="c++ hljs cpp">	<span class="hljs-comment">;; Turn on an LED which is connnected to PC0</span>
+
+	<span class="hljs-keyword">.include</span> "./include/m16Adef.inc" 
+
+	<span class="hljs-keyword">ldi</span> <span class="hljs-params">r16</span>, <span class="hljs-params">0b00000001</span>
+	<span class="hljs-keyword">out</span> <span class="hljs-params">DDRC</span>, <span class="hljs-params">r16</span>
+	<span class="hljs-keyword">out</span> <span class="hljs-params">PortC</span>, <span class="hljs-params">r16</span>
+<span class="hljs-params">Start:</span>
+	<span class="hljs-keyword">rjmp</span> <span class="hljs-params">Start</span></code></pre>
+	<p>
+	  On the first line we see a comment.
+	  <br>On the third line we see an include directive. This includes the
+	  m16Adef.inc file which contains usful definitions.
+	  <br>On the fifth line we see the first real instruction, namely
+	  <em>ldi</em>. This menumonic stants for load immediate. It loads the
+	  register <em>r16</em> with the value <em>0b00000001</em>, the
+	  registers are 8-bits wide. 0b is not part of the number, rather it is
+	  a directive to the assembler to tell it that the following string of
+	  characters should be interprited as a binary number. The string of
+	  course is 00000001 (1 in decimal.) The second argment to ldi
+	  (0b00000001) is an immediate value, this means that it will be stored
+	  after the ldi instruction in the text section of the executable (where
+	  the instructions are stored.) This means that three memory accesses
+	  will be required to read this instruction (assuming only one byte can
+	  be read at a time and the ldi opcode (operation code) is one byte.
+	  note that we define a byte to be one octet as is common.) One byte for
+	  the ldi instruction opcode, one for the register address (in reality
+	  if there is space the address of the register may be stored in the
+	  same byte as the instruction opcode, meaning only two bytes would need
+	  to be read), and one for the immediate value. The use of immediate
+	  values means that we need less memory accesses. If we had have used a
+	  memory address with the value at its location we would have to read in
+	  the address and then dereference it. But with an immediate value
+	  it&#39;s location is implicit and is relative to the location of
+	  it&#39;s accosiated instruction opcode.
+	  <br>The next instruction we see is on line 6, this instruction is
+	  <em>out</em> it outputs the value of a register to a port. In this
+	  case the operands are <em>DDRC</em> and <em>r16</em> and thus the port
+	  is DDRC. DDRC is defined as 0x14 in m16Adef.inc. 0x indicates what
+	  follows it (14) is a hex number, 20 in decimal in this case. Here we
+	  see the value of the .inc file. Instead of having to write 0x14 (and
+	  remember this value) for DDRC, we can simply write DDRC. What is DDRC?
+	  DDRC stands for Port C Data Direction Register and it controlls
+	  whether the pins of port C (refere to the above diagram of the
+	  Atmega16A to see which pins are associated with port C) are inputs or
+	  outputs. We send an 8-bit number to DDRC and the value of each bit
+	  determins whether the associated pin of port C is an input or an
+	  output. the lowest order bit is associated with PC0 and the second
+	  lowest order bit is associated with PC1 and so on. A value of 1
+	  indicateds an output and 0 indicates an input. In our case we sent the
+	  value in r16 (00000001) to DDRC. This sets PC0 as an output and [PC1,
+	  PC7] as inputs.
+	  <br>Next we see the instruction on line 7, it's opcode is out again.
+	  The difference this time is that the first operand is changed to
+	  PortC (from DDRC). PortC is defined as 0x15 in m16Adef.inc. The effect of this
+	  instruction is to set any port C pins that are set as output to high
+	  or low depending on the value of the corresponding bit in the value of the second operand (r16). Where a
+	  1 indicates high and 0 indicates low. The high and low values are
+	  roughly defined as 5V and 0V respectively.
+	  Since the value of r16 is 00000001 and the only port C pin that is set
+	  as an output is PC0 the effect of this instruction is to set PC0 high (this
+	  truns on our LED.)
+	  <br>However we need one more instruction. The reason for this is that
+	  the program counter (PC) AKA instruction pointer (IP) (a special register that
+	  points to the next instruction to be fetched from memory) will
+	  continue to incremented and we don&#39;t know what lies beyond our
+	  last instruction (it&#39;s possible to determin this, however
+	  that&#39;s not very usefull.) This would lead to possibly undefined and almost
+	  certinly undesirable behavior. So we come to the last two lines
+	  (8 and 9). Line 8 contains a label (<em>Start</em>). The assembler
+	  will remember the position of this label in our code. The next line
+	  contains the instruction <em>rjmp</em> with the operand Start.
+	  Rjmp stands for relative jump and it will jump to an address that is
+	  relative to the current PC value. Essentially it will add the value of
+	  it&#39;s argument to the current PC (changing the address of the next
+	  instruction that will be fetched.) This is known as an unconditional
+	  branch. In our case the operand to rjmp is Start. Start is interprited
+	  as an address who&#39;s value is determined by the assembler. The
+	  assembler sets Starts value to the address (relative to the address of
+	  the rjmp instruction) of the instruction that follows the Start directive (this instruction being rjmp)
+	  What all this means is that when our program is run the micro will read the rjmp instruction and it&#39;s opcode will be added to the current PC and in this case this will cause the PC to point to the rjmp instruction. This means once the code reaches the rjmp instruction it will loop indefinitly and PC0 will stay in the state it was last set to and our LED will stay lit.
+	</p>
+
+
 
       <strong>Usefule Links:</strong>
       <ul>
