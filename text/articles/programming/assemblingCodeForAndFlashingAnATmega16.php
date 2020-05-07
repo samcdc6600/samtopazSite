@@ -1,6 +1,6 @@
 <?php
   require_once("./common/tools.php");
-  top_module_and_left_side_nav("Assembling Code for and Flashing an Atmega16A", "null", true, "samCustom.css");
+  top_module_and_left_side_nav("Assembling Code for and Flashing an ATmega16A", "null", true, "samCustom.css");
 ?>
 
 <main class="inset_shadow scroll_style">
@@ -9,19 +9,19 @@
       <?php
 	heading("ATMEGA16");
       ?>
-      <br><br><h4>Assembling Code For And Flashing An Atmega16A</h4>
+      <br><br><h4>Assembling Code For And Flashing An ATmega16A</h4>
       <p>
-	In this article we will see how to assemble a program for the Atmega16A
+	In this article we will see how to assemble a program for the ATmega16A
 	micro controller and  flash it (write our binary to the micro
 	controllers memory so it can execute it.) We will also see how the
 	program works (it is a very simple program.) Our system is running
 	FreeBSD however the instructions should be generally applicable to any
 	other BSD or Linux distribution.<br><br>We will need an
-	Atmega16A, breadboard, 5v PSU (at least for the 16A), USBASP
+	ATmega16A, breadboard, 5v PSU (at least for the 16A), USBASP
 	v2.0 programmer (other programmers could be used) and of course
 	electronic components (LEDs, resistors, wires, etc,..)
 	<br>
-	  Although the English is not the best we found <a href="https://www.theengineeringprojects.com/2018/06/introduction-to-atmega16.html" target="_blank">this</a><sup class="refernce">1</sup> to be a good quick overview of our Atmega16A, for a much more complete reference see <a href="https://www.mouser.com/datasheet/2/268/Atmel-8154-8-bit-AVR-ATmega16A_Datasheet-1065799.pdf" target="_blank">this</a><sup class="refernce">2</sup>
+	  Although the English is not the best we found <a href="https://www.theengineeringprojects.com/2018/06/introduction-to-atmega16.html" target="_blank">this</a><sup class="refernce">1</sup> to be a good quick overview of our ATmega16A, for a much more complete reference see <a href="https://www.mouser.com/datasheet/2/268/Atmel-8154-8-bit-AVR-ATmega16A_Datasheet-1065799.pdf" target="_blank">this</a><sup class="refernce">2</sup>
 	</p>
 	<p>
 	  <strong>Installing An Assembler</strong>
@@ -58,7 +58,7 @@ simavr-1.3_1                   Simulator for several Atmel AVR chips</code></pre
 	  <br><br>
 	    <strong>The M16Adef.inc File</strong>
 	    <br><br>
-	      We need to include <em>m16Adef.inc</em> in our program (this file specifically is for use with the Atmega16A with avra, there is another assembler avr-as.) I found the .inc file <a href="https://github.com/DarkSector/AVR/tree/master/asm/include" target="_blank">here</a><sup class="refernce">4</sup>. .inc files for other Atmel controllers can also be found at that link, these .inc files contain useful definitions.
+	      We need to include <em>m16Adef.inc</em> in our program (this file specifically is for use with the ATmega16A with avra, there is another assembler avr-as.) I found the .inc file <a href="https://github.com/DarkSector/AVR/tree/master/asm/include" target="_blank">here</a><sup class="refernce">4</sup>. .inc files for other Atmel controllers can also be found at that link, these .inc files contain useful definitions.
 	    <br>
 	      For some reason a couple of the lines in the m16Adef.inc file cause fatal errors when trying to assemble our code. We comment out the line (47), which causes the following error:
 	    </p>
@@ -189,7 +189,7 @@ avrdude-6.3_3                  Program for programming the on-chip memory of Atm
 	  device file name is different to the one used in the Avrdude command above.)
 	  The micro should be placed in the programmer like so:
 	</p>
-	<img class="no_float" src="media/article_images/IMG_20200503_001120.jpg" alt="Atmega16A in USBASP v2.0 programmer">
+	<img class="no_float" src="media/article_images/IMG_20200503_001120.jpg" alt="ATmega16A in USBASP v2.0 programmer">
 	<p>
 	  When we run the Avrdude command as described above we see the
 	  following output:
@@ -240,14 +240,14 @@ avrdude done.  Thank you.</code></pre>
 	  we try out our newly programmed micro.
 	</p>
 	<p>
-	  <strong>Circuit For Our Hello World Program And The Atmega16A</strong>
+	  <strong>Circuit For Our Hello World Program And The ATmega16A</strong>
 	  <br><br>The micro requires 5V we use an ATX PSU (a bench power supply would
-	  be preferable.) We hookup the green pin of the PSUs 24 pin connector to any of the black pins (this will turn on the PSU), for 5V we attach a wire to any of the red pins and for ground we attach a wire to any black pin. We note that the Atmega16A has internal pull up resistors on it&#39;s pins so we don't need to add any. For an explanation of pull up resistors see <a href="https://www.electronics-tutorials.ws/logic/pull-up-resistor.html" target="_blank">this</a><sup class="refernce">7</sup>. Pin 10 is labeled <em>VCC</em> in the diagram below,
+	  be preferable.) We hookup the green pin of the PSUs 24 pin connector to any of the black pins (this will turn on the PSU), for 5V we attach a wire to any of the red pins and for ground we attach a wire to any black pin. We note that the ATmega16A has internal pull up resistors on it&#39;s pins so we don't need to add any. For an explanation of pull up resistors see <a href="https://www.electronics-tutorials.ws/logic/pull-up-resistor.html" target="_blank">this</a><sup class="refernce">7</sup>. Pin 10 is labeled <em>VCC</em> in the diagram below,
 	  it is the pin we connect the positive side of our power supply to. VCC
 	  stands for <em>Voltage at the Common Collector</em>
 	  <sup class="refernce">8</sup>
 	</p>
-	<img class="no_float" src="media/article_images/avr-microcontroller-atmega16a-pu-dip.jpg" alt="image of Atmega16A pin out">
+	<img class="no_float" src="media/article_images/avr-microcontroller-atmega16a-pu-dip.jpg" alt="image of ATmega16A pin out">
 	<p>
 	  Pin 31 is <em>GND</em> AKA ground, it is the pin we connect the
 	  negative side our power supply to.
@@ -264,7 +264,7 @@ avrdude done.  Thank you.</code></pre>
 	  the PSU.
 	  <br>Finally we can power up our PSU and the following should be seen:
 	</p>
-	<img class="no_float" src="media/article_images/IMG_20200503_002324~2.jpg" alt="Atmega16A connected to LED">
+	<img class="no_float" src="media/article_images/IMG_20200503_002324~2.jpg" alt="ATmega16A connected to LED">
 	<p>
 	  Note that there are a lot of extra unneeded wires and components in
 	  the image, these are not connected and are leftover from a project
@@ -318,7 +318,7 @@ avrdude done.  Thank you.</code></pre>
 	  remember this value) for DDRC, we can simply write DDRC. What is DDRC?
 	  DDRC stands for Port C Data Direction Register and it controls
 	  whether the pins of port C (refer to the above diagram of the
-	  Atmega16A to see which pins are associated with port C) are inputs or
+	  ATmega16A to see which pins are associated with port C) are inputs or
 	  outputs. We send an 8-bit number to DDRC and the value of each bit
 	  determines whether the associated pin of port C is an input or an
 	  output. the lowest order bit is associated with PC0 and the second
@@ -362,7 +362,7 @@ avrdude done.  Thank you.</code></pre>
       <strong>Usefule Links:</strong>
       <ul>
 	<li><a href="https://www.instructables.com/id/Command-Line-Assembly-Language-Programming-for-Ard/" target="_blank">https://www.instructables.com/id/Command-Line-Assembly-Language-Programming-for-Ard/</a></li>
-	<li><a href="https://github.com/samcdc6600/Atmega16a-avra-asm-stuff.git" target="_blank">https://github.com/samcdc6600/Atmega16a-avra-asm-stuff.git</a></li>
+	<li><a href="https://github.com/samcdc6600/ATmega16a-avra-asm-stuff.git" target="_blank">https://github.com/samcdc6600/ATmega16a-avra-asm-stuff.git</a></li>
 	<li><a href="https://avrlogic.blogspot.com/2014/11/programming-atmega16-led-blink.html" target="_blank">https://avrlogic.blogspot.com/2014/11/programming-atmega16-led-blink.html</a></li>
 	<li><a href="https://artofcircuits.com/product/usbasp-v2-0-programmer-for-atmel-microcontrollers" target="_blank">https://artofcircuits.com/product/usbasp-v2-0-programmer-for-atmel-microcontrollers</a></li>
       </ul>
@@ -392,7 +392,7 @@ avrdude done.  Thank you.</code></pre>
 </main>
 
 <?php
-  bottom_module_and_right_side("assemblingCodeForAndFlashingAnAtmega16.html", true, true, "programming", "programmingArticles.html");
+  bottom_module_and_right_side("assemblingCodeForAndFlashingAnATmega16.html", true, true, "programming", "programmingArticles.html");
 ?>
 
 </body>

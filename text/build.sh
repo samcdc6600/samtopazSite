@@ -26,7 +26,7 @@ rm articles/programming/*~ articles/programming/*#
 php articles/programming/whyDoesntThisSiteUseJS.php > ~/www.samtopaz.com/whyDoesntThisSiteUseJS.html;
 php articles/programming/xlibGraphicalBrightnessControlAndFreeBSD.php > ~/www.samtopaz.com/xlibGraphicalBrightnessControlAndFreeBSD.html;
 php articles/programming/myGitHub.php > ~/www.samtopaz.com/myGitHub.html;
-php articles/programming/assemblingCodeForAndFlashingAnAtmega16.php > ~/www.samtopaz.com/assemblingCodeForAndFlashingAnAtmega16.html;
+php articles/programming/assemblingCodeForAndFlashingAnATmega16.php > ~/www.samtopaz.com/assemblingCodeForAndFlashingAnATmega16.html;
 
 # copy stylesheet/s
 java -jar yuicompressor-2.4.8.jar --type css mainLayout.css > ~/www.samtopaz.com/mainLayout.css;
