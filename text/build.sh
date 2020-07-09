@@ -1,4 +1,7 @@
 #!/bin/sh
+
+# Make the directory if it dosen't exist
+mkdir ~/www.samtopaz.com
 # clear destination directory's
 rm ~/www.samtopaz.com/*;
 
