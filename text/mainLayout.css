@@ -192,7 +192,8 @@ footer
 {
     margin-right: 14px;
     padding-right: 0px;
-    padding-left: 0px; / *I think a non-zero padding value is being inherited when this is used in tools.php */
+    padding-left: 0px; /* I think a non-zero padding value is being inherited
+when this is used in tools.php */
 }
 
 
