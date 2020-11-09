@@ -1,6 +1,6 @@
-/* <{ A nice free font :^) }>-------------------------------------------------------------- */
-/* <{ https://fontlibrary.org/en/font/typography-times }>---------------------------------- */
-/* <{ "License Freeware" }>---------------------------------------------------------------- */
+/*=-----------------------=<{ A nice free font :^) }>=-----------------------=*/
+/*=---------=<{ https://fontlibrary.org/en/font/typography-times }>=---------=*/
+/*=------------------------=<{ "License Freeware" }>=------------------------=*/
 @media print
 {
     aside#debug
@@ -9,17 +9,20 @@
     }
 }
 
+
 @font-face
 {
     font-family: Typographytimes;
     src: local("Typographytimes"),
-    local("Typographytimes"),
-    url("TypographyTimes.ttf");/* This must be changed but it won't work from the media folder
-				 with the following directory path for some reason "../media/TypographyTimes.ttf" */
+	 local("Typographytimes"),
+	 url("TypographyTimes.ttf");	/* This must be changed but it won't
+work from the media folder with the following directory path for some reason
+"../media/TypographyTimes.ttf" */
     font-weight: bold;
 }
 
-/* <{ setting up the overal format and property's of the layout }>------------------------- */
+
+/*=--=<{ SETTING UP THE OVERAL FORMAT AND PROPERTY'S OF THE LAYOUT START }>=-=*/
 body
 {
     margin: 0px;
@@ -28,18 +31,21 @@ body
     min-height: 100%;
 }
 
+
 #container
 {
     display: flex;
 }
-/* <{ setting up the overal format and property's of the layout }>------------------------- */
+/*=---=<{ SETTING UP THE OVERAL FORMAT AND PROPERTY'S OF THE LAYOUT END }>=--=*/
 
-/* <{ boarder stuff mostly }>-------------------------------------------------------------- */
+
+/*=--------------------=<{ BOARDER STUFF MOSTLY START }>=--------------------=*/
 .column
 {
     word-wrap: break-word;
     background: white;
 }
+
 
 .column.LR
 {
@@ -52,6 +58,7 @@ body
     background-color: #FFDBE8;
 }
 
+
 .column.LR.main_page
 {
     /* Theme 1.0 color */
@@ -60,22 +67,27 @@ body
     background-color: #FFDBE8;
 }
 
+
 .column.l
 {
     order: 1;
 }
+
 
 .column.r
 {
     order: 3;
 }
 
+
 .column.left_top
 {
-    background-image: url("media/border/page_border_top_left_top_y_reduced_and_x_1_shadow.png");
+    background-image:
+	url("media/border/page_border_top_left_top_y_reduced_and_x_1_shadow.png");
     max-height: 124px;
     min-height: 124px;
 }
+
 
 .column.left_middle
 {
@@ -86,22 +98,29 @@ body
     /* Theme 1.0 background */
     /* background-image: url("media/border/grid_2_left.png"); */
     /* Theme 1.1 background */
-    background-image: url("media/border/grid_2_left_shadow.png"), url("media/border/bg_gif_overlay.png"), url("media/border/bg_l.gif");
+    background-image: url("media/border/grid_2_left_shadow.png"),
+		      url("media/border/bg_gif_overlay.png"),
+		      url("media/border/bg_l.gif");
 }
+
 
 .column.left_bottom
 {
-    background-image: url("media/border/page_border_bottom_left_top_y_reduced_and_x_1_shadow.png");
+    background-image:
+	url("media/border/page_border_bottom_left_top_y_reduced_and_x_1_shadow.png");
     max-height: 124px;
     min-height: 124px;
 }
 
+
 .column.right_top
 {
-    background-image: url("media/border/page_border_top_right_top_y_reduced_and_x_1_shadow.png");
+    background-image:
+	url("media/border/page_border_top_right_top_y_reduced_and_x_1_shadow.png");
     max-height: 124px;
     min-height: 124px;
 }
+
 
 .column.right_middle
 {
@@ -112,15 +131,20 @@ body
     /* Theme 1.0 background */
     background-image: url("media/border/grid_2_right.png");
     /* Theme 1.1 background */
-    background-image: url("media/border/grid_2_right_shadow.png"), url("media/border/bg_gif_overlay.png"), url("media/border/bg_r.gif");
+    background-image: url("media/border/grid_2_right_shadow.png"),
+		      url("media/border/bg_gif_overlay.png"),
+		      url("media/border/bg_r.gif");
 }
+
 
 .column.right_bottom
 {
-    background-image: url("media/border/page_border_bottom_right_top_y_reduced_and_x_1_shadow.png");
+    background-image:
+	url("media/border/page_border_bottom_right_top_y_reduced_and_x_1_shadow.png");
     max-height: 124px;
     min-height: 124px;
 }
+
 
 .head_and_foot
 {
@@ -130,13 +154,15 @@ body
     min-height: 40px;
 }
 
+
 footer
 {/* Value must be vh and not %  !!! */
     min-height: calc(100vh - 110px);
 }
-/* <{ boarder stuff mostly }>-------------------------------------------------------------- */
+/*=---------------------=<{ BOARDER STUFF MOSTLY END }>=---------------------=*/
 
-/* <{ Nice shadow effects }>--------------------------------------------------------------- */
+
+/*=---------------------=<{ NICE SHADOW EFFECTS START }>=--------------------=*/
 .inset_shadow
 {
     /* Theme 1.0 color */
@@ -144,25 +170,32 @@ footer
     /* Theme 1.1 color */
     box-shadow: inset 0 0 15px #bf19e3;
 }
-/* <{ Nice shadow effects }>--------------------------------------------------------------- */
+/*=----------------------=<{ NICE SHADOW EFFECTS END }>=---------------------=*/
 
-/* <{ nav menu }>-------------------------------------------------------------------------- */
+
+/*=--------------------------=<{ NAV MENU START }>=--------------------------=*/
 .menu_list
 {
     list-style: none;
     list-style-type: none;    
 }
+
+
 .menu_list.l
 {
     margin-left: 14px;
     padding-left: 0px;
 }
+
+
 .menu_list.r
 {
     margin-right: 14px;
     padding-right: 0px;
     padding-left: 0px; / *I think a non-zero padding value is being inherited when this is used in tools.php */
 }
+
+
 .menu_element
 {
     font-size: 1.15em;
@@ -171,63 +204,88 @@ footer
     background-image: url("media/menu_item/menu_item_not_highlited.png");
     margin-top: 12px;
     margin-bottom: 12px;
-    /* Padding: 8px; *//* 8px is right on Firefox Quantum 61.0.1 on Ubuntu but not on Firefox 64.0.1 on Android */
+    /* Padding: 8px; *//* 8px is right on Firefox Quantum 61.0.1 on Ubuntu but
+not on Firefox 64.0.1 on Android */
     padding: 7px; 		/* Right on Firefox 64.0.1 on Android */
     padding-left: 32px;
     padding-right: 32px;
 }
+
+
 .menu_element.l
 {
     text-align: right;
     /* Theme 1.0 color */
-    /* box-shadow:  -2px 0px 0px 0px #ce3c61, 0 3px 3px 0px #c40e00,  0 -3px 3px 0px #c40e00; */
+    /* box-shadow:  -2px 0px 0px 0px #ce3c61, 0 3px 3px 0px #c40e00,
+0 -3px 3px 0px #c40e00; */
     /* Theme 1.1 color */
-    box-shadow:  -2px 0px 0px 0px #ce3cb7, 0 3px 3px 0px #ce3cb7,  0 -3px 3px 0px #ce3cb7;
+    box-shadow: -2px 0px 0px 0px #ce3cb7, 0 3px 3px 0px #ce3cb7,
+		 0 -3px 3px 0px #ce3cb7;
 }
+
+
 .menu_element.r
 {
     text-align: left;
     /* Theme 1.0 color */
-    /* box-shadow:  4px 0px 0px 0px #ce3c61, 1px 3px 3px 0px #c40e00,  1px -3px 3px 0px #c40e00; */
+    /* box-shadow:  4px 0px 0px 0px #ce3c61, 1px 3px 3px 0px #c40e00,
+1px -3px 3px 0px #c40e00; */
     /* Theme 1.1 color */
-    box-shadow:  4px 0px 0px 0px #ce3cb7, 1px 3px 3px 0px #ce3cb7,  1px -3px 3px 0px #ce3cb7;
+    box-shadow: 4px 0px 0px 0px #ce3cb7, 1px 3px 3px 0px #ce3cb7,
+		1px -3px 3px 0px #ce3cb7;
 }
+
 
 .menu_element:hover
 {
     background-image: url("media/menu_item/menu_item_highlited.png");
 }
 
+
 .current_page
 {
-    background-image: url("media/menu_item/menu_item_current_page_not_highlited.png");
+    background-image:
+	url("media/menu_item/menu_item_current_page_not_highlited.png");
 }
+
 
 .current_parent_page
 {
-    background-image: url("media/menu_item/menu_item_current_parent_page_not_highlited.png");
+    background-image:
+	url("media/menu_item/menu_item_current_parent_page_not_highlited.png");
 }
+
 
 .current_page:hover
 {
-    background-image: url("media/menu_item/menu_item_current_page_highlited.png");
+    background-image:
+	url("media/menu_item/menu_item_current_page_highlited.png");
 }
-/* <{ nav menu }>-------------------------------------------------------------------------- */
+/*=---------------------------=<{ NAV MENU END }>=---------------------------=*/
 
-/* <{ links }>----------------------------------------------------------------------------- */
-.a_gui_element:visited		/* used to have GUI element's (such as the menu buttons not change colour when visited like other links.) */
+
+/*=----------------------------=<{ LINKS START }>=---------------------------=*/
+/* Used to have GUI element's (such as the menu buttons not change colour when
+visited like other links.) */
+.a_gui_element:visited
 {
     color: #6bfdff;
 }
-a, span.link	   /* link color when not hovering, focus or active */
+
+
+a, span.link	/* Link color when not hovering, focus or active. */
 {
     color: #6bfdff;
     text-decoration: underline;
 }
+
+
 a:visited
 {
     color: #ff48ff;
 }
+
+
 a:hover, a:focus, a:active, a:visited:hover, a:visited:focus, a:visited:active
 {
     color: #000084;
@@ -235,13 +293,16 @@ a:hover, a:focus, a:active, a:visited:hover, a:visited:focus, a:visited:active
     text-decoration: underline;
     text-shadow: 2px 2px #ff0000;
 }
+
+
 .articleLink
 {
     text-shadow: 1px 1px purple;
 }
-/* <{ links }>----------------------------------------------------------------------------- */
+/*=-----------------------------=<{ LINKS END }>=----------------------------=*/
 
-/* <{ paragraphs, text, etc... }>------------------------------------------------------------------------ */
+
+/*=------------------=<{ PARAGRAPHS, TEXT, ETC... START }>=------------------=*/
 p
 {
     font-style: italic;
@@ -256,16 +317,18 @@ p
     word-break: break-word;
 }
 
+
 article
 {
     max-width: 1920px;
     /*    text-align: center;*/
     margin: 0 auto;
-/*    margin-bottom: 16px;*/
+    /*    margin-bottom: 16px;*/
     padding: 20px;
     text-align: left;
     word-break: break-word;
 }
+
 
 strong, h2, h3, h4, h5, h6
 {
@@ -276,10 +339,12 @@ strong, h2, h3, h4, h5, h6
     text-shadow: 1px 1px #03004D;
 }
 
+
 small
 {
     color: #D4C895;
 }
+
 
 em
 {
@@ -289,13 +354,15 @@ em
     color: #2b0017;
 }
 
+
 .refernce
 {
     color: #ff01fc;
 }
-/* <{ paragraphs, text, etc... }>------------------------------------------------------------------------ */
+/*=-------------------=<{ PARAGRAPHS, TEXT, ETC... END }>=-------------------=*/
 
-/* <{ main content area of page }>----------------------------------------------------------------------- */
+
+/*=------------------=<{ MAIN CONTENT AREA OF PAGE START }>=-----------------=*/
 main
 {
     order: 2;
@@ -308,19 +375,22 @@ main
     border-top: 5px solid #ce3cb7;
     border-bottom: 5px solid #ce3cb7;
     background-color: #FFFCE8;
-
     padding-bottom: -10px;
-    /* the value here must be vh and not % otherwise this property will not work for some reason :'(. */ 
+    /* the value here must be vh and not % otherwise this property will not work
+for some reason :'(. */ 
 }
+
 
 #articleTopOfPageButtonSpacer
 {
     height: 42px;
 }
 
+
 #position_main_part_of_main
 {
-    /*min-height: 422px;*/		/* Minimum height of the side bars (not including top and bottom boarders. */
+    /*min-height: 422px;*/		/* Minimum height of the side bars (not
+including top and bottom boarders. */
     min-height: 465px;
     height: calc(100vh - 90px);
     min-width: 360px;
@@ -329,10 +399,12 @@ main
     overflow: auto;
 }
 
+
 .heading_oval
-{/* note (very important!) the radius must be half of the length and width, to which is added the padding value.
-S0 width: 350px; and padding: 0px; would be (350/2) +0  = 175, and height: 60px; and padding 0px; would be (60/2) +0 =30px!
-If you don't do this the corners will be cut off :'(	*/
+{	/* note (very important!) the radius must be half of the length and
+width, to which is added the padding value. S0 width: 350px; and padding: 0px;
+would be (350/2) +0  = 175, and height: 60px; and padding 0px; would be (60/2)
++0 =30px! If you don't do this the corners will be cut off :'(	*/
     width: 320px;
     height: 60px;
     max-height: 60px;
@@ -346,11 +418,14 @@ If you don't do this the corners will be cut off :'(	*/
     background: #050594;
 }
 
+
 #main_tag_in_main_min_height
-{/* the purpose of this is to make sure that the "To Top of Page" button is always RIGHT at the
-bottom of the page when you make the window very small. */
+{	/* the purpose of this is to make sure that the "To Top of Page" button
+is always RIGHT at the bottom of the page when you make the window very
+small. */
     min-height: 288px;
 }
+
 
 h1
 {
@@ -363,13 +438,16 @@ h1
     font-family: Typographytimes;
 }
 
+
 h1.oval
 {
     text-align: center;
     padding-top: 16px;
     margin: 0px;
-    font-size: 2.1739em;	/* Default size of h1 is 2em. Font is scailed down by 0.92 by inheritance. 2 * (1 / 0.92) = ~2.1739 */
+    font-size: 2.1739em;	/* Default size of h1 is 2em. Font is scailed
+down by 0.92 by inheritance. 2 * (1 / 0.92) = ~2.1739 */
 }
+
 
 #to_top_of_page
 {
@@ -392,10 +470,12 @@ h1.oval
     box-shadow:  0 0 15px #dc6af4;
 }
 
+
 #to_top_of_page:hover
 {
     background: #ffd9d9;
 }
+
 
 #text_align_to_top_of_page
 {
@@ -403,15 +483,17 @@ h1.oval
     text-align: center;
 }
 
+
 #position_to_top_of_page
 {
     position: fixed;
     bottom: calc(35px);
     right: calc(50vw - 90px);
 }
-/* <{ main content area of page }>----------------------------------------------------------------------- */
+/*=-------------------=<{ MAIN CONTENT AREA OF PAGE END }>=------------------=*/
 
-/* <{ misc }>-------------------------------------------------------------------------------------------- */
+
+/*=----------------------------=<{ MISC START }>=----------------------------=*/
 ul
 {
     list-style: square inside url("media/bullet_point.png");
@@ -419,10 +501,12 @@ ul
     margin-bottom: 0px;
 }
 
+
 ol
 {
     margin-left: 19px;
 }
+
 
 li
 {
@@ -436,6 +520,7 @@ li
     /*    color: #03004D;*/
     color: #0b0887;
 }
+
 
 table
 {
@@ -453,6 +538,7 @@ table
     box-shadow: 0 0 15px #c40e00;    
 }
 
+
 .no_display
 {
     display: none;
@@ -462,10 +548,12 @@ table
     padding: 0px;
 }
 
+
 input.no_display
 {
     display: none;
 }
+
 
 th
 {
@@ -481,6 +569,7 @@ th
     text-shadow: 1px 1px #03004D;
 }
 
+
 td
 {
     padding-left: 6px;
@@ -492,25 +581,30 @@ td
     vertical-align: bottom;
 }
 
+
 td.v_align_top
 {
     vertical-align: top
 }
+
 
 td.no_display
 {
     display: none;
 }
 
+
 th.no_display
 {
     display: none;
 }
 
+
 th.some_pad
 {
     padding: 8px;
 }
+
 
 td.inner
 {
@@ -518,6 +612,7 @@ td.inner
     padding-bottom: 6px;
     width: calc(100vh);  
 }
+
 
 .table_image
 {
@@ -528,35 +623,42 @@ td.inner
     margin: 6px;   
 }
 
+
 td.enclose_inner
 {
     padding: 0px;
 }
+
 
 td.no_top_border
 {
     border-top-width: 0px;
 }
 
+
 td.no_bottom_border
 {
     border-bottom-width: 0px;
 }
+
 
 td.no_left_border
 {
     border-left-width: 0px;
 }
 
+
 td.no_right_border
 {
     border-right-width: 0px;
 }
 
+
 select
 {
     float: right;
 }
+
 
 input
 {
@@ -567,6 +669,7 @@ input
     max-height: 52px;
 }
 
+
 .accommodation_input
 {
     min-width: 134px;
@@ -574,6 +677,7 @@ input
     min-height: 32px;
     max-height: 32px;    
 }
+
 
 button
 {
@@ -590,10 +694,12 @@ button
     margin-top: 0px;
 }
 
+
 button.fifty_percent
 {
     width: 50%;
 }
+
 
 .font_normal_p
 {
@@ -602,12 +708,14 @@ button.fifty_percent
     
 }
 
+
 .text_align_center
 {
     min-width: 1px;
     margin-left: auto;
     margin-right: auto;
 }
+
 
 .form_field
 {
@@ -621,15 +729,18 @@ button.fifty_percent
     vertical-align: bottom;
 }
 
+
 .float_right
 {
     float: right;
 }
 
+
 .float_left
 {
     float: left;
 }
+
 
 textarea
 {    
@@ -642,10 +753,12 @@ textarea
     float: right;
 }
 
+
 label
 {
     width: 100%;
 }
+
 
 img
 {
@@ -660,20 +773,24 @@ img
     box-shadow: 0 0 15px #bf19e3;
 }
 
+
 img.margin-top
 {
     margin-top: 10px;
 }
+
 
 img.margin-right
 {
     margin-right: 15px;
 }
 
+
 img.margin-left
 {
     margin-left: 15px;
 }
+
 
 pre
 {
@@ -684,6 +801,8 @@ pre
     min-width: calc(100%);
     max-width: 37vw;
 }
+
+
 code
 {
     overflow: auto;
@@ -699,13 +818,16 @@ code
     text-align: left;
 }
 
-::selection			/* Change colour of selected text. */
+
+::selection	/* Change colour of selected text. */
 {
     /* Theme 1.0 color */
     /*  background: #fdd4dc; *//* WebKit/Blink Browsers */
     /* Theme 1.1 color */
     background: #ff4a0a;
 }
+
+
 ::-moz-selection
 {
     /* Theme 1.0 color */
@@ -714,9 +836,10 @@ code
     background: #ff4a0a;
 }
 
+
 .scroll_style
-{				/*#000084, #66FF99 #0021A7 #FFDBE8  #fe78fa;*/
+{	/*#000084, #66FF99 #0021A7 #FFDBE8  #fe78fa;*/
     /* scrollbar-color: #fe78fa  #FFFCE8; */
     scrollbar-color: #66FF99  #FFFCE8;
 }
-/* <{ misc }>-------------------------------------------------------------------------------------------- */
+/*=-----------------------------=<{ MISC END }>=-----------------------------=*/
