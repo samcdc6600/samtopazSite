@@ -450,6 +450,16 @@ down by 0.92 by inheritance. 2 * (1 / 0.92) = ~2.1739 */
 }
 
 
+#position_to_top_of_page
+{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    position: fixed;
+    bottom: calc(35px);
+    right: calc(50vw - 90px);
+}
+
+
 #to_top_of_page
 {
     font-size: 1.15em;
@@ -460,8 +470,6 @@ down by 0.92 by inheritance. 2 * (1 / 0.92) = ~2.1739 */
     height: 60px;
     max-height: 32px;
     margin: 0 auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
     border-radius: 25px;
     /* Theme 1.0 color */
     /* background: #ff7698;
@@ -482,14 +490,6 @@ down by 0.92 by inheritance. 2 * (1 / 0.92) = ~2.1739 */
 {
     padding: 6px;
     text-align: center;
-}
-
-
-#position_to_top_of_page
-{
-    position: fixed;
-    bottom: calc(35px);
-    right: calc(50vw - 90px);
 }
 /*=-------------------=<{ MAIN CONTENT AREA OF PAGE END }>=------------------=*/
 
