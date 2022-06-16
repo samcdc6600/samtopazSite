@@ -12,7 +12,7 @@ top_module_and_left_side_nav("Operating System", "null", true, "null");
 	    
 	    <br><br><h4>Links to All Articles Under Operating Systems</h4>
 	    <p>
-		Here you will find links to every article under the Operating Sys category in the right navigation menu. The links are listed below:
+		Here you will find links to every article under the operating sys category in the right navigation menu. The links are listed below:
 	    </p>
 	    <?php
 	      echoOneDirsLinks("OS");

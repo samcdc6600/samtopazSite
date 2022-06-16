@@ -11,26 +11,31 @@ rm ~/www.samtopaz.com/*;
 # We must also make sure there are no files left by emacs. Files ending in "~" appear to be added as articles.
 # So they must be removed.
 
-# compArch
+# compArch =====================================================================
 # remove crud at articles/compArch
 rm articles/compArch/*~ articles/compArch/*#
 php articles/compArch/tomasulosAlgorithm.php > ~/www.samtopaz.com/tomasulosAlgorithm.html;
 
-# OS
+# OS ===========================================================================
 # remove crud at articles/OS
 rm articles/OS/*~ articles/OS/*#
 php articles/OS/microKernels.php > ~/www.samtopaz.com/microKernels.html;
 php articles/OS/definitionOfAnOperatingSystem.php > ~/www.samtopaz.com/definitionOfAnOperatingSystem.html;
 php articles/OS/meme1.php > ~/www.samtopaz.com/meme1.html;
 
-# programming
+# programming ==================================================================
 # remove crud at articles/programming
 rm articles/programming/*~ articles/programming/*#
 php articles/programming/whyDoesntThisSiteUseJS.php > ~/www.samtopaz.com/whyDoesntThisSiteUseJS.html;
 php articles/programming/xlibGraphicalBrightnessControlAndFreeBSD.php > ~/www.samtopaz.com/xlibGraphicalBrightnessControlAndFreeBSD.html;
 php articles/programming/myGitHub.php > ~/www.samtopaz.com/myGitHub.html;
 php articles/programming/assemblingCodeForAndFlashingAnATmega16.php > ~/www.samtopaz.com/assemblingCodeForAndFlashingAnATmega16.html;
-php articles/programming/automaticallySleepComputerOnLowPower.php > ~/www.samtopaz.com/automaticallySleepComputerOnLowPower.html;
+
+# Misc =========================================================================
+# remove crud at articles/misc
+rm articles/misc/*~ articles/misc/*#
+cp -r articles/misc/media ~/www.samtopaz.com/ # Copy media for misc articles.
+php articles/misc/projects.php > ~/www.samtopaz.com/projects.html;
 
 # copy stylesheet/s
 java -jar yuicompressor-2.4.8.jar --type css mainLayout.css > ~/www.samtopaz.com/mainLayout.css;
@@ -43,6 +48,11 @@ cp  TypographyTimes.ttf ~/www.samtopaz.com/TypographyTimes.ttf;
 cp frivolous.js ~/www.samtopaz.com/frivolous.js;
 
 # copy media
+# +----------------------------------------------------------------------------+
+# | 		NOTE: THAT THIS FOLDER IS NOW CONSIDERED DEPRECATED	       |
+# | 	 AND WE SHOULD MIGRATE ALL ARTICLE MEDIA TO "articles/xxx/media",      |
+# | 			WHERE xxx IS THE ARTICLE CATEGORY.		       |
+# +----------------------------------------------------------------------------+
 cp -r ./media ~/www.samtopaz.com/
 
 # gen main pages
@@ -52,8 +62,10 @@ php index.php > ~/www.samtopaz.com/index.html;
 php about.php > ~/www.samtopaz.com/about.html;
 php contact.php > ~/www.samtopaz.com/contact.html;
 
-# gen article link pages
+# gen article link pages =======================================================
 php allArticles.php > ~/www.samtopaz.com/allArticles.html;
 php operatingSystemArticles.php > ~/www.samtopaz.com/operatingSystemArticles.html;
 php computerArchitectureArticles.php > ~/www.samtopaz.com/computerArchitectureArticles.html;
 php programmingArticles.php > ~/www.samtopaz.com/programmingArticles.html;
+php miscArticles.php > ~/www.samtopaz.com/miscArticles.html
+

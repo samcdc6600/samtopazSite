@@ -12,7 +12,7 @@ top_module_and_left_side_nav("Computer Architecture", "null", true, "null");
 	    
 	    <br><br><h4>Links to All Articles Under Computer Architecture</h4>
 	    <p>
-		Here you will find links to every article under the Comp Arch category in the right navigation menu. The links are listed below:
+		Here you will find links to every article under the comp arch category in the right navigation menu. The links are listed below:
 	    </p>
 	    <?php
 	      echoOneDirsLinks("compArch");

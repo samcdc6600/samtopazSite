@@ -34,6 +34,11 @@ function top_module_and_left_side_nav($pageTitle, $currentPage, $altLook, $cssFo
     <title>$pageTitle</title>
     <link rel="icon" href="media/favicon.ico" type="image/x-icon">
     <link type="text/css" rel="stylesheet" href="./mainLayout.css"/>
+    <!-- Scripts with the async attribute are executed asynchronously. This means
+    the script is executed as soon as it's downloaded, without blocking the
+    browser in the meantime.
+    Scripts with the defer attribute are executed in order (i.e. first
+    script 1, then script 2). This also does not block the browser. -->
     <script src="frivolous.js" async></script>
 </head>
   <body>
@@ -117,7 +122,8 @@ OUTPUT;
 
 
 
-function bottom_module_and_right_side($currentPage, $altLook, $article, $articleCatagory, $parentPage)
+function bottom_module_and_right_side($currentPage, $altLook, $article,
+$articleCatagory, $parentPage)
 {
     $htmlOut = <<<"OUTPUT"
       <div class="column LR main_page r">       <!--*******************Right side of the page (boarder)*******************-->
@@ -128,8 +134,9 @@ function bottom_module_and_right_side($currentPage, $altLook, $article, $article
             	<li><a class=a_gui_element href="./allArticles.html"><div class="menu_element r">All Articles</div></a></li>            
             	<li><a class=a_gui_element href="./computerArchitectureArticles.html"><div class="menu_element r">Comp Arch</div></a></li>
 		<li><a class=a_gui_element href="./operatingSystemArticles.html"><div class="menu_element r">Operating Sys</div></a></li>
-            	<li><a class=a_gui_element href="./programmingArticles.html"><div class="menu_element r">Programming</div></a></li>			
-          </ul>
+            	<li><a class=a_gui_element href="./programmingArticles.html"><div class="menu_element r">Programming</div></a></li>
+		<li><a class=a_gui_element href="./miscArticles.html"><div class="menu_element r">Misc</div></a></li>
+	</ul>
         </nav>
 	</div>
         <div class="column LR main_page right_bottom"></div>
@@ -143,7 +150,7 @@ OUTPUT;
     echo $htmlOut;
 }
 
-//There is a lot of code duplication in the next three function's. This should be fixed at a latter date!
+// There is a lot of code duplication in the next three function's. This should be fixed at a latter date!
 function adjustTopModuleAndRightSideNavForPage($currentPage, $altLook, $article, $htmlOut, $articleCatagory, $parentPage)
 {
     $htmlOut = altLookRightSide($altLook, $htmlOut);
@@ -203,7 +210,7 @@ function echoAllLinks()
 {
     define("one", 1);
     //NOTE: THESE PATHS MUST BE RELATIVE TO THE PHP_ALL.SH SCRIPT NOT THIS FILE!
-    $dirs = array("articles/OS", "articles/compArch", "articles/programming");    
+    $dirs = array("articles/OS", "articles/compArch", "articles/programming", "articles/misc");    
     $dirArray = getAllDirsArr($dirs);//get list of files and store as an array in the dirArray array
     //count elements in array
     $count = count($dirArray);

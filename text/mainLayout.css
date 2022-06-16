@@ -9,7 +9,6 @@
     }
 }
 
-
 @font-face
 {
     font-family: Typographytimes;
@@ -31,7 +30,6 @@ body
     min-height: 100%;
 }
 
-
 #container
 {
     display: flex;
@@ -46,7 +44,6 @@ body
     background: white;
 }
 
-
 .column.LR
 {
     min-width: 220px;
@@ -58,7 +55,6 @@ body
     background-color: #FFDBE8;
 }
 
-
 .column.LR.main_page
 {
     /* Theme 1.0 color */
@@ -67,18 +63,15 @@ body
     background-color: #FFDBE8;
 }
 
-
 .column.l
 {
     order: 1;
 }
 
-
 .column.r
 {
     order: 3;
 }
-
 
 .column.left_top
 {
@@ -87,7 +80,6 @@ body
     max-height: 124px;
     min-height: 124px;
 }
-
 
 .column.left_middle
 {
@@ -103,7 +95,6 @@ body
 		      url("media/border/bg_l.gif");
 }
 
-
 .column.left_bottom
 {
     background-image:
@@ -112,7 +103,6 @@ body
     min-height: 124px;
 }
 
-
 .column.right_top
 {
     background-image:
@@ -120,7 +110,6 @@ body
     max-height: 124px;
     min-height: 124px;
 }
-
 
 .column.right_middle
 {
@@ -136,7 +125,6 @@ body
 		      url("media/border/bg_r.gif");
 }
 
-
 .column.right_bottom
 {
     background-image:
@@ -145,7 +133,6 @@ body
     min-height: 124px;
 }
 
-
 .head_and_foot
 {
     background-image: url("media/border/border_top_and_bottom.png");
@@ -153,7 +140,6 @@ body
     width: 100%;
     min-height: 40px;
 }
-
 
 footer
 {/* Value must be vh and not %  !!! */
@@ -180,13 +166,11 @@ footer
     list-style-type: none;    
 }
 
-
 .menu_list.l
 {
     margin-left: 14px;
     padding-left: 0px;
 }
-
 
 .menu_list.r
 {
@@ -195,7 +179,6 @@ footer
     padding-left: 0px; /* I think a non-zero padding value is being inherited
 when this is used in tools.php */
 }
-
 
 .menu_element
 {
@@ -212,7 +195,6 @@ not on Firefox 64.0.1 on Android */
     padding-right: 32px;
 }
 
-
 .menu_element.l
 {
     text-align: right;
@@ -223,7 +205,6 @@ not on Firefox 64.0.1 on Android */
     box-shadow: -2px 0px 0px 0px #ce3cb7, 0 3px 3px 0px #ce3cb7,
 		 0 -3px 3px 0px #ce3cb7;
 }
-
 
 .menu_element.r
 {
@@ -236,12 +217,10 @@ not on Firefox 64.0.1 on Android */
 		1px -3px 3px 0px #ce3cb7;
 }
 
-
 .menu_element:hover
 {
     background-image: url("media/menu_item/menu_item_highlited.png");
 }
-
 
 .current_page
 {
@@ -249,13 +228,11 @@ not on Firefox 64.0.1 on Android */
 	url("media/menu_item/menu_item_current_page_not_highlited.png");
 }
 
-
 .current_parent_page
 {
     background-image:
 	url("media/menu_item/menu_item_current_parent_page_not_highlited.png");
 }
-
 
 .current_page:hover
 {
@@ -273,19 +250,16 @@ visited like other links.) */
     color: #6bfdff;
 }
 
-
 a, span.link	/* Link color when not hovering, focus or active. */
 {
     color: #6bfdff;
     text-decoration: underline;
 }
 
-
 a:visited
 {
     color: #ff48ff;
 }
-
 
 a:hover, a:focus, a:active, a:visited:hover, a:visited:focus, a:visited:active
 {
@@ -294,7 +268,6 @@ a:hover, a:focus, a:active, a:visited:hover, a:visited:focus, a:visited:active
     text-decoration: underline;
     text-shadow: 2px 2px #ff0000;
 }
-
 
 .articleLink
 {
@@ -318,7 +291,6 @@ p
     word-break: break-word;
 }
 
-
 article
 {
     max-width: 1920px;
@@ -330,7 +302,6 @@ article
     word-break: break-word;
 }
 
-
 strong, h2, h3, h4, h5, h6
 {
     /* Theme 1.0 color */
@@ -340,12 +311,10 @@ strong, h2, h3, h4, h5, h6
     text-shadow: 1px 1px #03004D;
 }
 
-
 small
 {
     color: #D4C895;
 }
-
 
 em
 {
@@ -354,7 +323,6 @@ em
     /* color: #ff3389; */
     color: #2b0017;
 }
-
 
 .refernce
 {
@@ -381,12 +349,10 @@ main
 for some reason :'(. */ 
 }
 
-
 #articleTopOfPageButtonSpacer
 {
     height: 42px;
 }
-
 
 #position_main_part_of_main
 {
@@ -399,7 +365,6 @@ including top and bottom boarders. */
     padding: 0px;
     overflow: auto;
 }
-
 
 .heading_oval
 {	/* note (very important!) the radius must be half of the length and
@@ -419,14 +384,12 @@ would be (350/2) +0  = 175, and height: 60px; and padding 0px; would be (60/2)
     background: #050594;
 }
 
-
 #main_tag_in_main_min_height
 {	/* the purpose of this is to make sure that the "To Top of Page" button
 is always RIGHT at the bottom of the page when you make the window very
 small. */
     min-height: 288px;
 }
-
 
 h1
 {
@@ -439,7 +402,6 @@ h1
     font-family: Typographytimes;
 }
 
-
 h1.oval
 {
     text-align: center;
@@ -449,7 +411,6 @@ h1.oval
 down by 0.92 by inheritance. 2 * (1 / 0.92) = ~2.1739 */
 }
 
-
 #position_to_top_of_page
 {
     margin-top: 20px;
@@ -458,7 +419,6 @@ down by 0.92 by inheritance. 2 * (1 / 0.92) = ~2.1739 */
     bottom: calc(35px);
     right: calc(50vw - 90px);
 }
-
 
 #to_top_of_page
 {
@@ -479,12 +439,10 @@ down by 0.92 by inheritance. 2 * (1 / 0.92) = ~2.1739 */
     box-shadow:  0 0 15px #dc6af4;
 }
 
-
 #to_top_of_page:hover
 {
     background: #ffd9d9;
 }
-
 
 #text_align_to_top_of_page
 {
@@ -502,12 +460,10 @@ ul
     margin-bottom: 0px;
 }
 
-
 ol
 {
     margin-left: 19px;
 }
-
 
 li
 {
@@ -521,7 +477,6 @@ li
     /*    color: #03004D;*/
     color: #0b0887;
 }
-
 
 table
 {
@@ -539,7 +494,6 @@ table
     box-shadow: 0 0 15px #c40e00;    
 }
 
-
 .no_display
 {
     display: none;
@@ -549,12 +503,10 @@ table
     padding: 0px;
 }
 
-
 input.no_display
 {
     display: none;
 }
-
 
 th
 {
@@ -570,7 +522,6 @@ th
     text-shadow: 1px 1px #03004D;
 }
 
-
 td
 {
     padding-left: 6px;
@@ -582,30 +533,25 @@ td
     vertical-align: bottom;
 }
 
-
 td.v_align_top
 {
     vertical-align: top
 }
-
 
 td.no_display
 {
     display: none;
 }
 
-
 th.no_display
 {
     display: none;
 }
 
-
 th.some_pad
 {
     padding: 8px;
 }
-
 
 td.inner
 {
@@ -613,7 +559,6 @@ td.inner
     padding-bottom: 6px;
     width: calc(100vh);  
 }
-
 
 .table_image
 {
@@ -624,42 +569,35 @@ td.inner
     margin: 6px;   
 }
 
-
 td.enclose_inner
 {
     padding: 0px;
 }
-
 
 td.no_top_border
 {
     border-top-width: 0px;
 }
 
-
 td.no_bottom_border
 {
     border-bottom-width: 0px;
 }
-
 
 td.no_left_border
 {
     border-left-width: 0px;
 }
 
-
 td.no_right_border
 {
     border-right-width: 0px;
 }
 
-
 select
 {
     float: right;
 }
-
 
 input
 {
@@ -670,7 +608,6 @@ input
     max-height: 52px;
 }
 
-
 .accommodation_input
 {
     min-width: 134px;
@@ -678,7 +615,6 @@ input
     min-height: 32px;
     max-height: 32px;    
 }
-
 
 button
 {
@@ -695,12 +631,10 @@ button
     margin-top: 0px;
 }
 
-
 button.fifty_percent
 {
     width: 50%;
 }
-
 
 .font_normal_p
 {
@@ -709,14 +643,12 @@ button.fifty_percent
     
 }
 
-
 .text_align_center
 {
     min-width: 1px;
     margin-left: auto;
     margin-right: auto;
 }
-
 
 .form_field
 {
@@ -730,18 +662,15 @@ button.fifty_percent
     vertical-align: bottom;
 }
 
-
 .float_right
 {
     float: right;
 }
 
-
 .float_left
 {
     float: left;
 }
-
 
 textarea
 {    
@@ -754,12 +683,10 @@ textarea
     float: right;
 }
 
-
 label
 {
     width: 100%;
 }
-
 
 img
 {
@@ -774,24 +701,54 @@ img
     box-shadow: 0 0 15px #bf19e3;
 }
 
-
-img.margin-top
+img.float-right
 {
-    margin-top: 10px;
-}
-
-
-img.margin-right
-{
-    margin-right: 15px;
-}
-
-
-img.margin-left
-{
+    float: right;
+    width: 48%;
+    height: 48%;
+    /* Theme 1.1 color */
+    box-shadow: 0 0 15px #bf19e3;
     margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 15px;
 }
 
+/* Should be applied to image enclosed by div with div.slideShow applied. */
+img.slideShow
+{
+    width: 96%;
+}
+
+video.float-right
+{
+/*    clear: left;*/
+    float: right;
+    width: 48%;
+    height: 48%;
+    /* Theme 1.1 color */
+    box-shadow: 0 0 15px #bf19e3;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+}
+
+/* Should be applied to video enclosed by div with div.slideShow applied. */
+video.slideShow
+{
+    width: 96%;
+}
+
+div.slideShow
+{
+    float: right;
+    width: 50%;
+    padding-left: 15px;
+}
+
+div.articleSection
+{
+    overflow: hidden;
+}
 
 pre
 {
@@ -802,7 +759,6 @@ pre
     min-width: calc(100%);
     max-width: 37vw;
 }
-
 
 code
 {
@@ -819,7 +775,6 @@ code
     text-align: left;
 }
 
-
 ::selection	/* Change colour of selected text. */
 {
     /* Theme 1.0 color */
@@ -828,7 +783,6 @@ code
     background: #ff4a0a;
 }
 
-
 ::-moz-selection
 {
     /* Theme 1.0 color */
@@ -836,7 +790,6 @@ code
     /* Theme 1.1 color */
     background: #ff4a0a;
 }
-
 
 .scroll_style
 {	/*#000084, #66FF99 #0021A7 #FFDBE8  #fe78fa;*/

@@ -11,7 +11,7 @@ top_module_and_left_side_nav("Programming", "null", true, "null");
 	    ?>
 	    <br><br><h4>Links to All Articles Under Programming</h4>
 	    <p>
-		Here you will find links to every article under the Programming category in the right navigation menu. The links are listed below:
+		Here you will find links to every article under the programming category in the right navigation menu. The links are listed below:
 	    </p>
 	    <?php
 	      echoOneDirsLinks("programming");
