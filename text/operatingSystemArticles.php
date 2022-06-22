@@ -31,6 +31,4 @@ top_module_and_left_side_nav("Operating System", "null", true, "null");
       <?php
 	bottom_module_and_right_side("operatingSystemArticles.html", true, false, "", "", "");
 	?>
-  
-  </body>
-</html>
+	

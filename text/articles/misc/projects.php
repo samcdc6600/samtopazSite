@@ -55,13 +55,13 @@ top_module_and_left_side_nav("P R O J E C T S", "null", true, "null");
 	<div class="articleSection">
 	  <h4>Binary Clock</h4>
 
-	  <div class="slideShow">
-	    <video class="float-right slideShow" controls
+	  <div class="slideshowContainer">
+	    <video class="float-right slideshow" controls
 		   autoplay loop>
 	      <source src="media/videos/binaryClockDemo.mp4" type="video/mp4">
 		1 Your browsing software does not seem to support the video tag.
 	    </video>
-	    <img class="float-right slideShow"
+	    <img class="float-right slideshow"
 		 src="media/images/binaryClockRender.jpg"
 		 alt="3D render of binary clock.">
 	  </div>
@@ -78,6 +78,74 @@ top_module_and_left_side_nav("P R O J E C T S", "null", true, "null");
 	    IS THE TEXT! 
 	  </p>
 	</div>
+
+		<div class="articleSection">
+	  <h4>block Clock</h4>
+
+	  <div class="slideshowContainer">
+	    <img class="float-right slideshow"
+		 src="media/images/binaryClockRender.jpg"
+		 alt="3D render of binary clock.">
+	    <video class="float-right slideshow" controls
+		   autoplay loop>
+	      <source src="media/videos/binaryClockDemo.mp4" type="video/mp4">
+		1 Your browsing software does not seem to support the video tag.
+	    </video>
+	  </div>
+	      
+	  <p>
+	    THIS IS THE hexen! THIS IS THE hexen! THIS IS THE hexen! THIS IS THE
+	    hexen! THIS IS THE hexen! THIS IS THE hexen! THIS IS THE hexen! THIS IS
+	    THE hexen! THIS IS THE hexen! THIS IS THE hexen! THIS IS THE hexen! THIS
+	    IS THE hexen! THIS IS THE hexen! THIS IS THE hexen! THIS IS THE hexen!
+	    THIS IS THE hexen! THIS IS THE hexen! THIS IS THE hexen! THIS IS THE
+	    hexen! THIS IS THE hexen! THIS IS THE hexen! THIS IS THE hexen! THIS IS
+	    THE hexen! THIS IS THE hexen! THIS IS THE hexen! THIS IS THE hexen! THIS
+	    IS THE hexen! THIS IS THE hexen!THIS IS THE hexen! THIS IS THE hexen! THIS
+	    IS THE hexen! 
+	  </p>
+		</div>
+
+
+
+
+				<div class="articleSection">
+	  <h4>Binary cock!!</h4>
+
+	  <div class="slideshowContainer">
+	    <video class="float-right slideshow" controls
+		   autoplay loop>
+	      <source src="media/videos/xFrog3dDemo.webm" type="video/webm">
+		1 Your browsing software does not seem to support the video tag.
+	    </video>
+	    
+	    <img class="float-right slideshow"
+		 src="media/images/binaryClockRender.jpg"
+		 alt="3D render of binary clock.">
+	    
+	    <video class="float-right slideshow" controls
+		   autoplay loop>
+	      <source src="media/videos/binaryClockDemo.mp4" type="video/mp4">
+		1 Your browsing software does not seem to support the video tag.
+	    </video>
+
+	    	    <img class="float-right slideshow"
+		 src="media/images/arrowGradiant.png"
+		 alt="3D render of binary clock.">
+	  </div>
+	      
+	  <p>
+	    THIS IS laggyBoy sext! THIS IS laggyBoy sext! THIS IS laggyBoy sext! THIS IS laggyBoy
+	    sext! THIS IS laggyBoy sext! THIS IS laggyBoy sext! THIS IS laggyBoy sext! THIS IS
+	    laggyBoy sext! THIS IS laggyBoy sext! THIS IS laggyBoy sext! THIS IS laggyBoy sext! THIS
+	    IS laggyBoy sext! THIS IS laggyBoy sext! THIS IS laggyBoy sext! THIS IS laggyBoy sext!
+	    THIS IS laggyBoy sext! THIS IS laggyBoy sext! THIS IS laggyBoy sext! THIS IS laggyBoy
+	    sext! THIS IS laggyBoy sext! THIS IS laggyBoy sext! THIS IS laggyBoy sext! THIS IS
+	    laggyBoy sext! THIS IS laggyBoy sext! THIS IS laggyBoy sext! THIS IS laggyBoy sext! THIS
+	    IS laggyBoy sext! THIS IS laggyBoy sext!THIS IS laggyBoy sext! THIS IS laggyBoy sext! THIS
+	    IS laggyBoy sext! 
+	  </p>
+	</div>
 	
         </article>
 	
@@ -92,6 +160,3 @@ top_module_and_left_side_nav("P R O J E C T S", "null", true, "null");
 	bottom_module_and_right_side("projects.html", true, true, "misc",
 "miscArticles.html");
 ?>
-  
-</body>
-</html>

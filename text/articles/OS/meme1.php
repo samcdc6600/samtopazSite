@@ -22,6 +22,3 @@ top_module_and_left_side_nav("OS Meme 1", "null", true, "null");
 <?php
 	bottom_module_and_right_side("meme1.html", true, true, "OS", "operatingSystemArticles.html");
 ?>
-  
-</body>
-</html>

@@ -26,6 +26,3 @@ top_module_and_left_side_nav("~*{My-Github}*~", "null", true, "null");
 <?php
 	bottom_module_and_right_side("myGitHub.html", true, true, "programming", "programmingArticles.html");
 ?>
-  
-</body>
-</html>

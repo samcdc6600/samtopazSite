@@ -31,6 +31,3 @@ top_module_and_left_side_nav("About", "about.html", true, "null");
       <?php
 	bottom_module_and_right_side("null", true, false, "", "");
 	?>
-  
-  </body>
-</html>

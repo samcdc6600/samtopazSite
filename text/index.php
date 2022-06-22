@@ -55,6 +55,3 @@ Hello and welcome to samtopaz.com, you are viewing Sam's home page and are hereb
       <?php
 	bottom_module_and_right_side("null", false, false, "", "");
 	?>
-  
-  </body>
-</html>

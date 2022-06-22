@@ -30,6 +30,3 @@ top_module_and_left_side_nav("Programming", "null", true, "null");
       <?php
 	bottom_module_and_right_side("programmingArticles.html", true, false, "", "", "");
 	?>
-  
-  </body>
-</html>

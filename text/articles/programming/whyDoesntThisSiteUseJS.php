@@ -33,6 +33,3 @@
 <?php
   bottom_module_and_right_side("whyDoesntThisSiteUseJS.html", true, true, "programming", "programmingArticles.html");
 ?>
-
-</body>
-</html>

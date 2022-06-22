@@ -26,6 +26,3 @@ top_module_and_left_side_nav("What is Tomasulo's Algorithm", "null", true, "null
 <?php
 	bottom_module_and_right_side("tomasulosAlgorithm.html", true, true, "compArch", "computerArchitectureArticles.html");
 ?>
-  
-</body>
-</html>

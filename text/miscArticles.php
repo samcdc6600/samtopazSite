@@ -30,6 +30,3 @@ top_module_and_left_side_nav("Misc", "null", true, "null");
       <?php
 	bottom_module_and_right_side("miscArticles.html", true, false, "", "", "");
 	?>
-  
-  </body>
-</html>

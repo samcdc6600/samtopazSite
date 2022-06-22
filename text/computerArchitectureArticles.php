@@ -32,6 +32,3 @@ top_module_and_left_side_nav("Computer Architecture", "null", true, "null");
       <?php
 	bottom_module_and_right_side("computerArchitectureArticles.html", true, false, "", "", "");
 	?>
-  
-  </body>
-</html>

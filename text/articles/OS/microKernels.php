@@ -25,6 +25,3 @@ top_module_and_left_side_nav("About Microkernels", "null", true, "null");
 <?php
 	bottom_module_and_right_side("microKernels.html", true, true, "OS", "operatingSystemArticles.html");
 ?>
-  
-</body>
-</html>

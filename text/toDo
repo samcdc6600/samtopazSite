@@ -1,3 +1,2 @@
-*	Finish "Assembling Code for and Flashing an Atmega16" article!
 *	change build script so that it automatically finds .php files to execute and
 	they don't have to be explicitly specified!

@@ -393,7 +393,4 @@ avrdude done.  Thank you.</code></pre>
 
 <?php
   bottom_module_and_right_side("assemblingCodeForAndFlashingAnATmega16.html", true, true, "programming", "programmingArticles.html");
-?>
-
-</body>
-</html>
+  ?>

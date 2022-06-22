@@ -193,6 +193,9 @@ not on Firefox 64.0.1 on Android */
     padding: 7px; 		/* Right on Firefox 64.0.1 on Android */
     padding-left: 32px;
     padding-right: 32px;
+    /* Height is fine on Firefox on Linux and BSD, but not on Firefox on
+       Window$ */
+    height: 18px;
 }
 
 .menu_element.l
@@ -273,6 +276,64 @@ a:hover, a:focus, a:active, a:visited:hover, a:visited:focus, a:visited:active
 {
     text-shadow: 1px 1px purple;
 }
+
+a.slideshowButton
+{
+    display: block;
+    position: relative;
+    height: 52px;
+    width: 52px;
+    background-size: 52px 52px;
+    z-index: 1;
+}
+
+a.slideshowButton.previous
+{
+    right: 5px;
+    background-image: url("media/misc/purpuleOrbLeftArrowButtonSmallWithDropShadow.png");
+}
+
+a.slideshowButton.previous:hover
+{
+    background-image: url("media/misc/lighterPurpuleOrbLeftArrowButtonSmallWithDropShadow.png");
+}
+
+a.slideshowButton.next
+{
+    left: 43px;			/* 15 + 52. */
+    bottom: 52px;		/* This will probably be reset */
+    background-image: url("media/misc/purpuleOrbRightArrowButtonSmallWithDropShadow.png");
+}
+
+a.slideshowButton.next:hover
+{
+    background-image: url("media/misc/lighterPurpuleOrbRightArrowButtonSmallWithDropShadow.png");
+}
+
+a.slideshowButton.pause
+{
+    left: 91px;
+    bottom: 104px;		/* This will probably be reset */
+    background-image: url("media/misc/smallPauseButtonWithDropShadow.png");
+}
+
+a.slideshowButton.pause:hover
+{
+    background-image:
+	url("media/misc/lighterSmallPauseButtonWithDropShadow.png");
+}
+
+a.slideshowButton.play
+{
+    left: 91px;
+    bottom: 104px;		/* This will probably be reset */
+    background-image: url("media/misc/greenPlayButtonWithDropShadow.png");
+}
+
+a.slideshowButton.play:hover
+{
+    background-image: url("media/misc/lighterGreenPlayButtonWithDropShadow.png");
+}
 /*=-----------------------------=<{ LINKS END }>=----------------------------=*/
 
 
@@ -311,6 +372,11 @@ strong, h2, h3, h4, h5, h6
     text-shadow: 1px 1px #03004D;
 }
 
+strong.stronger
+{
+    font-size: 1.25em;
+}
+
 small
 {
     color: #D4C895;
@@ -343,7 +409,12 @@ main
     /* There 1.1 color */
     border-top: 5px solid #ce3cb7;
     border-bottom: 5px solid #ce3cb7;
-    background-color: #FFFCE8;
+    /*background-color: #FFFCE8;*/
+    /* background: */
+    /* 	url(""); */
+    /* background-repeat: repeat; */
+    background: url("media/misc/backgroundReducedSizeAndOpacity2.png");
+    background-color: #fffce8; /*f8ebf9;*/
     padding-bottom: -10px;
     /* the value here must be vh and not % otherwise this property will not work
 for some reason :'(. */ 
@@ -701,11 +772,22 @@ img
     box-shadow: 0 0 15px #bf19e3;
 }
 
+/* Should be applied to image enclosed by div with div.slideshow applied. */
+img.slideshow
+{
+    background-image: linear-gradient(/*to right,*/ #ecbaf7, #8133ff, #ecbaf7);
+    width: 100%;
+    object-fit: contain;
+    float: right;
+    margin: 0px;
+    margin-bottom: 6px;
+}
+
 img.float-right
 {
     float: right;
-    width: 48%;
-    height: 48%;
+    width: 40%;
+    min-width: 200px;
     /* Theme 1.1 color */
     box-shadow: 0 0 15px #bf19e3;
     margin-left: 15px;
@@ -713,36 +795,58 @@ img.float-right
     margin-bottom: 15px;
 }
 
-/* Should be applied to image enclosed by div with div.slideShow applied. */
-img.slideShow
+video
 {
-    width: 96%;
+    box-shadow: 0 0 15px #bf19e3;
 }
 
 video.float-right
 {
-/*    clear: left;*/
     float: right;
-    width: 48%;
-    height: 48%;
+    width: 40%;
+    min-width: 200px;
     /* Theme 1.1 color */
     box-shadow: 0 0 15px #bf19e3;
+    background-image: linear-gradient(/*to right,*/ #ecbaf7, #8133ff, #ecbaf7);
     margin-left: 15px;
     margin-right: 15px;
     margin-bottom: 15px;
 }
 
-/* Should be applied to video enclosed by div with div.slideShow applied. */
-video.slideShow
+/* Should be applied to video enclosed by div with div.slideshow applied. */
+video.slideshow
 {
-    width: 96%;
+    background-image: linear-gradient(/*to right,*/ #ecbaf7, #8133ff, #ecbaf7);
+    width: 100%;
+    object-fit: contain;
+    float: right;
+    margin: 0px;
+    margin-bottom: 6px;
 }
 
-div.slideShow
+div.slideshowContainer
 {
     float: right;
-    width: 50%;
-    padding-left: 15px;
+    width: 40%;
+    min-width: 200px;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+}
+
+div.slideshowSlideNumberCounter
+{
+    /* display: block; */
+    /* position: relative; */
+    /* float: right; */
+    /* position: relative; */
+    /* bottom: 30px; */
+    padding: 0px;
+    margin: 0px;
+    display: inline;
+    margin-left: 144px;
+    color: #ff01fc;
+    text-shadow: 1px 1px 5px #0800ff;
 }
 
 div.articleSection

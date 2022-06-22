@@ -2,8 +2,8 @@
 
 # Make the directory if it dosen't exist
 mkdir ~/www.samtopaz.com
-# clear destination directory's
-rm ~/www.samtopaz.com/*;
+# Clear target dir's ===========================================================
+rm -r ~/www.samtopaz.com/*
 
 # gen article pages
 # NOTE: this must be done after clearing the destination directory's but before generating the article link
@@ -34,7 +34,7 @@ php articles/programming/assemblingCodeForAndFlashingAnATmega16.php > ~/www.samt
 # Misc =========================================================================
 # remove crud at articles/misc
 rm articles/misc/*~ articles/misc/*#
-cp -r articles/misc/media ~/www.samtopaz.com/ # Copy media for misc articles.
+cp -r articles/misc/media ~/www.samtopaz.com/ # Copy media for misc articles.\
 php articles/misc/projects.php > ~/www.samtopaz.com/projects.html;
 
 # copy stylesheet/s

@@ -31,6 +31,3 @@ top_module_and_left_side_nav("All Articles", "null", true, "null");
       <?php
     bottom_module_and_right_side("allArticles.html", true, false, "", "", ""); 
 	?>
-  
-  </body>
-</html>

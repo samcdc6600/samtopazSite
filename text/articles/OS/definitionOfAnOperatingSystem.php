@@ -30,6 +30,3 @@ top_module_and_left_side_nav("Definition of An Operating System", "null", true, 
 <?php
 	bottom_module_and_right_side("definitionOfAnOperatingSystem.html", true, true, "OS", "operatingSystemArticles.html");
 ?>
-  
-</body>
-</html>

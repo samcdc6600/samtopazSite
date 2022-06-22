@@ -209,6 +209,3 @@ It appears in the top left hand	corner of the display and has a	gap of two pixel
 <?php
 	bottom_module_and_right_side("xlibGraphicalBrightnessControlAndFreeBSD.html", true, true, "programming", "programmingArticles.html");
 ?>
-  
-</body>
-</html>
