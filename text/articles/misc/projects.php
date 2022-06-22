@@ -56,12 +56,12 @@ top_module_and_left_side_nav("P R O J E C T S", "null", true, "null");
 	  <h4>Binary Clock</h4>
 
 	  <div class="slideshowContainer">
-	    <video class="float-right slideshow" controls
+	    <video class="float-right noJsSlideshow" controls
 		   autoplay loop>
 	      <source src="media/videos/binaryClockDemo.mp4" type="video/mp4">
 		1 Your browsing software does not seem to support the video tag.
 	    </video>
-	    <img class="float-right slideshow"
+	    <img class="float-right noJsSlideshow"
 		 src="media/images/binaryClockRender.jpg"
 		 alt="3D render of binary clock.">
 	  </div>
@@ -83,10 +83,10 @@ top_module_and_left_side_nav("P R O J E C T S", "null", true, "null");
 	  <h4>block Clock</h4>
 
 	  <div class="slideshowContainer">
-	    <img class="float-right slideshow"
+	    <img class="float-right noJsSlideshow"
 		 src="media/images/binaryClockRender.jpg"
 		 alt="3D render of binary clock.">
-	    <video class="float-right slideshow" controls
+	    <video class="float-right noJsSlideshow" controls
 		   autoplay loop>
 	      <source src="media/videos/binaryClockDemo.mp4" type="video/mp4">
 		1 Your browsing software does not seem to support the video tag.
@@ -113,23 +113,23 @@ top_module_and_left_side_nav("P R O J E C T S", "null", true, "null");
 	  <h4>Binary cock!!</h4>
 
 	  <div class="slideshowContainer">
-	    <video class="float-right slideshow" controls
+	    <video class="float-right noJsSlideshow" controls
 		   autoplay loop>
 	      <source src="media/videos/xFrog3dDemo.webm" type="video/webm">
 		1 Your browsing software does not seem to support the video tag.
 	    </video>
 	    
-	    <img class="float-right slideshow"
+	    <img class="float-right noJsSlideshow"
 		 src="media/images/binaryClockRender.jpg"
 		 alt="3D render of binary clock.">
 	    
-	    <video class="float-right slideshow" controls
+	    <video class="float-right noJsSlideshow" controls
 		   autoplay loop>
 	      <source src="media/videos/binaryClockDemo.mp4" type="video/mp4">
 		1 Your browsing software does not seem to support the video tag.
 	    </video>
 
-	    	    <img class="float-right slideshow"
+	    	    <img class="float-right noJsSlideshow"
 		 src="media/images/arrowGradiant.png"
 		 alt="3D render of binary clock.">
 	  </div>

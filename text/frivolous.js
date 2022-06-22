@@ -14,7 +14,7 @@ const slideshowPrevButtonVertOffset	= 16;
 const slideshowNextButtonVertOffset	= 68;
 const slideshowPlayPauseButtonVertOffset = 120;
 const slidesNumberOnOffset	= 170;
-const slideAdvanceInterval	= 48000;
+const slideAdvanceInterval	= 96000;
 
 
 function sleep(ms)
@@ -90,7 +90,7 @@ async function handleInitalPageStuff()
 	elements[iter].outerHTML =
 	    "<div class=\"slideshowContainer\" id=\"" + slideshowIndexKey + iter + "\">" +
 	    elementsOrig[iter].firstElementChild.outerHTML.replace
-	(">", newStyleHeight).replace("float-right", "") + 
+	(">", newStyleHeight).replace("float-right", "").replace("noJsSlideshow", "slideshow") + 
 	    "<a class=\"slideshowButton previous\" " +
 	    "onclick=\"nextSlideshowImageLeftWithSound(this, false)\" style=\"top: " +
 	    (maxSlideHeight[iter] - slideshowPrevButtonVertOffset) + "px\">" +
@@ -276,8 +276,9 @@ function changeSlideTo(slideshowIndex, slideshow, slideshowLength)
 	    slideshow.outerHTML =
 		"<div class=\"slideshowContainer withSlideshowButtons\" id=\""
 		+ slideshowIndexKey + slideshowIndex + "\">" +
-		slide.outerHTML.replace
-	    (">", sizeStyle).replace("float-right", "") +
+		slide.outerHTML.replace(">", sizeStyle).
+		replace("float-right", "").
+		replace("noJsSlideshow", "slideshow") +
 		"<a class=\"slideshowButton previous\" " +
 		"onclick=\"nextSlideshowImageLeftWithSound(this, false)\" style=\"top: " +
 		(slideHeight - slideshowPrevButtonVertOffset) + "px\">" +

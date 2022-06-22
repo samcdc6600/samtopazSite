@@ -772,7 +772,6 @@ img
     box-shadow: 0 0 15px #bf19e3;
 }
 
-/* Should be applied to image enclosed by div with div.slideshow applied. */
 img.slideshow
 {
     background-image: linear-gradient(/*to right,*/ #ecbaf7, #8133ff, #ecbaf7);
@@ -795,9 +794,19 @@ img.float-right
     margin-bottom: 15px;
 }
 
+/* Should be applied to image enclosed by div with div.slideshow applied. IF JS
+   IS ENABLED WILL BE REPLACED WITH img.slideshow! */
+img.noJsSlideshow
+{
+    background-image: linear-gradient(/*to right,*/ #ecbaf7, #8133ff, #ecbaf7);
+    margin-right: 0px;
+    width: 100%;
+}
+
 video
 {
     box-shadow: 0 0 15px #bf19e3;
+    
 }
 
 video.float-right
@@ -813,7 +822,15 @@ video.float-right
     margin-bottom: 15px;
 }
 
-/* Should be applied to video enclosed by div with div.slideshow applied. */
+/* Should be applied to video enclosed by div with div.slideshow applied. IF JS
+   IS ENABLED WILL BE REPLACED WITH video.slideshow! */
+video.noJsSlideshow
+{
+    background-image: linear-gradient(/*to right,*/ #ecbaf7, #8133ff, #ecbaf7);
+    margin-right: 0px;
+    width: 100%;
+}
+
 video.slideshow
 {
     background-image: linear-gradient(/*to right,*/ #ecbaf7, #8133ff, #ecbaf7);
