@@ -6,6 +6,8 @@ var advanceSlideShow	 = [];	// Which slide shows are playing.
 var slideshowIntervalTimers = []; // What times are they turning over.
 var viewportWidth;
 const slideshowIndexKey	= "slid3Sh0wInd3x";
+const slideshowButtonSound = "media/audio/80921__justinbw__buttonchime02up.wav";
+const slideshowButtonSoundVol = "0.2";
 // This should be kept inline with the value for body in the css.
 const pageBodyMinWidth	= 800;
 const slideshowPrevButtonVertOffset	= 16;
@@ -90,15 +92,15 @@ async function handleInitalPageStuff()
 	    elementsOrig[iter].firstElementChild.outerHTML.replace
 	(">", newStyleHeight).replace("float-right", "") + 
 	    "<a class=\"slideshowButton previous\" " +
-	    "onclick=\"nextSlideshowImageLeft(this, false)\" style=\"top: " +
+	    "onclick=\"nextSlideshowImageLeftWithSound(this, false)\" style=\"top: " +
 	    (maxSlideHeight[iter] - slideshowPrevButtonVertOffset) + "px\">" +
 	    "</a>" +
 	    "<a class=\"slideshowButton next\" " +
-	    "onclick=\"nextSlideshowImageRight(this, false)\" style=\"top: " +
+	    "onclick=\"nextSlideshowImageRightWithSound(this, false)\" style=\"top: " +
 	    (maxSlideHeight[iter] - slideshowNextButtonVertOffset) + "px\">" +
 	    "</a>" +
 	    "<a class=\"slideshowButton pause\" " +
-	    "onclick=\"pausePlaySlideshow(this)\" style=\"top: " +
+	    "onclick=\"pausePlaySlideshowWithSound(this)\" style=\"top: " +
 	    (maxSlideHeight[iter] - slideshowPlayPauseButtonVertOffset) + "px\">" +
 	    "</a>" +
 	    "<div class=\"slideshowSlideNumberCounter\">"+ "<strong>" +
@@ -124,8 +126,15 @@ function autoAdvanceSlide(slideIter, interval)
 	nextSlideshowImageRight
 	(document.getElementById(
 	    slideshowIndexKey + slideIter).firstElementChild,
-	 advanceSlideShow[slideIter]);
+	 advanceSlideShow[slideIter], false);
     }
+}
+
+
+function nextSlideshowImageLeftWithSound(slide, dontStopAuto)
+{
+    playSound(slideshowButtonSound, slideshowButtonSoundVol);
+    nextSlideshowImageLeft(slide, dontStopAuto);
 }
 
 
@@ -155,6 +164,13 @@ function nextSlideshowImageLeft(slide, dontStopAuto)
     toggoleAutoAdvance(slideshowIndex, dontStopAuto);
     changeSlideTo(slideshowIndex, slideshow,
 		  elementsOrig[slideshowIndex].children.length);
+}
+
+
+function nextSlideshowImageRightWithSound(slide, dontStopAuto)
+{
+    playSound(slideshowButtonSound, slideshowButtonSoundVol);
+    nextSlideshowImageRight(slide, dontStopAuto);
 }
 
 
@@ -196,8 +212,10 @@ function toggoleAutoAdvance(slideshowIndex, dontStopAuto)
 }
 
 
-function pausePlaySlideshow(slide)
+function pausePlaySlideshowWithSound(slide)
 {
+    playSound(slideshowButtonSound, slideshowButtonSoundVol);
+    
     let slideshow = slide.parentElement;
     let slideshowNumberFirstIndex =
 	slideshow.outerHTML.indexOf(slideshowIndexKey, 0) +
@@ -221,7 +239,7 @@ function pausePlaySlideshow(slide)
 	advanceSlideShow[slideshowIndex] = !advanceSlideShow[slideshowIndex];
 	slide.outerHTML =
 	    "<a class=\"slideshowButton play\" " +
-	    "onclick=\"pausePlaySlideshow(this)\" " + sizeStyle +
+	    "onclick=\"pausePlaySlideshowWithSound(this)\" " + sizeStyle +
 	    "</a>";
     }
     else
@@ -234,7 +252,7 @@ function pausePlaySlideshow(slide)
 	advanceSlideShow[slideshowIndex] = !advanceSlideShow[slideshowIndex];
 	slide.outerHTML =
 	    "<a class=\"slideshowButton pause\" " +
-	    "onclick=\"pausePlaySlideshow(this)\" " + sizeStyle +
+	    "onclick=\"pausePlaySlideshowWithSound(this)\" " + sizeStyle +
 	    "</a>";
     }
 }
@@ -261,15 +279,15 @@ function changeSlideTo(slideshowIndex, slideshow, slideshowLength)
 		slide.outerHTML.replace
 	    (">", sizeStyle).replace("float-right", "") +
 		"<a class=\"slideshowButton previous\" " +
-		"onclick=\"nextSlideshowImageLeft(this, false)\" style=\"top: " +
+		"onclick=\"nextSlideshowImageLeftWithSound(this, false)\" style=\"top: " +
 		(slideHeight - slideshowPrevButtonVertOffset) + "px\">" +
 		"</a>" +
 		"<a class=\"slideshowButton next\" " +
-		"onclick=\"nextSlideshowImageRight(this, false)\" style=\"top: " +
+		"onclick=\"nextSlideshowImageRightWithSound(this, false)\" style=\"top: " +
 		(slideHeight - slideshowNextButtonVertOffset) + "px\">" +
 		"</a>" +
 		"<a class=\"slideshowButton " + playPauseButton +
-		"\" onclick=\"pausePlaySlideshow(this)\" style=\"top: " +
+		"\" onclick=\"pausePlaySlideshowWithSound(this)\" style=\"top: " +
 		(slideHeight - slideshowPlayPauseButtonVertOffset) + "px\">" +
 		"</a>" +
 		"<div class=\"slideshowSlideNumberCounter\" style=\"top: " +
@@ -311,6 +329,15 @@ window.addEventListener('resize', function(event)
 
     viewportWidth = newViewportWidth;
 });
+
+
+function playSound(filePath, volume)
+{
+    var sound = new Audio(filePath);
+    sound.volume = volume;
+    sound.loop = false;
+    sound.play(); 
+}
 
 
 function toIdOnClick(pageElement)
