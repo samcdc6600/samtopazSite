@@ -14,7 +14,7 @@ const slideshowPrevButtonVertOffset	= 16;
 const slideshowNextButtonVertOffset	= 68;
 const slideshowPlayPauseButtonVertOffset = 120;
 const slidesNumberOnOffset	= 170;
-const slideAdvanceInterval	= 96000;
+const slideAdvanceInterval	= 48000;
 
 
 function sleep(ms)
