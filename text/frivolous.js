@@ -7,7 +7,7 @@ var slideshowIntervalTimers = []; // What times are they turning over.
 var viewportWidth;
 const slideshowIndexKey	= "slid3Sh0wInd3x";
 const slideshowButtonSound = "media/audio/80921__justinbw__buttonchime02up.wav";
-const slideshowButtonSoundVol = "0.2";
+const slideshowButtonSoundVol = "0.33";
 // This should be kept inline with the value for body in the css.
 const pageBodyMinWidth	= 800;
 const slideshowPrevButtonVertOffset	= 16;

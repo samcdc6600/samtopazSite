@@ -484,6 +484,8 @@ down by 0.92 by inheritance. 2 * (1 / 0.92) = ~2.1739 */
 
 #position_to_top_of_page
 {
+    /* We need this to appear infront of slide show buttons. */
+    z-index: 1;
     margin-top: 20px;
     margin-bottom: 20px;
     position: fixed;
