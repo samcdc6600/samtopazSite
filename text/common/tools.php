@@ -30,10 +30,12 @@ function top_module_and_left_side_nav($pageTitle, $currentPage, $altLook, $cssFo
 <!DOCTYPE html>
 <html lang='en'>
   <head>
+  <!-- NOTE THAT THE POSITION OF THE BELOW ELEMENT RELATIVE TO <HEAD> SHOULD NOT BE CHANGED! -->
+  <link type="text/css" rel="stylesheet" href="./mainLayout.css"/>
+  <!-- NOTE THAT THE POSITION OF THE ABOVE ELEMENT RELATIVE TO <HEAD> SHOULD NOT BE CHANGED! -->
     <meta charset="utf-8">
     <title>$pageTitle</title>
     <link rel="icon" href="media/favicon.ico" type="image/x-icon">
-    <link type="text/css" rel="stylesheet" href="./mainLayout.css"/>
 </head>
   <body>
 
@@ -123,7 +125,7 @@ $articleCatagory, $parentPage)
       <div class="column LR main_page r">       <!--*******************Right side of the page (boarder)*******************-->
            <div class="column LR main_page right_top">
 	   	<label id="themeSwitch">
-	   	       <input id="themeSwitchInput" type="checkbox">
+	   	       <input id="themeSwitchInput" type="checkbox" onclick="changeTheme()">
 		       <span class="slider round"></span>
 		       <span class="slider-overlay"></span>
 		</label>

@@ -17,13 +17,20 @@ const slidesNumberOnOffset	= 170;
 const slideAdvanceInterval	= 32000;
 // Cookie related variables.
 const themeCookieKey	= "siteTheme";
+/* This should be the index of the main css theme element in the object returned
+   by: document.getElementsByTagName("link").item(cssLinkIndex) */
+const cssLinkIndex	= 1;
+// const cookieObjKey	= "cookie"
+// const cookieFound	= "found"
+const theme1Name	= "mainLayout.css"
+const theme2Name	= "theme2.css"
 
 
 window.addEventListener
 ("load", function handleInitalPageStuff()
  {
      applyThemeBasedOnCookie();
-     preloadButtonAssets();
+     setThemeSwitchToRightState();
      
      let elements = [];
      // /* Call to wait for the page to render (we load the script at the end of the
@@ -109,39 +116,71 @@ window.addEventListener
 	     elementsOrig[iter].children.length + "</strong></div>" +
 	     "</div>";
      }
+     // Load other button assets after rendering slide show.
+     preloadButtonAssets();
  });
 
 
-function applyThemeBasedOnCookie()
+function changeTheme()
 {
-    let cookie = checkForCookie(themeCookieKey);
+    let cookie = getCookie(themeCookieKey);
 
-    if(cookie["found"])
+    if(cookie != "")
     {
-	console.log("found!");
+	/* Cookie found. Change theme value stored in cookie. */
+	if(cookie === theme1Name)
+	{
+	    createGlobalThemeCookie(themeCookieKey, theme2Name)
+	}
+	else
+	{
+	    createGlobalThemeCookie(themeCookieKey, theme1Name)
+	}
     }
-    else
+    
+    applyThemeBasedOnCookie()
+}
+
+
+function setThemeSwitchToRightState()
+{
+    let cookie = getCookie(themeCookieKey);
+    /* We don't need to check if there is a cookie here (just if it isn't
+       theme1Name) because the switch will be in the right position if there
+       isn't a cookie or it is theme1Name. */
+    if(cookie !== theme1Name)
     {
-	createGlobalCookie(themeCookieKey);
-	console.log("not found! :'(");
+	document.getElementById("themeSwitchInput")
     }
 }
 
 
-function checkForCookie(key)
+function applyThemeBasedOnCookie()
 {
-    let retObj = {};
-    retObj["cookie"] = getCookie(key);
-    
-    if (retObj["cookie"] != "") {
-	retObj["found"] = true;
+    let cookie = getCookie(themeCookieKey);
+
+    if(cookie != "")
+    {
+	applyTheme(cookie);
     }
     else
     {
-	retObj["found"] = false;
+	createGlobalThemeCookie(themeCookieKey, theme1Name);
+	applyTheme(getCookie(themeCookieKey));
     }
+}
 
-    return retObj;
+
+function applyTheme(theme)
+{
+    let oldCssLink = document.getElementsByTagName("link").item(cssLinkIndex);
+    let newCssLink = document.createElement("link");
+    newCssLink.setAttribute("rel", "stylesheet");
+    newCssLink.setAttribute("type", "text/css");
+    newCssLink.setAttribute("href", theme);
+    console.log(oldCssLink);
+    // item(0) for the first occurrence (and only) of the head tag.
+    document.getElementsByTagName("head").item(0).replaceChild(newCssLink, oldCssLink);
 }
 
 
@@ -163,10 +202,11 @@ function getCookie(cname) {
 }
 
 
-// Creates a cookie that is not page relative.
-function createGlobalCookie(key)
+// Creates (update) a cookie that is not page relative.
+function createGlobalThemeCookie(key, theme)
 {
-    document.cookie = key.concat("=theme #1; SameSite=None; Secure; path=/")
+    console.log("  " + key + "=" + theme + "; path=/");
+    document.cookie = key + "=" + theme + "; path=/";
 }
 
 
