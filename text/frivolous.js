@@ -14,99 +14,192 @@ const slideshowPrevButtonVertOffset	= 16;
 const slideshowNextButtonVertOffset	= 68;
 const slideshowPlayPauseButtonVertOffset = 120;
 const slidesNumberOnOffset	= 170;
-const slideAdvanceInterval	= 48000;
+const slideAdvanceInterval	= 32000;
+// Cookie related variables.
+const themeCookieKey	= "siteTheme";
 
 
-function sleep(ms)
+window.addEventListener
+("load", function handleInitalPageStuff()
+ {
+     applyThemeBasedOnCookie();
+     preloadButtonAssets();
+     
+     let elements = [];
+     // /* Call to wait for the page to render (we load the script at the end of the
+     //    page however sometimes it seems it's still not fully rendered. */
+     // await sleep(32);
+
+     let allElements = document.getElementsByTagName("*");
+     // Get all div's using the slideshow class.
+     for(let iter = 0; iter < allElements.length; ++iter)
+     {
+	 if(allElements[iter].className == "slideshowContainer")
+	 {
+	     elementsOrig.push(allElements[iter].cloneNode(true));
+	     elements.push(allElements[iter]);
+	 }
+     }
+
+     /* Get viewport dimensions as we will use these to size elements when the
+	window changes size. */
+     viewportWidth = window.innerWidth;
+     
+     // Get the height of the tallest child for each div using the slideshow class.
+     for(let iter = 0; iter < elements.length; ++iter)
+     {
+	 let maxWidth;
+	 let maxHeight;
+	 maxWidth = 0;
+	 maxHeight = 0;
+
+	 for(let slideIter = 0; slideIter < elements[iter].children.length;
+	     ++slideIter)
+	 {
+	     if(elements[iter].children[slideIter].tagName !== "PRE")
+	     {
+		 maxWidth = (elements[iter].children[slideIter].clientWidth > maxWidth) ?
+		     elements[iter].children[slideIter].clientWidth: maxWidth;
+		 maxHeight = (elements[iter].children[slideIter].clientHeight > maxHeight) ?
+		     elements[iter].children[slideIter].clientHeight: maxHeight;
+	     }
+	 }
+	 maxSlideHeight.push(maxHeight);
+     }
+
+     // Will be populated when the page is resized.
+     minMaxSlideHeight = Array(maxSlideHeight.length);
+
+     /* Update each div using the slideshow class to be the height of it's
+	tallest child and only show the first of it's elements as well as
+	displaying next and previous buttons. */
+     for(let iter = 0; iter < elementsOrig.length; ++iter)
+     {
+	 advanceSlideShow.push(true); // All slide shows start of as automatic.
+	 // Math.random() returns a number x, where x is [0, 1).
+	 let interval;
+	 interval = Math.random() * slideAdvanceInterval;
+	 slideshowIntervalTimers.push(
+	     setTimeout(function() {autoAdvanceSlide(iter, interval)}, interval));
+	 
+	 let newStyleHeight;
+	 newStyleHeight = "style=\"height: " +
+	     parseInt(maxSlideHeight[iter]) + "px\">";
+
+	 onSlide[iter] = 0;
+	 
+	 elements[iter].outerHTML =
+	     "<div class=\"slideshowContainer\" id=\"" + slideshowIndexKey + iter + "\">" +
+	     elementsOrig[iter].firstElementChild.outerHTML.replace
+	 (">", newStyleHeight).replace("float-right", "").replace("noJsSlideshow", "slideshow") + 
+	     "<a class=\"slideshowButton previous\" " +
+	     "onclick=\"nextSlideshowImageLeftWithSound(this, false)\" style=\"top: " +
+	     (maxSlideHeight[iter] - slideshowPrevButtonVertOffset) + "px\">" +
+	     "</a>" +
+	     "<a class=\"slideshowButton next\" " +
+	     "onclick=\"nextSlideshowImageRightWithSound(this, false)\" style=\"top: " +
+	     (maxSlideHeight[iter] - slideshowNextButtonVertOffset) + "px\">" +
+	     "</a>" +
+	     "<a class=\"slideshowButton pause\" " +
+	     "onclick=\"pausePlaySlideshowWithSound(this)\" style=\"top: " +
+	     (maxSlideHeight[iter] - slideshowPlayPauseButtonVertOffset) + "px\">" +
+	     "</a>" +
+	     "<div class=\"slideshowSlideNumberCounter\">"+ "<strong>" +
+	     "<strong class=\"stronger\">" + 1 + "</strong>" +  "/" +
+	     elementsOrig[iter].children.length + "</strong></div>" +
+	     "</div>";
+     }
+ });
+
+
+function applyThemeBasedOnCookie()
 {
-    return new Promise(resolve => setTimeout(resolve, ms));
+    let cookie = checkForCookie(themeCookieKey);
+
+    if(cookie["found"])
+    {
+	console.log("found!");
+    }
+    else
+    {
+	createGlobalCookie(themeCookieKey);
+	console.log("not found! :'(");
+    }
 }
 
 
-onload = handleInitalPageStuff();
-async function handleInitalPageStuff()
-
+function checkForCookie(key)
 {
-    let elements = [];
-    /* Call to wait for the page to render (we load the script at the end of the
-       page however sometimes it seems it's still not fully rendered. */
-    await sleep(32);
-
-    let allElements = document.getElementsByTagName("*");
-    // Get all div's using the slideshow class.
-    for(let iter = 0; iter < allElements.length; ++iter)
-    {
-	if(allElements[iter].className == "slideshowContainer")
-	{
-	    elementsOrig.push(allElements[iter].cloneNode(true));
-	    elements.push(allElements[iter]);
-	}
-    }
-
-    /* Get viewport dimensions as we will use these to size elements when the
-       window changes size. */
-    viewportWidth = window.innerWidth;
+    let retObj = {};
+    retObj["cookie"] = getCookie(key);
     
-    // Get the height of the tallest child for each div using the slideshow class.
-    for(let iter = 0; iter < elements.length; ++iter)
+    if (retObj["cookie"] != "") {
+	retObj["found"] = true;
+    }
+    else
     {
-	let maxWidth;
-	let maxHeight;
-	maxWidth = 0;
-	maxHeight = 0;
-
-	for(let slideIter = 0; slideIter < elements[iter].children.length;
-	    ++slideIter)
-	{
-	    maxWidth = (elements[iter].children[slideIter].clientWidth > maxWidth) ?
-		elements[iter].children[slideIter].clientWidth: maxWidth;
-	    maxHeight = (elements[iter].children[slideIter].clientHeight > maxHeight) ?
-		elements[iter].children[slideIter].clientHeight: maxHeight;
-	}
-	maxSlideHeight.push(maxHeight);
+	retObj["found"] = false;
     }
 
-    // Will be populated when the page is resized.
-    minMaxSlideHeight = Array(maxSlideHeight.length);
+    return retObj;
+}
 
-    /* Update each div using the slideshow class to be the height of it's
-       tallest child and only show the first of it's elements as well as
-       displaying next and previous buttons. */
-    for(let iter = 0; iter < elementsOrig.length; ++iter)
+
+// This function is taken from: https://www.w3schools.com/js/js_cookies.asp
+function getCookie(cname) {
+  let name = cname + "=";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(';');
+  for(let i = 0; i <ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+
+// Creates a cookie that is not page relative.
+function createGlobalCookie(key)
+{
+    document.cookie = key.concat("=theme #1; SameSite=None; Secure; path=/")
+}
+
+
+function preloadButtonAssets()
+{
+    // Images to preload
+    let imageUrls =
+	["media/misc/purpuleOrbLeftArrowButtonSmallWithDropShadow.png",
+	 "media/misc/lighterPurpuleOrbLeftArrowButtonSmallWithDropShadow.png",
+	 "media/misc/purpuleOrbRightArrowButtonSmallWithDropShadow.png",
+	 "media/misc/lighterPurpuleOrbRightArrowButtonSmallWithDropShadow.png",
+	 "media/misc/smallPauseButtonWithDropShadow.png",
+	 "media/misc/lighterSmallPauseButtonWithDropShadow.png",
+	 "media/misc/greenPlayButtonWithDropShadow.png",
+	 "media/misc/lighterGreenPlayButtonWithDropShadow.png"];
+    let imageSoundUrls =
+	[slideshowButtonSound]
+
+        /* Create Image and sound objects. */
+    var images = [];
+    var sounds = [];
+
+    /* Set their src attributes to preload
+       the images and sounds. */
+    for (let i = 0; i < imageUrls.length; i++)
     {
-	advanceSlideShow.push(true); // All slide shows start of as automatic.
-	// Math.random() returns a number x, where x is [0, 1).
-	let interval;
-	interval = Math.random() * slideAdvanceInterval;
-	slideshowIntervalTimers.push(
-	    setTimeout(function() {autoAdvanceSlide(iter, interval)}, interval));
-	
-	let newStyleHeight;
-	newStyleHeight = "style=\"height: " +
-	    parseInt(maxSlideHeight[iter]) + "px\">";
-
-	onSlide[iter] = 0;
-	
-	elements[iter].outerHTML =
-	    "<div class=\"slideshowContainer\" id=\"" + slideshowIndexKey + iter + "\">" +
-	    elementsOrig[iter].firstElementChild.outerHTML.replace
-	(">", newStyleHeight).replace("float-right", "").replace("noJsSlideshow", "slideshow") + 
-	    "<a class=\"slideshowButton previous\" " +
-	    "onclick=\"nextSlideshowImageLeftWithSound(this, false)\" style=\"top: " +
-	    (maxSlideHeight[iter] - slideshowPrevButtonVertOffset) + "px\">" +
-	    "</a>" +
-	    "<a class=\"slideshowButton next\" " +
-	    "onclick=\"nextSlideshowImageRightWithSound(this, false)\" style=\"top: " +
-	    (maxSlideHeight[iter] - slideshowNextButtonVertOffset) + "px\">" +
-	    "</a>" +
-	    "<a class=\"slideshowButton pause\" " +
-	    "onclick=\"pausePlaySlideshowWithSound(this)\" style=\"top: " +
-	    (maxSlideHeight[iter] - slideshowPlayPauseButtonVertOffset) + "px\">" +
-	    "</a>" +
-	    "<div class=\"slideshowSlideNumberCounter\">"+ "<strong>" +
-	    "<strong class=\"stronger\">" + 1 + "</strong>" +  "/" +
-	    elementsOrig[iter].children.length + "</strong></div>" +
-	    "</div>";
+	images[i] = new Image();
+	images[i].src = imageUrls[i];
+    }
+    for (let i = 0; i < imageSoundUrls.length; i++)
+    {
+	sounds[i] = new Audio();
+	sounds[i].src = imageSoundUrls[i];
     }
 }
 
@@ -228,7 +321,14 @@ function pausePlaySlideshowWithSound(slide)
 
     let slideHeight = parseInt((viewportWidth > pageBodyMinWidth) ?
 			       maxSlideHeight[slideshowIndex]:
-	     minMaxSlideHeight[slideshowIndex]);
+			       minMaxSlideHeight[slideshowIndex]);
+    /* If the page was loaded with a viewport less then pageBodyMinWidth
+       minMaxSlideHeight[x] will or at least may be NaN. */
+    slideHeight =
+	!isNaN(slideHeight) ?
+	slideHeight:
+	maxSlideHeight[slideshowIndex];
+    
     let  sizeStyle = "style=\"top: " +
 	(slideHeight - slideshowPlayPauseButtonVertOffset) + "px\">";
 
@@ -265,6 +365,14 @@ function changeSlideTo(slideshowIndex, slideshow, slideshowLength)
 	parseInt((viewportWidth > pageBodyMinWidth) ?
 		 maxSlideHeight[slideshowIndex]:
 		 minMaxSlideHeight[slideshowIndex]);
+
+    /* If the page was loaded with a viewport less then pageBodyMinWidth
+    minMaxSlideHeight[x] will or at least may be NaN. */
+    slideHeight =
+	!isNaN(slideHeight) ?
+	slideHeight:
+	maxSlideHeight[slideshowIndex];
+	
     let  sizeStyle = "style=\"height: " + slideHeight + "px\">";
     let  playPauseButton = advanceSlideShow[slideshowIndex] ? "pause": "play";
 

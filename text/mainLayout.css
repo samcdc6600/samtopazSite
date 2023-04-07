@@ -805,6 +805,38 @@ img.noJsSlideshow
     width: 100%;
 }
 
+pre.float-right
+{
+    float: right;
+    width: 40%;
+    min-width: 200px;
+    /* Theme 1.1 color */
+    box-shadow: 0 0 15px #bf19e3;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+}
+
+pre.noJsSlideshow
+{
+    background-image: linear-gradient(/*to right,*/ #ecbaf7, #8133ff, #ecbaf7);
+    margin-right: 0px;
+    width: 100%;
+    max-height: 420px;
+    overflow: scroll;
+}
+
+pre.slideshow
+{
+    background-image: linear-gradient(/*to right,*/ #ecbaf7, #8133ff, #ecbaf7);
+    width: 100%;
+    object-fit: contain;
+    float: right;
+    margin: 0px;
+    margin-bottom: 6px;
+    overflow: scroll;
+}
+
 video
 {
     box-shadow: 0 0 15px #bf19e3;
@@ -918,5 +950,102 @@ code
 {	/*#000084, #66FF99 #0021A7 #FFDBE8  #fe78fa;*/
     /* scrollbar-color: #fe78fa  #FFFCE8; */
     scrollbar-color: #66FF99  #FFFCE8;
+}
+
+/* The CSS here related to switches is from:
+https://www.w3schools.com/howto/howto_css_switch.asp
+However it may have been modified. */
+/* Override input settings. */
+#themeSwitchInput
+{
+    float: right;
+    min-width: 0px;
+    min-height: 0px;
+}
+
+/* Add an overlay element with box-shadow */
+#themeSwitch .slider-overlay
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    box-shadow: inset 0 0 15px #bf19e3;
+    pointer-events: none;
+    border-radius: 32px;
+}
+
+#themeSwitch
+{
+    position: relative;
+    top: 37px;
+    left: 138px;   
+    display: inline-block;
+    width: 56px;
+    height: 32px;
+}
+
+/* Hide default HTML checkbox */
+#themeSwitch input
+{
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The slider */
+.slider
+{
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color:  #6f9; /*#050594;*/
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before
+{
+    position: absolute;
+    content: "";
+    height: 24px;
+    width: 24px;
+    left: 4px;
+    bottom: 4px;
+    background-color: rgb(254, 120, 250);
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider
+{
+    background-color: #fffce8;
+}
+
+input:focus + .slider
+{
+    box-shadow: 0 0 1px red;
+}
+
+input:checked + .slider:before
+{
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round
+{
+    border-radius: 32px;
+}
+
+.slider.round:before
+{
+    border-radius: 50%;
 }
 /*=-----------------------------=<{ MISC END }>=-----------------------------=*/

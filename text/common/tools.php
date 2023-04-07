@@ -121,7 +121,13 @@ $articleCatagory, $parentPage)
 {
     $htmlOut = <<<"OUTPUT"
       <div class="column LR main_page r">       <!--*******************Right side of the page (boarder)*******************-->
-        <div class="column LR main_page right_top"></div>
+           <div class="column LR main_page right_top">
+	   	<label id="themeSwitch">
+	   	       <input id="themeSwitchInput" type="checkbox">
+		       <span class="slider round"></span>
+		       <span class="slider-overlay"></span>
+		</label>
+	</div>
         <div class="column right_middle">
 	        <nav class="column right_middle">
           <ul class="menu_list r"><!--site navigation menu-->
