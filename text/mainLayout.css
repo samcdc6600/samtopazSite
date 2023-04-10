@@ -49,18 +49,12 @@ body
     min-width: 220px;
     max-width: 220px;
     min-height: 124px;
-    /* Theme 1.0 color */
-    /* background-color: #FFD1E2; */
-    /* Theme 1.1 color */
-    background-color: #FFDBE8;
+    /* background-color: #FFDBE8; */
 }
 
 .column.LR.main_page
 {
-    /* Theme 1.0 color */
-    /* background-color: #d3f6fd; */
-    /* Theme 1.1 color */
-    background-color: #FFDBE8;
+    /* background-color: #FFDBE8; */
 }
 
 .column.l
@@ -75,8 +69,6 @@ body
 
 .column.left_top
 {
-    background-image:
-	url("media/border/page_border_top_left_top_y_reduced_and_x_1_shadow.png");
     max-height: 124px;
     min-height: 124px;
 }
@@ -87,26 +79,21 @@ body
     padding-top: 1px;
     padding-bottom: 1px;
     background-color: inherit;
-    /* Theme 1.0 background */
-    /* background-image: url("media/border/grid_2_left.png"); */
-    /* Theme 1.1 background */
-    background-image: url("media/border/grid_2_left_shadow.png"),
-		      url("media/border/bg_gif_overlay.png"),
-		      url("media/border/bg_l.gif");
+    /* background-image: url("media/border/grid_2_left_shadow.png"), */
+    /* 		      url("media/border/bg_gif_overlay.png"), */
+    /* 		      url("media/border/bg_l.gif"); */
 }
 
 .column.left_bottom
 {
-    background-image:
-	url("media/border/page_border_bottom_left_top_y_reduced_and_x_1_shadow.png");
+    /* background-image: */
+    /* 	url("media/border/page_border_bottom_left_top_y_reduced_and_x_1_shadow.png"); */
     max-height: 124px;
     min-height: 124px;
 }
 
 .column.right_top
 {
-    background-image:
-	url("media/border/page_border_top_right_top_y_reduced_and_x_1_shadow.png");
     max-height: 124px;
     min-height: 124px;
 }
@@ -118,24 +105,24 @@ body
     padding-bottom: 1px;
     background-color: inherit;
     /* Theme 1.0 background */
-    background-image: url("media/border/grid_2_right.png");
-    /* Theme 1.1 background */
-    background-image: url("media/border/grid_2_right_shadow.png"),
-		      url("media/border/bg_gif_overlay.png"),
-		      url("media/border/bg_r.gif");
+    /* background-image: url("media/border/grid_2_right.png"); */
+    /* /\* Theme 1.1 background *\/ */
+    /* background-image: url("media/border/grid_2_right_shadow.png"), */
+    /* 		      url("media/border/bg_gif_overlay.png"), */
+    /* 		      url("media/border/bg_r.gif"); */
 }
 
 .column.right_bottom
 {
-    background-image:
-	url("media/border/page_border_bottom_right_top_y_reduced_and_x_1_shadow.png");
+    /* background-image: */
+    /* 	url("media/border/page_border_bottom_right_top_y_reduced_and_x_1_shadow.png"); */
     max-height: 124px;
     min-height: 124px;
 }
 
 .head_and_foot
 {
-    background-image: url("media/border/border_top_and_bottom.png");
+    /* background-image: url("media/border/border_top_and_bottom.png"); */
     margin: 0px;    
     width: 100%;
     min-height: 40px;
@@ -151,10 +138,10 @@ footer
 /*=---------------------=<{ NICE SHADOW EFFECTS START }>=--------------------=*/
 .inset_shadow
 {
-    /* Theme 1.0 color */
-    /* box-shadow: inset 0 0 15px #c40e00; */
-    /* Theme 1.1 color */
-    box-shadow: inset 0 0 15px #bf19e3;
+    /* /\* Theme 1.0 color *\/ */
+    /* /\* box-shadow: inset 0 0 15px #c40e00; *\/ */
+    /* /\* Theme 1.1 color *\/ */
+    /* box-shadow: inset 0 0 15px #bf19e3; */
 }
 /*=----------------------=<{ NICE SHADOW EFFECTS END }>=---------------------=*/
 
@@ -183,9 +170,9 @@ when this is used in tools.php */
 .menu_element
 {
     font-size: 1.15em;
-    text-shadow: 2px 2px #ef1000;
+    /* text-shadow: 2px 2px #ef1000; */
     font-family: Typographytimes;
-    background-image: url("media/menu_item/menu_item_not_highlited.png");
+    /* background-image: url("media/menu_item/menu_item_not_highlited.png"); */
     margin-top: 12px;
     margin-bottom: 12px;
     /* Padding: 8px; *//* 8px is right on Firefox Quantum 61.0.1 on Ubuntu but
@@ -205,8 +192,8 @@ not on Firefox 64.0.1 on Android */
     /* box-shadow:  -2px 0px 0px 0px #ce3c61, 0 3px 3px 0px #c40e00,
 0 -3px 3px 0px #c40e00; */
     /* Theme 1.1 color */
-    box-shadow: -2px 0px 0px 0px #ce3cb7, 0 3px 3px 0px #ce3cb7,
-		 0 -3px 3px 0px #ce3cb7;
+    /* box-shadow: -2px 0px 0px 0px #ce3cb7, 0 3px 3px 0px #ce3cb7, */
+    /* 		 0 -3px 3px 0px #ce3cb7; */
 }
 
 .menu_element.r
@@ -216,31 +203,31 @@ not on Firefox 64.0.1 on Android */
     /* box-shadow:  4px 0px 0px 0px #ce3c61, 1px 3px 3px 0px #c40e00,
 1px -3px 3px 0px #c40e00; */
     /* Theme 1.1 color */
-    box-shadow: 4px 0px 0px 0px #ce3cb7, 1px 3px 3px 0px #ce3cb7,
-		1px -3px 3px 0px #ce3cb7;
+    /* box-shadow: 4px 0px 0px 0px #ce3cb7, 1px 3px 3px 0px #ce3cb7, */
+    /* 		1px -3px 3px 0px #ce3cb7; */
 }
 
 .menu_element:hover
 {
-    background-image: url("media/menu_item/menu_item_highlited.png");
+    /* background-image: url("media/menu_item/menu_item_highlited.png"); */
 }
 
 .current_page
 {
-    background-image:
-	url("media/menu_item/menu_item_current_page_not_highlited.png");
+    /* background-image: */
+    /* 	url("media/menu_item/menu_item_current_page_not_highlited.png"); */
 }
 
 .current_parent_page
 {
-    background-image:
-	url("media/menu_item/menu_item_current_parent_page_not_highlited.png");
+    /* background-image: */
+    /* 	url("media/menu_item/menu_item_current_parent_page_not_highlited.png"); */
 }
 
 .current_page:hover
 {
-    background-image:
-	url("media/menu_item/menu_item_current_page_highlited.png");
+    /* background-image: */
+    /* 	url("media/menu_item/menu_item_current_page_highlited.png"); */
 }
 /*=---------------------------=<{ NAV MENU END }>=---------------------------=*/
 
@@ -250,31 +237,31 @@ not on Firefox 64.0.1 on Android */
 visited like other links.) */
 .a_gui_element:visited
 {
-    color: #6bfdff;
+    /* color: #6bfdff; */
 }
 
 a, span.link	/* Link color when not hovering, focus or active. */
 {
-    color: #6bfdff;
+    /* color: #6bfdff; */
     text-decoration: underline;
 }
 
 a:visited
 {
-    color: #ff48ff;
+    /* color: #ff48ff; */
 }
 
 a:hover, a:focus, a:active, a:visited:hover, a:visited:focus, a:visited:active
 {
-    color: #000084;
+    /* color: #000084; */
     font-style: italic;
     text-decoration: underline;
-    text-shadow: 2px 2px #ff0000;
+    /* text-shadow: 2px 2px #ff0000; */
 }
 
 .articleLink
 {
-    text-shadow: 1px 1px purple;
+    /* text-shadow: 1px 1px purple; */
 }
 
 a.slideshowButton
@@ -346,7 +333,7 @@ p
     /* Theme 1.0 color */
     /* color: #03004D; */
     /* Theme 1.1 color */
-    color: #0b0887;
+    /* color: #0b0887; */
     font-weight: normal;
     text-shadow: none;
     word-break: break-word;
@@ -368,8 +355,8 @@ strong, h2, h3, h4, h5, h6
     /* Theme 1.0 color */
     /* color: #ff0084; */
     /* Theme 1.1 color */
-    color: #ff01fc;
-    text-shadow: 1px 1px #03004D;
+    /* color: #ff01fc; */
+    /* text-shadow: 1px 1px #03004D; */
 }
 
 strong.stronger
@@ -379,7 +366,7 @@ strong.stronger
 
 small
 {
-    color: #D4C895;
+    /* color: #D4C895; */
 }
 
 em
@@ -387,12 +374,12 @@ em
     /* color: #664413; */
     /* color: #ff438e; */
     /* color: #ff3389; */
-    color: #2b0017;
+    /* color: #2b0017; */
 }
 
 .refernce
 {
-    color: #ff01fc;
+    /* color: #ff01fc; */
 }
 /*=-------------------=<{ PARAGRAPHS, TEXT, ETC... END }>=-------------------=*/
 
@@ -407,14 +394,14 @@ main
     /* border-top: 5px solid #ce3c61;
     border-bottom: 5px solid #ce3c61; */
     /* There 1.1 color */
-    border-top: 5px solid #ce3cb7;
-    border-bottom: 5px solid #ce3cb7;
+    /* border-top: 5px solid #ce3cb7; */
+    /* border-bottom: 5px solid #ce3cb7; */
     /*background-color: #FFFCE8;*/
     /* background: */
     /* 	url(""); */
     /* background-repeat: repeat; */
-    background: url("media/misc/backgroundReducedSizeAndOpacity2.png");
-    background-color: #fffce8; /*f8ebf9;*/
+    /* background: url("media/misc/backgroundReducedSizeAndOpacity2.png"); */
+    /* background-color: #fffce8; /\*f8ebf9;*\/ */
     padding-bottom: -10px;
     /* the value here must be vh and not % otherwise this property will not work
 for some reason :'(. */ 
@@ -451,8 +438,8 @@ would be (350/2) +0  = 175, and height: 60px; and padding 0px; would be (60/2)
     /* background: #000084;
     box-shadow: inset 0 0 25px #c40e00; */
     /* Theme 1.1 color */
-    box-shadow: inset 0 0 25px #e90927;
-    background: #050594;
+    /* box-shadow: inset 0 0 25px #e90927; */
+    /* background: #050594; */
 }
 
 #main_tag_in_main_min_height
@@ -468,8 +455,8 @@ h1
     /* color: cyan;
     text-shadow: 2px 2px #ef1000; */
     /* Theme 1.1 color */
-    color: #01fcff;
-    text-shadow: 2px 2px #f01100;
+    /* color: #01fcff; */
+    /* text-shadow: 2px 2px #f01100; */
     font-family: Typographytimes;
 }
 
@@ -496,7 +483,7 @@ down by 0.92 by inheritance. 2 * (1 / 0.92) = ~2.1739 */
 #to_top_of_page
 {
     font-size: 1.15em;
-    text-shadow: 2px 2px #ef1000;
+    /* text-shadow: 2px 2px #ef1000; */
     font-family: Typographytimes;
     text-align: center;
     width: 180px;
@@ -508,13 +495,13 @@ down by 0.92 by inheritance. 2 * (1 / 0.92) = ~2.1739 */
     /* background: #ff7698;
     box-shadow:  0 0 15px #c40e00; */
     /* Theme 1.1 color */
-    background: #fe78fa;
-    box-shadow:  0 0 15px #dc6af4;
+    /* background: #fe78fa; */
+    /* box-shadow:  0 0 15px #dc6af4; */
 }
 
 #to_top_of_page:hover
 {
-    background: #ffd9d9;
+    /* background: #ffd9d9; */
 }
 
 #text_align_to_top_of_page
@@ -528,7 +515,7 @@ down by 0.92 by inheritance. 2 * (1 / 0.92) = ~2.1739 */
 /*=----------------------------=<{ MISC START }>=----------------------------=*/
 ul
 {
-    list-style: square inside url("media/bullet_point.png");
+    /* list-style: square inside url("media/bullet_point.png"); */
     margin-top: 0px;
     margin-bottom: 0px;
 }
@@ -548,7 +535,7 @@ li
     text-shadow: none;
     word-break: break-word;
     /*    color: #03004D;*/
-    color: #0b0887;
+    /* color: #0b0887; */
 }
 
 table
@@ -558,13 +545,13 @@ table
     margin-left: auto;
     margin-right: auto;
     width: 100%;
-    background-color: #d3f6fd;
+    /* background-color: #d3f6fd; */
     border-collapse: collapse;
     font-style: italic;
     font-family: serif;
     font-size: 0.92em;
-    color: #03004D;
-    box-shadow: 0 0 15px #c40e00;    
+    /* color: #03004D; */
+    /* box-shadow: 0 0 15px #c40e00;     */
 }
 
 .no_display
@@ -588,11 +575,11 @@ th
     padding-left: 6px;
     padding-right: 6px;
     height: 36px;
-    background-color: #FFDBE8;
+    /* background-color: #FFDBE8; */
     border: 1px solid;
-    border-color: #ce3c61;
-    color: #ff0084;
-    text-shadow: 1px 1px #03004D;
+    /* border-color: #ce3c61; */
+    /* color: #ff0084; */
+    /* text-shadow: 1px 1px #03004D; */
 }
 
 td
@@ -600,9 +587,9 @@ td
     padding-left: 6px;
     padding-right: 6px;
     height: 36px;
-    background-color: #d3f6fd;
+    /* background-color: #d3f6fd; */
     border: 1px solid;
-    border-color: #ce3c61;
+    /* border-color: #ce3c61; */
     vertical-align: bottom;
 }
 
@@ -695,12 +682,12 @@ button
     font-weight: bold;
     font-style: italic;
     font-family: serif;
-    color: #ff0084;
-    text-shadow: 1px 1px #03004D;
-    background: radial-gradient(#FFB8D2, #FFDBE8, #d3f6fd);
+    /* color: #ff0084; */
+    /* text-shadow: 1px 1px #03004D; */
+    /* background: radial-gradient(#FFB8D2, #FFDBE8, #d3f6fd); */
     border-radius: 6px;
     padding: 6px;
-    border-color: #ce3c61;
+    /* border-color: #ce3c61; */
     margin-top: 0px;
 }
 
@@ -713,7 +700,6 @@ button.fifty_percent
 {
     font-weight: normal;
     text-shadow: none;
-    
 }
 
 .text_align_center
@@ -731,7 +717,7 @@ button.fifty_percent
     border-left: 0px;
     border-right: 0px;
     padding: 6px;
-    border-color: #ce3c61;
+    /* border-color: #ce3c61; */
     vertical-align: bottom;
 }
 
@@ -752,7 +738,7 @@ textarea
     width: auto;
     min-height: 60px;
     max-height: 60px;
-    border-color: #ce3c61;
+    /* border-color: #ce3c61; */
     float: right;
 }
 
@@ -769,14 +755,14 @@ img
     margin-bottom: 10px;
     /* border: 13px solid #FFDBE8; */
     /* Theme 1.0 color */
-    box-shadow: 0 0 15px #c40e00;
+    /* box-shadow: 0 0 15px #c40e00; */
     /* Theme 1.1 color */
-    box-shadow: 0 0 15px #bf19e3;
+    /* box-shadow: 0 0 15px #bf19e3; */
 }
 
 img.slideshow
 {
-    background-image: linear-gradient(/*to right,*/ #ecbaf7, #8133ff, #ecbaf7);
+    /* background-image: linear-gradient(/\*to right,*\/ #ecbaf7, #8133ff, #ecbaf7); */
     width: 100%;
     object-fit: contain;
     float: right;
@@ -790,7 +776,7 @@ img.float-right
     width: 40%;
     min-width: 200px;
     /* Theme 1.1 color */
-    box-shadow: 0 0 15px #bf19e3;
+    /* box-shadow: 0 0 15px #bf19e3; */
     margin-left: 15px;
     margin-right: 15px;
     margin-bottom: 15px;
@@ -800,7 +786,7 @@ img.float-right
    IS ENABLED WILL BE REPLACED WITH img.slideshow! */
 img.noJsSlideshow
 {
-    background-image: linear-gradient(/*to right,*/ #ecbaf7, #8133ff, #ecbaf7);
+    /* background-image: linear-gradient(/\*to right,*\/ #ecbaf7, #8133ff, #ecbaf7); */
     margin-right: 0px;
     width: 100%;
 }
@@ -811,7 +797,7 @@ pre.float-right
     width: 40%;
     min-width: 200px;
     /* Theme 1.1 color */
-    box-shadow: 0 0 15px #bf19e3;
+    /* box-shadow: 0 0 15px #bf19e3; */
     margin-left: 15px;
     margin-right: 15px;
     margin-bottom: 15px;
@@ -819,7 +805,7 @@ pre.float-right
 
 pre.noJsSlideshow
 {
-    background-image: linear-gradient(/*to right,*/ #ecbaf7, #8133ff, #ecbaf7);
+    /* background-image: linear-gradient(/\*to right,*\/ #ecbaf7, #8133ff, #ecbaf7); */
     margin-right: 0px;
     width: 100%;
     max-height: 420px;
@@ -828,7 +814,7 @@ pre.noJsSlideshow
 
 pre.slideshow
 {
-    background-image: linear-gradient(/*to right,*/ #ecbaf7, #8133ff, #ecbaf7);
+    /* background-image: linear-gradient(/\*to right,*\/ #ecbaf7, #8133ff, #ecbaf7); */
     width: 100%;
     object-fit: contain;
     float: right;
@@ -839,7 +825,7 @@ pre.slideshow
 
 video
 {
-    box-shadow: 0 0 15px #bf19e3;
+    /* box-shadow: 0 0 15px #bf19e3; */
     
 }
 
@@ -849,8 +835,8 @@ video.float-right
     width: 40%;
     min-width: 200px;
     /* Theme 1.1 color */
-    box-shadow: 0 0 15px #bf19e3;
-    background-image: linear-gradient(/*to right,*/ #ecbaf7, #8133ff, #ecbaf7);
+    /* box-shadow: 0 0 15px #bf19e3; */
+    /* background-image: linear-gradient(/\*to right,*\/ #ecbaf7, #8133ff, #ecbaf7); */
     margin-left: 15px;
     margin-right: 15px;
     margin-bottom: 15px;
@@ -860,14 +846,14 @@ video.float-right
    IS ENABLED WILL BE REPLACED WITH video.slideshow! */
 video.noJsSlideshow
 {
-    background-image: linear-gradient(/*to right,*/ #ecbaf7, #8133ff, #ecbaf7);
+    /* background-image: linear-gradient(/\*to right,*\/ #ecbaf7, #8133ff, #ecbaf7); */
     margin-right: 0px;
     width: 100%;
 }
 
 video.slideshow
 {
-    background-image: linear-gradient(/*to right,*/ #ecbaf7, #8133ff, #ecbaf7);
+    /* background-image: linear-gradient(/\*to right,*\/ #ecbaf7, #8133ff, #ecbaf7); */
     width: 100%;
     object-fit: contain;
     float: right;
@@ -896,8 +882,8 @@ div.slideshowSlideNumberCounter
     margin: 0px;
     display: inline;
     margin-left: 144px;
-    color: #ff01fc;
-    text-shadow: 1px 1px 5px #0800ff;
+    /* color: #ff01fc; */
+    /* text-shadow: 1px 1px 5px #0800ff; */
 }
 
 div.articleSection
@@ -926,7 +912,7 @@ code
     /* Theme 1.0 color */
     /* box-shadow: 0 0 15px #c40e00; */
     /* Theme 1.1 color */
-    box-shadow: 0 0 15px #bf19e3;
+    /* box-shadow: 0 0 15px #bf19e3; */
     text-align: left;
 }
 
@@ -935,7 +921,7 @@ code
     /* Theme 1.0 color */
     /*  background: #fdd4dc; *//* WebKit/Blink Browsers */
     /* Theme 1.1 color */
-    background: #ff4a0a;
+    /* background: #ff4a0a; */
 }
 
 ::-moz-selection
@@ -943,13 +929,13 @@ code
     /* Theme 1.0 color */
     /* background: #fdd4dc; */ /* Gecko Browsers */
     /* Theme 1.1 color */
-    background: #ff4a0a;
+    /* background: #ff4a0a; */
 }
 
 .scroll_style
 {	/*#000084, #66FF99 #0021A7 #FFDBE8  #fe78fa;*/
     /* scrollbar-color: #fe78fa  #FFFCE8; */
-    scrollbar-color: #66FF99  #FFFCE8;
+    /* scrollbar-color: #66FF99  #FFFCE8; */
 }
 
 /* The CSS here related to switches is from:
@@ -971,7 +957,7 @@ However it may have been modified. */
     left: 0;
     right: 0;
     bottom: 0;
-    box-shadow: inset 0 0 15px #bf19e3;
+    /* box-shadow: inset 0 0 15px #bf19e3; */
     pointer-events: none;
     border-radius: 32px;
 }
@@ -1003,7 +989,7 @@ However it may have been modified. */
     left: 0;
     right: 0;
     bottom: 0;
-    background-color:  #6f9; /*#050594;*/
+    /* background-color:  #6f9; /\*#050594;*\/ */
     -webkit-transition: .4s;
     transition: .4s;
 }
@@ -1016,19 +1002,19 @@ However it may have been modified. */
     width: 24px;
     left: 4px;
     bottom: 4px;
-    background-color: rgb(254, 120, 250);
+    /* background-color: rgb(254, 120, 250); */
     -webkit-transition: .4s;
     transition: .4s;
 }
 
 input:checked + .slider
 {
-    background-color: #fffce8;
+    /* background-color: #fffce8; */
 }
 
 input:focus + .slider
 {
-    box-shadow: 0 0 1px red;
+    /* box-shadow: 0 0 1px red; */
 }
 
 input:checked + .slider:before

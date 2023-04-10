@@ -39,6 +39,8 @@ php articles/misc/projects.php > ~/www.samtopaz.com/projects.html;
 
 # copy stylesheet/s
 java -jar yuicompressor-2.4.8.jar --type css mainLayout.css > ~/www.samtopaz.com/mainLayout.css;
+java -jar yuicompressor-2.4.8.jar --type css theme1.css > ~/www.samtopaz.com/theme1.css;
+java -jar yuicompressor-2.4.8.jar --type css theme2.css > ~/www.samtopaz.com/theme2.css;
 java -jar yuicompressor-2.4.8.jar --type css codeHighlight/styles/samCustom.css > ~/www.samtopaz.com/samCustom.css;
 
 # copy font/s

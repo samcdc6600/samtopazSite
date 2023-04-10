@@ -19,10 +19,11 @@ const slideAdvanceInterval	= 32000;
 const themeCookieKey	= "siteTheme";
 /* This should be the index of the main css theme element in the object returned
    by: document.getElementsByTagName("link").item(cssLinkIndex) */
-const cssLinkIndex	= 1;
+// const cssLinkIndex	= 1;
 // const cookieObjKey	= "cookie"
 // const cookieFound	= "found"
-const theme1Name	= "mainLayout.css"
+const themeTagName	= "#p@geTheme#"
+const theme1Name	= "theme1.css"
 const theme2Name	= "theme2.css"
 
 
@@ -150,7 +151,8 @@ function setThemeSwitchToRightState()
        isn't a cookie or it is theme1Name. */
     if(cookie !== theme1Name)
     {
-	document.getElementById("themeSwitchInput")
+	let toggleSwitch = document.getElementById("themeSwitchInput");
+	toggleSwitch.checked = toggleSwitch.checked == true? false: true;
     }
 }
 
@@ -173,14 +175,32 @@ function applyThemeBasedOnCookie()
 
 function applyTheme(theme)
 {
-    let oldCssLink = document.getElementsByTagName("link").item(cssLinkIndex);
-    let newCssLink = document.createElement("link");
-    newCssLink.setAttribute("rel", "stylesheet");
-    newCssLink.setAttribute("type", "text/css");
-    newCssLink.setAttribute("href", theme);
-    console.log(oldCssLink);
-    // item(0) for the first occurrence (and only) of the head tag.
-    document.getElementsByTagName("head").item(0).replaceChild(newCssLink, oldCssLink);
+    let head = document.getElementsByTagName("head")[0];
+    let foundTheme = false;
+
+    // Search for child element of <head> with an id of themeTagName.
+    for (let i = 0; i < head.children.length; i++)
+    {
+	if (head.children[i].id === themeTagName)
+	{
+	    foundTheme = true;
+	    let oldCssLinkElement = head.children[i];
+	    let newCssLinkElement = document.createElement("link");
+	    newCssLinkElement.setAttribute("rel", "stylesheet");
+	    newCssLinkElement.setAttribute("type", "text/css");
+	    newCssLinkElement.setAttribute("href", theme);
+	    newCssLinkElement.setAttribute("id", themeTagName);
+	    document.getElementsByTagName("head").item(0).
+		replaceChild(newCssLinkElement, oldCssLinkElement);
+	    
+	    break;
+	}
+    }
+
+    if(!foundTheme)
+    {
+	console.log("Error: theme link tag not found!")
+    }
 }
 
 
@@ -205,7 +225,6 @@ function getCookie(cname) {
 // Creates (update) a cookie that is not page relative.
 function createGlobalThemeCookie(key, theme)
 {
-    console.log("  " + key + "=" + theme + "; path=/");
     document.cookie = key + "=" + theme + "; path=/";
 }
 

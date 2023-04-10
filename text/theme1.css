@@ -1,0 +1,474 @@
+/* HERE WE HAVE CLASSES WITH THE SAME NAME AS CLASSES IN MAINLAYOUT.CSS.
+   THIS CLASS SHOULD BE INCLUDED AFTER MAINLAYOUT.CSS, THEREFORE ANY CONFLICTING
+   PROPERTIES IN MAINLAYOUT.CSS WILL BE OVERWRITTEN BY THE ONES IN THIS
+   CLASS. HOWEVER MOST CLASSES IN THIS CLASS SHOULD ONLY CHANGE PROPERTIES NOT
+   SET BY MAINLAYOUT.CSS.*/
+
+
+/*=--------------------=<{ BOARDER STUFF MOSTLY START }>=--------------------=*/
+.column
+{
+    /* background: white; */
+}
+
+.column.LR
+{
+    background-color: #FFDBE8;
+}
+
+.column.LR.main_page
+{
+    background-color: #FFDBE8;
+}
+
+.column.l
+{
+    order: 1;
+}
+
+.column.r
+{
+    order: 3;
+}
+
+.column.left_top
+{
+    background-image:
+	url("media/border/page_border_top_left_top_y_reduced_and_x_1_shadow.png");
+}
+
+.column.left_middle
+{
+    background-image: url("media/border/grid_2_left_shadow.png"),
+		      url("media/border/bg_gif_overlay.png"),
+		      url("media/border/bg_l.gif");
+}
+
+.column.left_bottom
+{
+    background-image:
+	url("media/border/page_border_bottom_left_top_y_reduced_and_x_1_shadow.png");
+}
+
+.column.right_top
+{
+    background-image:
+	url("media/border/page_border_top_right_top_y_reduced_and_x_1_shadow.png");
+}
+
+.column.right_middle
+{
+    background-image: url("media/border/grid_2_right_shadow.png"),
+		      url("media/border/bg_gif_overlay.png"),
+		      url("media/border/bg_r.gif");
+}
+
+.column.right_bottom
+{
+    background-image:
+	url("media/border/page_border_bottom_right_top_y_reduced_and_x_1_shadow.png");
+}
+
+.head_and_foot
+{
+    background-image: url("media/border/border_top_and_bottom.png");
+}
+
+footer
+{/* Value must be vh and not %  !!! */
+}
+/*=---------------------=<{ BOARDER STUFF MOSTLY END }>=---------------------=*/
+
+
+/*=---------------------=<{ NICE SHADOW EFFECTS START }>=--------------------=*/
+.inset_shadow
+{
+    /* Theme 1.0 color */
+    /* box-shadow: inset 0 0 15px #c40e00; */
+    /* Theme 1.1 color */
+    box-shadow: inset 0 0 15px #bf19e3;
+}
+/*=----------------------=<{ NICE SHADOW EFFECTS END }>=---------------------=*/
+
+
+/*=--------------------------=<{ NAV MENU START }>=--------------------------=*/
+.menu_list {}
+.menu_list.l {}
+.menu_list.r {}
+
+.menu_element
+{
+    text-shadow: 2px 2px #ef1000;
+    background-image: url("media/menu_item/menu_item_not_highlited.png");
+}
+
+.menu_element.l
+{
+    box-shadow: -2px 0px 0px 0px #ce3cb7, 0 3px 3px 0px #ce3cb7,
+		 0 -3px 3px 0px #ce3cb7;
+}
+
+.menu_element.r
+{
+    box-shadow: 4px 0px 0px 0px #ce3cb7, 1px 3px 3px 0px #ce3cb7,
+		1px -3px 3px 0px #ce3cb7;
+}
+
+.menu_element:hover
+{
+    background-image: url("media/menu_item/menu_item_highlited.png");
+}
+
+.current_page
+{
+    background-image:
+	url("media/menu_item/menu_item_current_page_not_highlited.png");
+}
+
+.current_parent_page
+{
+    background-image:
+	url("media/menu_item/menu_item_current_parent_page_not_highlited.png");
+}
+
+.current_page:hover
+{
+    background-image:
+	url("media/menu_item/menu_item_current_page_highlited.png");
+}
+/*=---------------------------=<{ NAV MENU END }>=---------------------------=*/
+
+
+/*=----------------------------=<{ LINKS START }>=---------------------------=*/
+/* Used to have GUI element's (such as the menu buttons not change colour when
+visited like other links.) */
+.a_gui_element:visited
+{
+    color: #6bfdff;
+}
+
+a, span.link	/* Link color when not hovering, focus or active. */
+{
+    color: #6bfdff;
+}
+
+a:visited
+{
+    color: #ff48ff;
+}
+
+a:hover, a:focus, a:active, a:visited:hover, a:visited:focus, a:visited:active
+{
+    color: #000084;
+    text-shadow: 2px 2px #ff0000;
+}
+
+.articleLink
+{
+    text-shadow: 1px 1px purple;
+}
+
+a.slideshowButton {}
+a.slideshowButton.previous {}
+a.slideshowButton.previous:hover {}
+a.slideshowButton.next {}
+a.slideshowButton.next:hover {}
+a.slideshowButton.pause {}
+a.slideshowButton.pause:hover {}
+a.slideshowButton.play {}
+a.slideshowButton.play:hover {}
+/*=-----------------------------=<{ LINKS END }>=----------------------------=*/
+
+
+/*=------------------=<{ PARAGRAPHS, TEXT, ETC... START }>=------------------=*/
+p
+{
+    color: #0b0887;
+}
+
+article {}
+
+strong, h2, h3, h4, h5, h6
+{
+    color: #ff01fc;
+    text-shadow: 1px 1px #03004D;
+}
+
+strong.stronger {}
+
+small
+{
+    color: #D4C895;
+}
+
+em
+{
+    /* color: #664413; */
+    /* color: #ff438e; */
+    /* color: #ff3389; */
+    color: #2b0017;
+}
+
+.refernce
+{
+    color: #ff01fc;
+}
+/*=-------------------=<{ PARAGRAPHS, TEXT, ETC... END }>=-------------------=*/
+
+
+/*=------------------=<{ MAIN CONTENT AREA OF PAGE START }>=-----------------=*/
+main
+{
+    border-top: 5px solid #ce3cb7;
+    border-bottom: 5px solid #ce3cb7;
+    background: url("media/misc/backgroundReducedSizeAndOpacity2.png");
+    background-color: #fffce8; /*f8ebf9;*/
+}
+
+#articleTopOfPageButtonSpacer {}
+#position_main_part_of_main {}
+
+.heading_oval
+{
+    box-shadow: inset 0 0 25px #e90927;
+    background: #050594;
+}
+
+#main_tag_in_main_min_height {}
+
+h1
+{
+    color: #01fcff;
+    text-shadow: 2px 2px #f01100;
+}
+
+h1.oval {}
+#position_to_top_of_page {}
+
+#to_top_of_page
+{
+    text-shadow: 2px 2px #ef1000;
+    background: #fe78fa;
+    box-shadow:  0 0 15px #dc6af4;
+}
+
+#to_top_of_page:hover
+{
+    background: #ffd9d9;
+}
+
+#text_align_to_top_of_page {}
+/*=-------------------=<{ MAIN CONTENT AREA OF PAGE END }>=------------------=*/
+
+
+/*=----------------------------=<{ MISC START }>=----------------------------=*/
+ul
+{
+    list-style: square inside url("media/bullet_point.png");
+}
+
+ol {}
+
+li
+{
+    color: #0b0887;
+}
+
+table
+{
+    background-color: #d3f6fd;
+    color: #03004D;
+    box-shadow: 0 0 15px #c40e00;    
+}
+
+.no_display {}
+input.no_display {}
+
+th
+{
+    background-color: #FFDBE8;
+    border-color: #ce3c61;
+    color: #ff0084;
+    text-shadow: 1px 1px #03004D;
+}
+
+td
+{
+    background-color: #d3f6fd;
+    border-color: #ce3c61;
+}
+
+td.v_align_top {}
+td.no_display {}
+th.no_display {}
+th.some_pad {}
+td.inner {}
+.table_image {}
+td.enclose_inner {}
+td.no_top_border {}
+td.no_bottom_border {}
+td.no_left_border {}
+td.no_right_border {}
+select {}
+input {}
+.accommodation_input {}
+
+button
+{
+    color: #ff0084;
+    text-shadow: 1px 1px #03004D;
+    background: radial-gradient(#FFB8D2, #FFDBE8, #d3f6fd);
+    border-color: #ce3c61;
+}
+
+button.fifty_percent {}
+.font_normal_p {}
+.text_align_center {}
+
+.form_field
+{
+    border-color: #ce3c61;
+}
+
+.float_right {}
+.float_left {}
+
+textarea
+{    
+    border-color: #ce3c61;
+}
+
+label {}
+
+img
+{
+    box-shadow: 0 0 15px #c40e00;
+    box-shadow: 0 0 15px #bf19e3;
+}
+
+img.slideshow
+{
+    background-image: linear-gradient(/*to right,*/ #ecbaf7, #8133ff, #ecbaf7);
+}
+
+img.float-right
+{
+    box-shadow: 0 0 15px #bf19e3;
+}
+
+/* Should be applied to image enclosed by div with div.slideshow applied. IF JS
+   IS ENABLED WILL BE REPLACED WITH img.slideshow! */
+img.noJsSlideshow
+{
+    background-image: linear-gradient(/*to right,*/ #ecbaf7, #8133ff, #ecbaf7);
+}
+
+pre.float-right
+{
+    box-shadow: 0 0 15px #bf19e3;
+}
+
+pre.noJsSlideshow
+{
+    background-image: linear-gradient(/*to right,*/ #ecbaf7, #8133ff, #ecbaf7);
+}
+
+pre.slideshow
+{
+    background-image: linear-gradient(/*to right,*/ #ecbaf7, #8133ff, #ecbaf7);
+}
+
+video
+{
+    box-shadow: 0 0 15px #bf19e3;
+}
+
+video.float-right
+{
+    box-shadow: 0 0 15px #bf19e3;
+    background-image: linear-gradient(/*to right,*/ #ecbaf7, #8133ff, #ecbaf7);
+}
+
+/* Should be applied to video enclosed by div with div.slideshow applied. IF JS
+   IS ENABLED WILL BE REPLACED WITH video.slideshow! */
+video.noJsSlideshow
+{
+    background-image: linear-gradient(/*to right,*/ #ecbaf7, #8133ff, #ecbaf7);
+}
+
+video.slideshow
+{
+    background-image: linear-gradient(/*to right,*/ #ecbaf7, #8133ff, #ecbaf7);
+}
+
+div.slideshowContainer {}
+
+div.slideshowSlideNumberCounter
+{
+    color: #ff01fc;
+    text-shadow: 1px 1px 5px #0800ff;
+}
+
+div.articleSection {}
+pre {}
+
+code
+{
+    box-shadow: 0 0 15px #bf19e3;
+}
+
+::selection	/* Change colour of selected text. */
+{
+    background: #ff4a0a;
+}
+
+::-moz-selection
+{
+    background: #ff4a0a;
+}
+
+.scroll_style
+{
+    scrollbar-color: #66FF99  #FFFCE8;
+}
+
+/* The CSS here related to switches is from:
+https://www.w3schools.com/howto/howto_css_switch.asp
+However it may have been modified. */
+/* Override input settings. */
+#themeSwitchInput {}
+
+/* Add an overlay element with box-shadow */
+#themeSwitch .slider-overlay
+{
+    box-shadow: inset 0 0 15px #bf19e3;
+}
+
+#themeSwitch {}
+#themeSwitch input {}
+
+/* The slider */
+.slider
+{
+    background-color:  #6f9; /*#050594;*/
+}
+
+.slider:before
+{
+    background-color: rgb(254, 120, 250);
+}
+
+input:checked + .slider
+{
+    background-color: #fffce8;
+}
+
+input:focus + .slider
+{
+    box-shadow: 0 0 1px red;
+}
+
+input:checked + .slider:before {}
+.slider.round {}
+.slider.round:before {}
+/*=-----------------------------=<{ MISC END }>=-----------------------------=*/
