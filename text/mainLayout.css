@@ -499,11 +499,6 @@ down by 0.92 by inheritance. 2 * (1 / 0.92) = ~2.1739 */
     /* box-shadow:  0 0 15px #dc6af4; */
 }
 
-#to_top_of_page:hover
-{
-    /* background: #ffd9d9; */
-}
-
 #text_align_to_top_of_page
 {
     padding: 6px;

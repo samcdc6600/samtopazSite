@@ -170,6 +170,10 @@ function applyThemeBasedOnCookie()
 	createGlobalThemeCookie(themeCookieKey, theme1Name);
 	applyTheme(getCookie(themeCookieKey));
     }
+
+    /* Here we assume that one cannot be mousing over the "to top of page"
+       button and changing the theme at the same time. */
+    changeColorOnMouseOut(document.getElementById("to_top_of_page").parentElement);
 }
 
 
@@ -519,11 +523,29 @@ function toIdOnClick(pageElement)
 
 function changeColorOnMouseOver(pageElement)
 {
-    pageElement.firstElementChild.style.backgroundColor="#ffd9d9";
+    /* #to_top_of_page must be updated in one or both of the themes CSS files if
+       either of these are changed. */
+    if(getCookie(themeCookieKey) == theme1Name)
+    {
+	pageElement.firstElementChild.style.backgroundColor="#baeaff";
+    }
+    else
+    {
+	pageElement.firstElementChild.style.backgroundColor="#ffd9d9";
+    }
 }
 
 
 function changeColorOnMouseOut(pageElement)
 {
-    pageElement.firstElementChild.style.backgroundColor="#fe78fa";
+    /* #to_top_of_page must be updated in one or both of the themes CSS files if
+       either of these are changed. */
+    if(getCookie(themeCookieKey) == theme1Name)
+    {
+	pageElement.firstElementChild.style.backgroundColor="#000762";
+    }
+    else
+    {
+	pageElement.firstElementChild.style.backgroundColor="#fe78fa";
+    }
 }

@@ -13,12 +13,12 @@
 
 .column.LR
 {
-    background-color: #FFDBE8;
+    background-color: #0a001a;
 }
 
 .column.LR.main_page
 {
-    background-color: #FFDBE8;
+    background-color: #0a001a;
 }
 
 .column.l
@@ -34,44 +34,44 @@
 .column.left_top
 {
     background-image:
-	url("media/border/page_border_top_left_top_y_reduced_and_x_1_shadow.png");
+	url("media/theme1/border/page_border_top_left_top_y_reduced_and_x_1_shadow.png");
 }
 
 .column.left_middle
 {
-    background-image: url("media/border/grid_2_left_shadow.png"),
-		      url("media/border/bg_gif_overlay.png"),
-		      url("media/border/bg_l.gif");
+    background-image: url("media/theme1/border/grid_2_left_shadow.png"),
+
+		      url("media/theme1/border/bg_l.gif");
 }
 
 .column.left_bottom
 {
     background-image:
-	url("media/border/page_border_bottom_left_top_y_reduced_and_x_1_shadow.png");
+	url("media/theme1/border/page_border_bottom_left_top_y_reduced_and_x_1_shadow.png");
 }
 
 .column.right_top
 {
     background-image:
-	url("media/border/page_border_top_right_top_y_reduced_and_x_1_shadow.png");
+	url("media/theme1/border/page_border_top_right_top_y_reduced_and_x_1_shadow.png");
 }
 
 .column.right_middle
 {
-    background-image: url("media/border/grid_2_right_shadow.png"),
-		      url("media/border/bg_gif_overlay.png"),
-		      url("media/border/bg_r.gif");
+    background-image: url("media/theme1/border/grid_2_right_shadow.png"),
+		      /* url("media/border/bg_gif_overlay.png"), */
+		      url("media/theme1/border/bg_r.gif");
 }
 
 .column.right_bottom
 {
     background-image:
-	url("media/border/page_border_bottom_right_top_y_reduced_and_x_1_shadow.png");
+	url("media/theme1/border/page_border_bottom_right_top_y_reduced_and_x_1_shadow.png");
 }
 
 .head_and_foot
 {
-    background-image: url("media/border/border_top_and_bottom.png");
+    background-image: url("media/theme1/border/border_top_and_bottom.png");
 }
 
 footer
@@ -86,7 +86,7 @@ footer
     /* Theme 1.0 color */
     /* box-shadow: inset 0 0 15px #c40e00; */
     /* Theme 1.1 color */
-    box-shadow: inset 0 0 15px #bf19e3;
+    box-shadow: inset 0 0 15px #00e600;
 }
 /*=----------------------=<{ NICE SHADOW EFFECTS END }>=---------------------=*/
 
@@ -99,24 +99,24 @@ footer
 .menu_element
 {
     text-shadow: 2px 2px #ef1000;
-    background-image: url("media/menu_item/menu_item_not_highlited.png");
+    background-image: url("media/theme1/menu_item/menu_item_not_highlited.png");
 }
 
 .menu_element.l
 {
-    box-shadow: -2px 0px 0px 0px #ce3cb7, 0 3px 3px 0px #ce3cb7,
-		 0 -3px 3px 0px #ce3cb7;
+    box-shadow: -2px 0px 0px 0px #000762, 0 3px 3px 0px #ce3cb7,
+		0 -3px 3px 0px #ce3cb7;
 }
 
 .menu_element.r
 {
-    box-shadow: 4px 0px 0px 0px #ce3cb7, 1px 3px 3px 0px #ce3cb7,
+    box-shadow: 4px 0px 0px 0px #000762, 1px 3px 3px 0px #ce3cb7,
 		1px -3px 3px 0px #ce3cb7;
 }
 
 .menu_element:hover
 {
-    background-image: url("media/menu_item/menu_item_highlited.png");
+    background-image: url("media/theme1/menu_item/menu_item_highlited.png");
 }
 
 .current_page
@@ -219,10 +219,10 @@ em
 /*=------------------=<{ MAIN CONTENT AREA OF PAGE START }>=-----------------=*/
 main
 {
-    border-top: 5px solid #ce3cb7;
-    border-bottom: 5px solid #ce3cb7;
-    background: url("media/misc/backgroundReducedSizeAndOpacity2.png");
-    background-color: #fffce8; /*f8ebf9;*/
+    border-top: 5px solid #000762;
+    border-bottom: 5px solid #000762;
+    /* background: url("media/misc/backgroundReducedSizeAndOpacity2.png"); */
+    background-color: #00000f; /*f8ebf9;*/
 }
 
 #articleTopOfPageButtonSpacer {}
@@ -247,14 +247,11 @@ h1.oval {}
 
 #to_top_of_page
 {
+    /* NOTE THAT IF THIS IS CHANGE changeColorOnMouseOver() AND
+       changeColorOnMouseOut() WILL HAVE TO BE CHANGED AS WELL! */
     text-shadow: 2px 2px #ef1000;
-    background: #fe78fa;
-    box-shadow:  0 0 15px #dc6af4;
-}
-
-#to_top_of_page:hover
-{
-    background: #ffd9d9;
+    background: #000762;
+    box-shadow:  0 0 15px #66FF99;
 }
 
 #text_align_to_top_of_page {}
@@ -343,7 +340,7 @@ label {}
 img
 {
     box-shadow: 0 0 15px #c40e00;
-    box-shadow: 0 0 15px #bf19e3;
+    box-shadow: 0 0 15px #00e600;
 }
 
 img.slideshow
@@ -353,7 +350,7 @@ img.slideshow
 
 img.float-right
 {
-    box-shadow: 0 0 15px #bf19e3;
+    box-shadow: 0 0 15px #00e600;
 }
 
 /* Should be applied to image enclosed by div with div.slideshow applied. IF JS
@@ -365,7 +362,7 @@ img.noJsSlideshow
 
 pre.float-right
 {
-    box-shadow: 0 0 15px #bf19e3;
+    box-shadow: 0 0 15px #00e600;
 }
 
 pre.noJsSlideshow
@@ -380,12 +377,12 @@ pre.slideshow
 
 video
 {
-    box-shadow: 0 0 15px #bf19e3;
+    box-shadow: 0 0 15px #00e600;
 }
 
 video.float-right
 {
-    box-shadow: 0 0 15px #bf19e3;
+    box-shadow: 0 0 15px #00e600;
     background-image: linear-gradient(/*to right,*/ #ecbaf7, #8133ff, #ecbaf7);
 }
 
@@ -414,7 +411,7 @@ pre {}
 
 code
 {
-    box-shadow: 0 0 15px #bf19e3;
+    box-shadow: 0 0 15px #00e600;
 }
 
 ::selection	/* Change colour of selected text. */
@@ -441,7 +438,7 @@ However it may have been modified. */
 /* Add an overlay element with box-shadow */
 #themeSwitch .slider-overlay
 {
-    box-shadow: inset 0 0 15px #bf19e3;
+    box-shadow: inset 0 0 15px #00e600;
 }
 
 #themeSwitch {}
@@ -450,12 +447,12 @@ However it may have been modified. */
 /* The slider */
 .slider
 {
-    background-color:  #6f9; /*#050594;*/
+    background-color:  #4d3d00;
 }
 
 .slider:before
 {
-    background-color: rgb(254, 120, 250);
+	background-color: #000762;
 }
 
 input:checked + .slider
@@ -463,10 +460,10 @@ input:checked + .slider
     background-color: #fffce8;
 }
 
-input:focus + .slider
-{
-    box-shadow: 0 0 1px red;
-}
+/* input:focus + .slider */
+/* { */
+/*     box-shadow: 0 0 1px red; */
+/* } */
 
 input:checked + .slider:before {}
 .slider.round {}
