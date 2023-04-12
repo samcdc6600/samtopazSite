@@ -34,44 +34,44 @@
 .column.left_top
 {
     background-image:
-	url("media/border/page_border_top_left_top_y_reduced_and_x_1_shadow.png");
+	url("media/theme2/border/page_border_top_left_top_y_reduced_and_x_1_shadow.png");
 }
 
 .column.left_middle
 {
-    background-image: url("media/border/grid_2_left_shadow.png"),
-		      url("media/border/bg_gif_overlay.png"),
-		      url("media/border/bg_l.gif");
+    background-image: url("media/theme2/border/grid_2_left_shadow.png"),
+		      url("media/theme2/border/bg_gif_overlay.png"),
+		      url("media/theme2/border/bg_l.gif");
 }
 
 .column.left_bottom
 {
     background-image:
-	url("media/border/page_border_bottom_left_top_y_reduced_and_x_1_shadow.png");
+	url("media/theme2/border/page_border_bottom_left_top_y_reduced_and_x_1_shadow.png");
 }
 
 .column.right_top
 {
     background-image:
-	url("media/border/page_border_top_right_top_y_reduced_and_x_1_shadow.png");
+	url("media/theme2/border/page_border_top_right_top_y_reduced_and_x_1_shadow.png");
 }
 
 .column.right_middle
 {
-    background-image: url("media/border/grid_2_right_shadow.png"),
-		      url("media/border/bg_gif_overlay.png"),
-		      url("media/border/bg_r.gif");
+    background-image: url("media/theme2/border/grid_2_right_shadow.png"),
+		      url("media/theme2/border/bg_gif_overlay.png"),
+		      url("media/theme2/border/bg_r.gif");
 }
 
 .column.right_bottom
 {
     background-image:
-	url("media/border/page_border_bottom_right_top_y_reduced_and_x_1_shadow.png");
+	url("media/theme2/border/page_border_bottom_right_top_y_reduced_and_x_1_shadow.png");
 }
 
 .head_and_foot
 {
-    background-image: url("media/border/border_top_and_bottom.png");
+    background-image: url("media/theme2/border/border_top_and_bottom.png");
 }
 
 footer
@@ -99,7 +99,7 @@ footer
 .menu_element
 {
     text-shadow: 2px 2px #ef1000;
-    background-image: url("media/menu_item/menu_item_not_highlited.png");
+    background-image: url("media/theme2/menu_item/menu_item_not_highlited.png");
 }
 
 .menu_element.l
@@ -116,25 +116,25 @@ footer
 
 .menu_element:hover
 {
-    background-image: url("media/menu_item/menu_item_highlited.png");
+    background-image: url("media/theme2/menu_item/menu_item_highlited.png");
 }
 
 .current_page
 {
     background-image:
-	url("media/menu_item/menu_item_current_page_not_highlited.png");
+	url("media/theme2/menu_item/menu_item_current_page_not_highlited.png");
 }
 
 .current_parent_page
 {
     background-image:
-	url("media/menu_item/menu_item_current_parent_page_not_highlited.png");
+	url("media/theme2/menu_item/menu_item_current_parent_page_not_highlited.png");
 }
 
 .current_page:hover
 {
     background-image:
-	url("media/menu_item/menu_item_current_page_highlited.png");
+	url("media/theme2/menu_item/menu_item_current_page_highlited.png");
 }
 /*=---------------------------=<{ NAV MENU END }>=---------------------------=*/
 
@@ -169,14 +169,46 @@ a:hover, a:focus, a:active, a:visited:hover, a:visited:focus, a:visited:active
 }
 
 a.slideshowButton {}
-a.slideshowButton.previous {}
-a.slideshowButton.previous:hover {}
-a.slideshowButton.next {}
-a.slideshowButton.next:hover {}
-a.slideshowButton.pause {}
-a.slideshowButton.pause:hover {}
-a.slideshowButton.play {}
-a.slideshowButton.play:hover {}
+
+a.slideshowButton.previous
+{
+    background-image: url("media/theme2/misc/purpuleOrbLeftArrowButtonSmallWithDropShadow.png");
+}
+
+a.slideshowButton.previous:hover
+{
+    background-image: url("media/theme2/misc/lighterPurpuleOrbLeftArrowButtonSmallWithDropShadow.png");
+}
+
+a.slideshowButton.next
+{
+    background-image: url("media/theme2/misc/purpuleOrbRightArrowButtonSmallWithDropShadow.png");
+}
+
+a.slideshowButton.next:hover
+{
+    background-image: url("media/theme2/misc/lighterPurpuleOrbRightArrowButtonSmallWithDropShadow.png");
+}
+
+a.slideshowButton.pause
+{
+    background-image: url("media/theme2/misc/smallPauseButtonWithDropShadow.png");
+}
+
+a.slideshowButton.pause:hover
+{
+    background-image: url("media/theme2/misc/lighterSmallPauseButtonWithDropShadow.png");
+}
+
+a.slideshowButton.play
+{
+    background-image: url("media/theme2/misc/greenPlayButtonWithDropShadow.png");
+}
+
+a.slideshowButton.play:hover
+{
+    background-image: url("media/theme2/misc/lighterGreenPlayButtonWithDropShadow.png");
+}
 /*=-----------------------------=<{ LINKS END }>=----------------------------=*/
 
 
@@ -221,7 +253,7 @@ main
 {
     border-top: 5px solid #ce3cb7;
     border-bottom: 5px solid #ce3cb7;
-    background: url("media/misc/backgroundReducedSizeAndOpacity2.png");
+    background: url("media/theme2/misc/backgroundReducedSizeAndOpacity2.png");
     background-color: #fffce8; /*f8ebf9;*/
 }
 
@@ -261,7 +293,7 @@ h1.oval {}
 /*=----------------------------=<{ MISC START }>=----------------------------=*/
 ul
 {
-    list-style: square inside url("media/bullet_point.png");
+    list-style: square inside url("media/theme2/bullet_point.png");
 }
 
 ol {}

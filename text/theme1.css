@@ -18,7 +18,7 @@
 
 .column.LR.main_page
 {
-    background-color: #0a001a;
+    background-color: #000000;
 }
 
 .column.l
@@ -98,7 +98,7 @@ footer
 
 .menu_element
 {
-    text-shadow: 2px 2px #ef1000;
+    text-shadow: 2px 2px #000762; /* #340100; */
     background-image: url("media/theme1/menu_item/menu_item_not_highlited.png");
 }
 
@@ -122,19 +122,19 @@ footer
 .current_page
 {
     background-image:
-	url("media/menu_item/menu_item_current_page_not_highlited.png");
+	url("media/theme1/menu_item/menu_item_current_page_not_highlited.png");
 }
 
 .current_parent_page
 {
     background-image:
-	url("media/menu_item/menu_item_current_parent_page_not_highlited.png");
+	url("media/theme1/menu_item/menu_item_current_parent_page_not_highlited.png");
 }
 
 .current_page:hover
 {
     background-image:
-	url("media/menu_item/menu_item_current_page_highlited.png");
+	url("media/theme1/menu_item/menu_item_current_page_highlited.png");
 }
 /*=---------------------------=<{ NAV MENU END }>=---------------------------=*/
 
@@ -144,7 +144,7 @@ footer
 visited like other links.) */
 .a_gui_element:visited
 {
-    color: #6bfdff;
+    color: #ef1000; /* #6bfdff; */
 }
 
 a, span.link	/* Link color when not hovering, focus or active. */
@@ -154,13 +154,13 @@ a, span.link	/* Link color when not hovering, focus or active. */
 
 a:visited
 {
-    color: #ff48ff;
+    color: #009699; /* #000cb3; */ /* #ff48ff; */
 }
 
 a:hover, a:focus, a:active, a:visited:hover, a:visited:focus, a:visited:active
 {
-    color: #000084;
-    text-shadow: 2px 2px #ff0000;
+    color: #6bfdff; /* #000084; */
+    text-shadow: 1px 1px #00e600; /* #ff0000; */
 }
 
 .articleLink
@@ -169,36 +169,68 @@ a:hover, a:focus, a:active, a:visited:hover, a:visited:focus, a:visited:active
 }
 
 a.slideshowButton {}
-a.slideshowButton.previous {}
-a.slideshowButton.previous:hover {}
-a.slideshowButton.next {}
-a.slideshowButton.next:hover {}
-a.slideshowButton.pause {}
-a.slideshowButton.pause:hover {}
-a.slideshowButton.play {}
-a.slideshowButton.play:hover {}
+
+a.slideshowButton.previous
+{
+    background-image: url("media/theme1/misc/purpuleOrbLeftArrowButtonSmallWithDropShadow.png");
+}
+
+a.slideshowButton.previous:hover
+{
+    background-image: url("media/theme1/misc/lighterPurpuleOrbLeftArrowButtonSmallWithDropShadow.png");
+}
+
+a.slideshowButton.next
+{
+    background-image: url("media/theme1/misc/purpuleOrbRightArrowButtonSmallWithDropShadow.png");
+}
+
+a.slideshowButton.next:hover
+{
+    background-image: url("media/theme1/misc/lighterPurpuleOrbRightArrowButtonSmallWithDropShadow.png");
+}
+
+a.slideshowButton.pause
+{
+    background-image: url("media/theme1/misc/smallPauseButtonWithDropShadow.png");
+}
+
+a.slideshowButton.pause:hover
+{
+    background-image: url("media/theme1/misc/lighterSmallPauseButtonWithDropShadow.png");
+}
+
+a.slideshowButton.play
+{
+    background-image: url("media/theme1/misc/greenPlayButtonWithDropShadow.png");
+}
+
+a.slideshowButton.play:hover
+{
+    background-image: url("media/theme1/misc/lighterGreenPlayButtonWithDropShadow.png");
+}
 /*=-----------------------------=<{ LINKS END }>=----------------------------=*/
 
 
 /*=------------------=<{ PARAGRAPHS, TEXT, ETC... START }>=------------------=*/
 p
 {
-    color: #0b0887;
+    color: #baeaff; /* #0b0887; */
 }
 
 article {}
 
 strong, h2, h3, h4, h5, h6
 {
-    color: #ff01fc;
-    text-shadow: 1px 1px #03004D;
+    color: #00e600; /* ff01fc; */
+    text-shadow: 1px 1px #baeaff; /* #03004D; */
 }
 
 strong.stronger {}
 
 small
 {
-    color: #D4C895;
+    color: #00b3ff; /* #D4C895; */
 }
 
 em
@@ -206,12 +238,13 @@ em
     /* color: #664413; */
     /* color: #ff438e; */
     /* color: #ff3389; */
-    color: #2b0017;
+    /* color: #2b0017; */
+    color: #80d9ff;
 }
 
 .refernce
 {
-    color: #ff01fc;
+    color: #6bfdff; /* #000762; */ /* #00e600; */ /* #ff01fc; */
 }
 /*=-------------------=<{ PARAGRAPHS, TEXT, ETC... END }>=-------------------=*/
 
@@ -230,16 +263,16 @@ main
 
 .heading_oval
 {
-    box-shadow: inset 0 0 25px #e90927;
-    background: #050594;
+    box-shadow: inset 0 0 25px #00e600; /* #e90927;*/
+    background: #000762; /* 050594;*/
 }
 
 #main_tag_in_main_min_height {}
 
 h1
 {
-    color: #01fcff;
-    text-shadow: 2px 2px #f01100;
+    color: #6bfdff; /* #000084; */
+    text-shadow: 1px 1px #00e600; /* #ff0000; */
 }
 
 h1.oval {}
@@ -249,7 +282,7 @@ h1.oval {}
 {
     /* NOTE THAT IF THIS IS CHANGE changeColorOnMouseOver() AND
        changeColorOnMouseOut() WILL HAVE TO BE CHANGED AS WELL! */
-    text-shadow: 2px 2px #ef1000;
+    text-shadow: 1px 1px #26bF79; /* #ef1000; */
     background: #000762;
     box-shadow:  0 0 15px #66FF99;
 }
@@ -261,14 +294,14 @@ h1.oval {}
 /*=----------------------------=<{ MISC START }>=----------------------------=*/
 ul
 {
-    list-style: square inside url("media/bullet_point.png");
+    list-style: square inside url("media/theme1/bullet_point.png");
 }
 
 ol {}
 
 li
 {
-    color: #0b0887;
+    color: #baeaff; /* #0b0887; */
 }
 
 table
@@ -345,7 +378,9 @@ img
 
 img.slideshow
 {
-    background-image: linear-gradient(/*to right,*/ #ecbaf7, #8133ff, #ecbaf7);
+    /* background-image: linear-gradient(/\*to right,*\/ #ecbaf7, #8133ff,*/
+    /* #ecbaf7); */
+    background-image: linear-gradient( #00e600, #ccfeff, #00e600);
 }
 
 img.float-right
@@ -357,7 +392,7 @@ img.float-right
    IS ENABLED WILL BE REPLACED WITH img.slideshow! */
 img.noJsSlideshow
 {
-    background-image: linear-gradient(/*to right,*/ #ecbaf7, #8133ff, #ecbaf7);
+    background-image: linear-gradient( #00e600, #ccfeff, #00e600);
 }
 
 pre.float-right
@@ -383,19 +418,19 @@ video
 video.float-right
 {
     box-shadow: 0 0 15px #00e600;
-    background-image: linear-gradient(/*to right,*/ #ecbaf7, #8133ff, #ecbaf7);
+    background-image: linear-gradient( #00e600, #ccfeff, #00e600);
 }
 
 /* Should be applied to video enclosed by div with div.slideshow applied. IF JS
    IS ENABLED WILL BE REPLACED WITH video.slideshow! */
 video.noJsSlideshow
 {
-    background-image: linear-gradient(/*to right,*/ #ecbaf7, #8133ff, #ecbaf7);
+    background-image: linear-gradient( #00e600, #ccfeff, #00e600);
 }
 
 video.slideshow
 {
-    background-image: linear-gradient(/*to right,*/ #ecbaf7, #8133ff, #ecbaf7);
+        background-image: linear-gradient( #00e600, #ccfeff, #00e600);
 }
 
 div.slideshowContainer {}
@@ -426,7 +461,7 @@ code
 
 .scroll_style
 {
-    scrollbar-color: #66FF99  #FFFCE8;
+    scrollbar-color: #6bfdff /* #66FF99 */  #FFFCE8;
 }
 
 /* The CSS here related to switches is from:

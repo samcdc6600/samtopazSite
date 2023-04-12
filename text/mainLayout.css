@@ -277,50 +277,34 @@ a.slideshowButton
 a.slideshowButton.previous
 {
     right: 5px;
-    background-image: url("media/misc/purpuleOrbLeftArrowButtonSmallWithDropShadow.png");
 }
 
-a.slideshowButton.previous:hover
-{
-    background-image: url("media/misc/lighterPurpuleOrbLeftArrowButtonSmallWithDropShadow.png");
-}
+a.slideshowButton.previous:hover {}
 
 a.slideshowButton.next
 {
     left: 43px;			/* 15 + 52. */
     bottom: 52px;		/* This will probably be reset */
-    background-image: url("media/misc/purpuleOrbRightArrowButtonSmallWithDropShadow.png");
 }
 
-a.slideshowButton.next:hover
-{
-    background-image: url("media/misc/lighterPurpuleOrbRightArrowButtonSmallWithDropShadow.png");
-}
+a.slideshowButton.next:hover {}
 
 a.slideshowButton.pause
 {
     left: 91px;
     bottom: 104px;		/* This will probably be reset */
-    background-image: url("media/misc/smallPauseButtonWithDropShadow.png");
 }
 
-a.slideshowButton.pause:hover
-{
-    background-image:
-	url("media/misc/lighterSmallPauseButtonWithDropShadow.png");
-}
+a.slideshowButton.pause:hover {}
 
 a.slideshowButton.play
 {
     left: 91px;
     bottom: 104px;		/* This will probably be reset */
-    background-image: url("media/misc/greenPlayButtonWithDropShadow.png");
+
 }
 
-a.slideshowButton.play:hover
-{
-    background-image: url("media/misc/lighterGreenPlayButtonWithDropShadow.png");
-}
+a.slideshowButton.play:hover {}
 /*=-----------------------------=<{ LINKS END }>=----------------------------=*/
 
 

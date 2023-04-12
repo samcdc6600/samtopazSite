@@ -32,7 +32,7 @@ function top_module_and_left_side_nav($pageTitle, $currentPage, $altLook, $cssFo
   <head>
   <!-- NOTE THAT THE POSITION OF THE BELOW ELEMENT RELATIVE TO <HEAD> SHOULD NOT BE CHANGED! -->
   <link type="text/css" rel="stylesheet" href="./mainLayout.css"/>
-  <link type="text/css" rel="stylesheet" href="./theme2.css"/ id="#p@geTheme#">
+  <link type="text/css" rel="stylesheet" href="./theme1.css"/ id="#p@geTheme#">
   <!-- NOTE THAT THE POSITION OF THE ABOVE ELEMENT RELATIVE TO <HEAD> SHOULD NOT BE CHANGED! -->
     <meta charset="utf-8">
     <title>$pageTitle</title>
@@ -46,7 +46,7 @@ function top_module_and_left_side_nav($pageTitle, $currentPage, $altLook, $cssFo
   <div id="container">
       <div class="column LR main_page l">    <!--*******************Left side of the page (navigation and boarder)*******************-->
         <div class="column LR main_page  left_top"></div>
-        <nav class="column left_middle theme">
+        <nav class="column left_middle">
           <ul class="menu_list l"><!--site navigation menu-->
             <li><a class=a_gui_element href="./index.html"><div class="menu_element l">My World Home</div></a></li>
             <li><a class=a_gui_element href="./about.html"><div class="menu_element l">About</div></a></li>

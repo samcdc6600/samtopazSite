@@ -17,22 +17,18 @@ const slidesNumberOnOffset	= 170;
 const slideAdvanceInterval	= 32000;
 // Cookie related variables.
 const themeCookieKey	= "siteTheme";
-/* This should be the index of the main css theme element in the object returned
-   by: document.getElementsByTagName("link").item(cssLinkIndex) */
-// const cssLinkIndex	= 1;
-// const cookieObjKey	= "cookie"
-// const cookieFound	= "found"
 const themeTagName	= "#p@geTheme#"
 const theme1Name	= "theme1.css"
 const theme2Name	= "theme2.css"
 
 
+applyThemeBasedOnCookie();
+setThemeSwitchToRightState();
+
+
 window.addEventListener
 ("load", function handleInitalPageStuff()
- {
-     applyThemeBasedOnCookie();
-     setThemeSwitchToRightState();
-     
+ {   
      let elements = [];
      // /* Call to wait for the page to render (we load the script at the end of the
      //    page however sometimes it seems it's still not fully rendered. */
@@ -237,14 +233,22 @@ function preloadButtonAssets()
 {
     // Images to preload
     let imageUrls =
-	["media/misc/purpuleOrbLeftArrowButtonSmallWithDropShadow.png",
-	 "media/misc/lighterPurpuleOrbLeftArrowButtonSmallWithDropShadow.png",
-	 "media/misc/purpuleOrbRightArrowButtonSmallWithDropShadow.png",
-	 "media/misc/lighterPurpuleOrbRightArrowButtonSmallWithDropShadow.png",
-	 "media/misc/smallPauseButtonWithDropShadow.png",
-	 "media/misc/lighterSmallPauseButtonWithDropShadow.png",
-	 "media/misc/greenPlayButtonWithDropShadow.png",
-	 "media/misc/lighterGreenPlayButtonWithDropShadow.png"];
+	["media/theme1/misc/purpuleOrbLeftArrowButtonSmallWithDropShadow.png",
+	 "media/theme1/misc/lighterPurpuleOrbLeftArrowButtonSmallWithDropShadow.png",
+	 "media/theme1/misc/purpuleOrbRightArrowButtonSmallWithDropShadow.png",
+	 "media/theme1/misc/lighterPurpuleOrbRightArrowButtonSmallWithDropShadow.png",
+	 "media/theme1/misc/smallPauseButtonWithDropShadow.png",
+	 "media/theme1/misc/lighterSmallPauseButtonWithDropShadow.png",
+	 "media/theme1/misc/greenPlayButtonWithDropShadow.png",
+	 "media/theme1/misc/lighterGreenPlayButtonWithDropShadow.png",
+	 "media/theme2/misc/purpuleOrbLeftArrowButtonSmallWithDropShadow.png",
+	 "media/theme2/misc/lighterPurpuleOrbLeftArrowButtonSmallWithDropShadow.png",
+	 "media/theme2/misc/purpuleOrbRightArrowButtonSmallWithDropShadow.png",
+	 "media/theme2/misc/lighterPurpuleOrbRightArrowButtonSmallWithDropShadow.png",
+	 "media/theme2/misc/smallPauseButtonWithDropShadow.png",
+	 "media/theme2/misc/lighterSmallPauseButtonWithDropShadow.png",
+	 "media/theme2/misc/greenPlayButtonWithDropShadow.png",
+	 "media/theme2/misc/lighterGreenPlayButtonWithDropShadow.png"];
     let imageSoundUrls =
 	[slideshowButtonSound]
 
