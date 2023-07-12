@@ -12,7 +12,7 @@ top_module_and_left_side_nav("My World", "index.html", false, "null");
 		
 	    <br><br><h4>WELCOME TO MY WORLD</h4>
 	    <p>
-Hello and welcome to samtopaz.com, you are viewing Sam's home page and are hereby invited by me (Sam) to continue viewing :). 
+Hello and welcome to sbsupersonicyears.com, you are viewing Sam's home page and are hereby invited by me (Sam) to continue viewing it :). 
 	    </p>	    
 	    <br><br><h4>What, why?</h4>
 	    <p>
