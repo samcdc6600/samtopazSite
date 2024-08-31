@@ -33,6 +33,33 @@ top_module_and_left_side_nav("P R O J E C T S", "null", true, "samCustom.css");
 	  <br>
 	</div>
 
+
+   	<div class="articleSection">
+	  <h4>Chunked</h4>
+
+      <div class="slideshowContainer">
+        <video class="float-right noJsSlideshow" controls
+            autoplay loop>
+            <source src="media/videos/singleChunkEditMode.webm" type="video/mp4">
+            1 Your browsing software does not seem to support the video tag.
+        </video>
+        <video class="float-right noJsSlideshow" controls
+            autoplay loop>
+            <source src="media/videos/mapViewMode.webm" type="video/mp4">
+            1 Your browsing software does not seem to support the video tag.
+        </video>
+      </div>
+
+        <p>
+            This is an asset creation/editing tool I created for an Ncurses
+            based side-scroller I have been working on. It is for creating
+            background chunks and rules chunks (it is essentially a simple
+            drawing program albeit with some features that would be out of
+            place in a normal drawing program.) See my
+            <a href="chunked.html">article</a> on it for a bit
+            more info.
+        </p>
+    </div>
 	
 	<div class="articleSection">
 	  <h4>NESEmu</h4>
@@ -420,7 +447,7 @@ main
 	</div>
 
 	<br>
-	<small>Date: 24/06/2022</small>
+	<small>Date: 02/12/2023</small>
 	<br>
         </article>
 	

@@ -225,7 +225,11 @@ function getCookie(cname) {
 // Creates (update) a cookie that is not page relative.
 function createGlobalThemeCookie(key, theme)
 {
-    document.cookie = key + "=" + theme + "; path=/";
+    /*  "Expires=Fri, 31 Dec 9999 23:59:59 GMT" makes sure the cookie will
+	persist over multiple browser sessions (at least for a long long time.)
+    */
+    document.cookie = key + "=" + theme + "; path=/;" +
+	" Expires=Fri, 31 Dec 9999 23:59:59 GMT";
 }
 
 

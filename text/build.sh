@@ -30,11 +30,13 @@ php articles/programming/whyDoesntThisSiteUseJS.php > ~/www.samtopaz.com/whyDoes
 php articles/programming/xlibGraphicalBrightnessControlAndFreeBSD.php > ~/www.samtopaz.com/xlibGraphicalBrightnessControlAndFreeBSD.html;
 php articles/programming/myGitHub.php > ~/www.samtopaz.com/myGitHub.html;
 php articles/programming/assemblingCodeForAndFlashingAnATmega16.php > ~/www.samtopaz.com/assemblingCodeForAndFlashingAnATmega16.html;
+php articles/programming/chunked.php > ~/www.samtopaz.com/chunked.html;
 
 # Misc =========================================================================
 # remove crud at articles/misc
 rm articles/misc/*~ articles/misc/*#
 cp -r articles/misc/media ~/www.samtopaz.com/ # Copy media for misc articles.\
+cp -r articles/programming/media ~/www.samtopaz.com/ # Copy media for misc articles.\
 php articles/misc/projects.php > ~/www.samtopaz.com/projects.html;
 
 # copy stylesheet/s

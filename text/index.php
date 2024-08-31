@@ -22,8 +22,8 @@ Hello and welcome to sbsupersonicyears.com, you are viewing Sam's home page and 
 	    <p>
 	    	    I am primarily interested in writing about computers. Topics may include:
 	    </p>
-	    	    <ul>
-		    	    <li>computer programming (C++, Java and AMD 64 assembly language, at least initially,)</li>
+	    	<ul>
+		    	<li>computer programming (C++, Java and AMD 64 assembly language, at least initially,)</li>
 		   	    <li>computer architecture (I may not be very knowledgeable on this topic, I however find it quite interesting,)</li>
 			    <li>and operating systems (I am very interested in the idea of micro kernels.) </li>
 		    </ul>
@@ -32,6 +32,11 @@ Hello and welcome to sbsupersonicyears.com, you are viewing Sam's home page and 
 	    <p>
 		Links to the main pages on the site are to the left. Links to articles are to the right
 	    </p>
+
+	   <br><br><h4>Theme?</h4>
+	   <p>
+		 Please use the toggle switch in the top right corner to change the theme.
+	   </p>
 
 	    <br><br><h4>Mistakes?</h4>
 	    <p>

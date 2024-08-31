@@ -32,7 +32,7 @@ function top_module_and_left_side_nav($pageTitle, $currentPage, $altLook, $cssFo
   <head>
   <!-- NOTE THAT THE POSITION OF THE BELOW ELEMENT RELATIVE TO <HEAD> SHOULD NOT BE CHANGED! -->
   <link type="text/css" rel="stylesheet" href="./mainLayout.css"/>
-  <link type="text/css" rel="stylesheet" href="./theme1.css"/ id="#p@geTheme#">
+  <link type="text/css" rel="stylesheet" href="./theme1.css" id="#p@geTheme#"/>
   <!-- NOTE THAT THE POSITION OF THE ABOVE ELEMENT RELATIVE TO <HEAD> SHOULD NOT BE CHANGED! -->
     <meta charset="utf-8">
     <title>$pageTitle</title>
@@ -149,15 +149,15 @@ $articleCatagory, $parentPage)
     <footer class="head_and_foot">
     </footer>
 
-</body>
-</html>
-    
-    <!-- Scripts with the async attribute are executed asynchronously. This means
+            <!-- Scripts with the async attribute are executed asynchronously. This means
     the script is executed as soon as it's downloaded, without blocking the
     browser in the meantime.
     Scripts with the defer attribute are executed in order (i.e. first
     script 1, then script 2). This also does not block the browser. -->
     <script src="frivolous.js" async></script>
+</body>
+</html>
+        
 OUTPUT;
     $htmlOut = adjustTopModuleAndRightSideNavForPage($currentPage, $altLook, $article, $htmlOut, $articleCatagory, $parentPage);
     echo $htmlOut;
